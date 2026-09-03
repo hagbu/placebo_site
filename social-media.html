@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="referrer" content="no-referrer">
+<title>המדיה החברתית | Placebo Escape Room</title>
+<style>
+:root{--bg:#050505;--panel:#101010;--line:#292929;--text:#fff;--muted:#b9b9b9;--red:#d31319;--accent:#a92acc}
+*{box-sizing:border-box} html{scroll-behavior:smooth}
+body{margin:0;background:#050505;color:#fff;font-family:Arial,Helvetica,sans-serif} a{color:inherit;text-decoration:none} img{display:block;width:100%;height:100%;object-fit:cover}
+.wrap{width:min(1120px,calc(100% - 28px));margin:auto}
+header{position:sticky;top:0;z-index:50;background:rgba(0,0,0,.94);border-bottom:1px solid #222;backdrop-filter:blur(12px)}
+.nav{min-height:72px;display:flex;align-items:center;justify-content:space-between;gap:22px}
+.logo{font-size:30px;font-weight:900;line-height:.86} .logo small{display:block;color:#f21c25;font-size:11px;letter-spacing:2.2px;margin-top:7px}
+.links{display:flex;gap:22px;font-weight:700;color:#ddd} .links a:hover{color:#fff}
+.book{background:linear-gradient(#e52027,#aa090e);padding:13px 20px;border-radius:9px;font-weight:900}
+.menu-btn{display:none;font-size:28px;cursor:pointer;user-select:none} .mobile-menu{display:none}
+
+.hero{position:relative;min-height:590px;overflow:hidden;display:flex;align-items:flex-end}
+.hero-bg{position:absolute;inset:0}
+.hero-bg img{filter:saturate(.9) contrast(1.06)}
+.hero:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.12),rgba(0,0,0,.35) 42%,#050505 100%),linear-gradient(90deg,rgba(0,0,0,.45),transparent 55%)}
+.hero-copy{position:relative;z-index:2;padding-bottom:62px;width:min(780px,100%)}
+.eyebrow{color:var(--accent);font-weight:900;letter-spacing:1px;margin-bottom:10px}
+.hero h1{font-size:clamp(52px,8vw,90px);line-height:.93;margin:0;letter-spacing:-3px}
+.hero h2{font-size:25px;margin:12px 0 0;color:#eee}
+.hero p{font-size:20px;line-height:1.7;color:#ddd;max-width:720px}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:24px}
+.primary,.secondary{padding:14px 22px;border-radius:9px;font-weight:900}
+.primary{background:linear-gradient(#e52027,#a7080d)} .secondary{border:1px solid #777;background:rgba(0,0,0,.38)}
+
+.facts{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:-10px;position:relative;z-index:5}
+.fact{background:#0f0f0f;border:1px solid #292929;border-radius:15px;padding:23px;text-align:center;box-shadow:0 18px 40px rgba(0,0,0,.3)}
+.fact .ico{font-size:27px;margin-bottom:10px} .fact strong{font-size:16px}
+
+.content{padding:68px 0}
+.grid{display:grid;grid-template-columns:1.25fr .75fr;gap:20px;align-items:start}
+.card{background:linear-gradient(180deg,#111,#090909);border:1px solid #282828;border-radius:20px;padding:31px}
+.card h2{font-size:34px;margin:0 0 16px} .card h2 span{color:var(--accent)}
+.card p{font-size:18px;line-height:1.85;color:#c9c9c9;margin:0}
+.notes h3{font-size:25px;margin:0 0 15px} .notes ul{margin:0;padding-right:22px;color:#d0d0d0;line-height:1.85}
+.notes li+li{margin-top:9px}
+.cta-box{margin-top:20px;text-align:center;background:radial-gradient(circle at center,rgba(180,0,0,.18),transparent 65%),#0c0c0c;border:1px solid #2b2b2b;border-radius:20px;padding:35px}
+.cta-box h2{margin:0 0 10px;font-size:34px} .cta-box p{color:#aaa;margin:0 0 22px}
+.bottom-actions{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+
+footer{border-top:1px solid #202020;padding:34px 0 90px;color:#999;text-align:center}
+.mobile-book{display:none}
+@media(max-width:850px){
+ .links,.nav>.book{display:none} .menu-btn{display:block}
+ .mobile-menu{position:fixed;top:66px;right:0;left:0;z-index:9999;background:#080808;border-block:1px solid #2a2a2a;padding:10px 20px 18px}
+ .mobile-menu.open{display:block} .mobile-menu a{display:block;padding:15px 4px;border-bottom:1px solid #222;font-weight:700} .mobile-menu a:last-child{border-bottom:0}
+ .facts{grid-template-columns:1fr 1fr} .grid{grid-template-columns:1fr}
+}
+@media(max-width:620px){
+ .nav{min-height:66px} .logo{font-size:26px}
+ .hero{min-height:520px} .hero-copy{padding-bottom:36px} .hero h1{font-size:52px;letter-spacing:-2px} .hero h2{font-size:20px} .hero p{font-size:17px}
+ .facts{gap:8px} .fact{padding:18px 10px} .content{padding:48px 0} .card{padding:23px 18px} .card h2{font-size:29px}
+ .mobile-book{display:flex;position:fixed;z-index:100;right:12px;left:12px;bottom:12px;min-height:56px;align-items:center;justify-content:center;border-radius:14px;background:linear-gradient(#e62128,#aa090e);font-weight:900;box-shadow:0 12px 36px rgba(0,0,0,.62)}
+}
+</style>
+</head>
+<body>
+<header>
+<div class="wrap nav">
+<a class="logo" href="index.html">Placebo<small>ESCAPE ROOM</small></a>
+<nav class="links">
+<a href="index.html#rooms">החוויות</a><a href="index.html#events">ימי הולדת ואירועים</a><a href="index.html#gallery">לקוחות</a><a href="index.html#contact">צור קשר</a><a href="takanon.html">תקנון</a><a href="prices.html">מחירון</a>
+</nav>
+<a class="book" href="https://p-room.co.il/%D7%94%D7%9E%D7%93%D7%99%D7%94-%D7%94%D7%97%D7%91%D7%A8%D7%AA%D7%99%D7%AA/">להזמנה מהירה</a><div class="menu-btn">☰</div>
+</div>
+</header>
+<div class="mobile-menu" id="mobileMenu">
+<a href="index.html#rooms">החוויות</a><a href="index.html#events">ימי הולדת ואירועים</a><a href="index.html#gallery">לקוחות</a><a href="index.html#contact">צור קשר</a><a href="takanon.html">תקנון</a><a href="prices.html">מחירון</a>
+</div>
+
+<main>
+<section class="hero">
+<div class="hero-bg"><img src="https://p-room.co.il/wp-content/uploads/2023/12/SocialMediaHome.jpg" alt="המדיה החברתית" referrerpolicy="no-referrer"></div>
+<div class="wrap hero-copy">
+<div class="eyebrow">קומדיה · אינטרנט · משפחות</div>
+<h1>המדיה החברתית</h1>
+<h2>חדר בריחה קומי</h2>
+<p>נוכל הרשתות גנב את כל הלייקים, התגובות והשיתופים. אתם נכנסים לעולם הווירטואלי כדי לעצור אותו.</p>
+<div class="hero-actions"><a class="primary" href="https://p-room.co.il/%D7%94%D7%9E%D7%93%D7%99%D7%94-%D7%94%D7%97%D7%91%D7%A8%D7%AA%D7%99%D7%AA/">להזמנה</a><a class="secondary" href="prices.html">למחירון</a></div>
+</div>
+</section>
+
+<div class="wrap facts"><div class="fact"><div class="ico">⏱️</div><strong>60 דקות</strong></div><div class="fact"><div class="ico">😂</div><strong>חוויה קומית</strong></div><div class="fact"><div class="ico">👨‍👩‍👧</div><strong>מתאים למשפחות</strong></div><div class="fact"><div class="ico">🎓</div><strong>הנחה לחיילים וסטודנטים</strong></div></div>
+
+<section class="content wrap">
+<div class="grid">
+<div class="card"><h2>הסיפור <span>והחוויה</span></h2><p>חדר בריחה כיפי, מצחיק ומאתגר שמכניס אתכם לתוך עולם הרשתות החברתיות. המשחק משלב אלמנטים מעולם האינטרנט וחוויה קלילה שמתאימה גם למשפחות.</p></div>
+<div class="card notes"><h3>לפני שמגיעים</h3><ul><li>ילדים צעירים נדרשים בליווי מבוגר.</li><li>10 ₪ הנחה לחיילים וסטודנטים בהצגת תעודה מתאימה.</li><li>החוויה מתאימה למשפחות עם ילדים וגם לקבוצות מבוגרים.</li></ul></div>
+</div>
+
+<div class="cta-box">
+<h2>מוכנים להיכנס?</h2>
+<p>בחרו את החוויה שלכם והזמינו מקום. לשאלות והתאמה לקבוצה אפשר לדבר איתנו ב־WhatsApp.</p>
+<div class="bottom-actions"><a class="book" href="https://p-room.co.il/%D7%94%D7%9E%D7%93%D7%99%D7%94-%D7%94%D7%97%D7%91%D7%A8%D7%AA%D7%99%D7%AA/">להזמנה</a><a class="secondary" href="https://wa.me/972544484301">WhatsApp</a><a class="secondary" href="index.html#rooms">לכל החוויות</a></div>
+</div>
+</section>
+</main>
+
+<footer><div class="wrap">Placebo Escape Room · הגביש 4, כניסה א', נתניה · 052-3882038</div></footer>
+<a class="mobile-book" href="https://p-room.co.il/%D7%94%D7%9E%D7%93%D7%99%D7%94-%D7%94%D7%97%D7%91%D7%A8%D7%AA%D7%99%D7%AA/">להזמנה מהירה</a>
+
+<script>
+const menuBtn=document.querySelector('.menu-btn');
+const mobileMenu=document.getElementById('mobileMenu');
+if(menuBtn&&mobileMenu){
+ menuBtn.addEventListener('click',function(){
+  mobileMenu.classList.toggle('open');
+  menuBtn.textContent=mobileMenu.classList.contains('open')?'✕':'☰';
+ });
+ mobileMenu.querySelectorAll('a').forEach(function(link){
+  link.addEventListener('click',function(){mobileMenu.classList.remove('open');menuBtn.textContent='☰';});
+ });
+}
+</script>
+</body>
+</html>
