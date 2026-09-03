@@ -444,6 +444,47 @@ img{
   }
 }
 
+  .mobile-menu{
+  display:none;
+}
+
+@media(max-width:850px){
+  .mobile-menu{
+    position:fixed;
+    top:66px;
+    right:0;
+    left:0;
+    z-index:9999;
+    background:#080808;
+    border-top:1px solid #333;
+    border-bottom:1px solid #333;
+    padding:10px 20px 20px;
+  }
+
+  .mobile-menu.open{
+    display:block;
+  }
+
+  .mobile-menu a{
+    display:block;
+    color:white;
+    text-decoration:none;
+    text-align:right;
+    font-size:18px;
+    font-weight:700;
+    padding:16px 5px;
+    border-bottom:1px solid #222;
+  }
+
+  .mobile-menu a:last-child{
+    border-bottom:0;
+  }
+
+  .menu-btn{
+    cursor:pointer;
+    user-select:none;
+  }
+}
 </style>
 </head>
 <body>
@@ -464,6 +505,15 @@ img{
   </div>
 </header>
 
+  
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#rooms">החוויות</a>
+  <a href="#events">ימי הולדת ואירועים</a>
+  <a href="#gallery">לקוחות</a>
+  <a href="#contact">צור קשר</a>
+  <a href="https://p-room.co.il/%D7%AA%D7%A7%D7%A0%D7%95%D7%9F/">תקנון</a>
+  <a href="https://p-room.co.il/%d7%9e%d7%97%d7%99%d7%a8%d7%95%d7%9f/">מחירון</a>
+</div>
 
 
 <section class="hero6">
@@ -708,6 +758,25 @@ img{
   // Start automatically without changing the page's vertical position.
   setTimeout(start, 1000);
 })();
+</script>
+
+<script>
+const menuBtn = document.querySelector('.menu-btn');
+const mobileMenu = document.getElementById('mobileMenu');
+
+if (menuBtn && mobileMenu) {
+  menuBtn.addEventListener('click', function () {
+    mobileMenu.classList.toggle('open');
+    menuBtn.textContent = mobileMenu.classList.contains('open') ? '✕' : '☰';
+  });
+
+  mobileMenu.querySelectorAll('a').forEach(function(link) {
+    link.addEventListener('click', function() {
+      mobileMenu.classList.remove('open');
+      menuBtn.textContent = '☰';
+    });
+  });
+}
 </script>
 
 </body>
