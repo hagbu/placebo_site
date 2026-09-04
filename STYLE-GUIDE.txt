@@ -1,0 +1,17 @@
+PLACEBO - STYLE GUIDE
+
+1. כל הצבעים והעיצוב נמצאים ב-style.css.
+2. בתחילת style.css יש COLOR CONTROL - זה המקום הראשון לשינוי צבעים.
+3. דפי חדרים:
+   monastery.html      -> theme-monastery
+   throne.html         -> theme-throne
+   social-media.html   -> theme-social
+   protectors.html     -> theme-protectors
+   super-clasico.html  -> theme-soccer
+4. שינוי בתוך THEME מסוים משפיע רק על אותו חדר.
+5. ROOM PAGE BASE משפיע על כל חמשת דפי החדרים.
+6. HOME PAGE משפיע רק על index.html.
+7. PRICE PAGES משפיע על שני המחירונים.
+8. TERMS PAGE משפיע רק על התקנון.
+
+תמונות עדיין מחליפים ב-HTML דרך src=... כפי שעשינו עד היום.

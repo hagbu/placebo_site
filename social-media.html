@@ -5,91 +5,16 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="referrer" content="no-referrer">
 <title>המדיה החברתית | Placebo Escape Room</title>
-<style>
-:root{--bg:#050505;--panel:#101010;--line:#292929;--text:#fff;--muted:#b9b9b9;--red:#d31319;--accent:#a92acc}
-*{box-sizing:border-box} html{scroll-behavior:smooth}
-body{margin:0;background:#050505;color:#fff;font-family:Arial,Helvetica,sans-serif} a{color:inherit;text-decoration:none} img{display:block;width:100%;height:100%;object-fit:cover}
-.wrap{width:min(1120px,calc(100% - 28px));margin:auto}
-header{position:sticky;top:0;z-index:50;background:rgba(0,0,0,.94);border-bottom:1px solid #222;backdrop-filter:blur(12px)}
-.nav{min-height:72px;display:flex;align-items:center;justify-content:space-between;gap:22px}
-.logo{font-size:30px;font-weight:900;line-height:.86} .logo small{display:block;color:#f21c25;font-size:11px;letter-spacing:2.2px;margin-top:7px}
-.links{display:flex;gap:22px;font-weight:700;color:#ddd} .links a:hover{color:#fff}
-.book{background:linear-gradient(#e52027,#aa090e);padding:13px 20px;border-radius:9px;font-weight:900}
-.menu-btn{display:none;font-size:28px;cursor:pointer;user-select:none} .mobile-menu{display:none}
-
-.hero{position:relative;min-height:590px;overflow:hidden;display:flex;align-items:flex-end}
-.hero-bg{position:absolute;inset:0}
-.hero-bg img{filter:saturate(.9) contrast(1.06)}
-.hero:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.12),rgba(0,0,0,.35) 42%,#050505 100%),linear-gradient(90deg,rgba(0,0,0,.45),transparent 55%)}
-.hero-copy{position:relative;z-index:2;padding-bottom:62px;width:min(780px,100%)}
-.eyebrow{color:var(--accent);font-weight:900;letter-spacing:1px;margin-bottom:10px}
-.hero h1{font-size:clamp(52px,8vw,90px);line-height:.93;margin:0;letter-spacing:-3px}
-.hero h2{font-size:25px;margin:12px 0 0;color:#eee}
-.hero p{font-size:20px;line-height:1.7;color:#ddd;max-width:720px}
-.hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:24px}
-.primary,.secondary{padding:14px 22px;border-radius:9px;font-weight:900}
-.primary{background:linear-gradient(#e52027,#a7080d)} .secondary{border:1px solid #777;background:rgba(0,0,0,.38)}
-
-.facts{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:-10px;position:relative;z-index:5}
-.fact{background:#0f0f0f;border:1px solid #292929;border-radius:15px;padding:23px;text-align:center;box-shadow:0 18px 40px rgba(0,0,0,.3)}
-.fact .ico{font-size:27px;margin-bottom:10px} .fact strong{font-size:16px}
-
-.content{padding:68px 0}
-.grid{display:grid;grid-template-columns:1.25fr .75fr;gap:20px;align-items:start}
-.card{background:linear-gradient(180deg,#111,#090909);border:1px solid #282828;border-radius:20px;padding:31px}
-.card h2{font-size:34px;margin:0 0 16px} .card h2 span{color:var(--accent)}
-.card p{font-size:18px;line-height:1.85;color:#c9c9c9;margin:0}
-.notes h3{font-size:25px;margin:0 0 15px} .notes ul{margin:0;padding-right:22px;color:#d0d0d0;line-height:1.85}
-.notes li+li{margin-top:9px}
-.cta-box{margin-top:20px;text-align:center;background:radial-gradient(circle at center,rgba(180,0,0,.18),transparent 65%),#0c0c0c;border:1px solid #2b2b2b;border-radius:20px;padding:35px}
-.cta-box h2{margin:0 0 10px;font-size:34px} .cta-box p{color:#aaa;margin:0 0 22px}
-.bottom-actions{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
-
-footer{border-top:1px solid #202020;padding:34px 0 90px;color:#999;text-align:center}
-.mobile-book{display:none}
-@media(max-width:850px){
- .links,.nav>.book{display:none} .menu-btn{display:block}
- .mobile-menu{position:fixed;top:66px;right:0;left:0;z-index:9999;background:#080808;border-block:1px solid #2a2a2a;padding:10px 20px 18px}
- .mobile-menu.open{display:block} .mobile-menu a{display:block;padding:15px 4px;border-bottom:1px solid #222;font-weight:700} .mobile-menu a:last-child{border-bottom:0}
- .facts{grid-template-columns:1fr 1fr} .grid{grid-template-columns:1fr}
-}
-@media(max-width:620px){
- .nav{min-height:66px} .logo{font-size:26px}
- .hero{min-height:520px} .hero-copy{padding-bottom:36px} .hero h1{font-size:52px;letter-spacing:-2px} .hero h2{font-size:20px} .hero p{font-size:17px}
- .facts{gap:8px} .fact{padding:18px 10px} .content{padding:48px 0} .card{padding:23px 18px} .card h2{font-size:29px}
- .mobile-book{display:flex;position:fixed;z-index:100;right:12px;left:12px;bottom:12px;min-height:56px;align-items:center;justify-content:center;border-radius:14px;background:linear-gradient(#e62128,#aa090e);font-weight:900;box-shadow:0 12px 36px rgba(0,0,0,.62)}
-}
-
-/* ===== THEME: SOCIAL MEDIA / bright blue happy ===== */
-:root{--accent:#27c7ff;--red:#11a9ff;--panel:#10283b;--line:#2b6d91;--muted:#d4ecf8}
-body{
-  background:
-    radial-gradient(circle at 20% 0%,rgba(30,190,255,.28),transparent 34%),
-    radial-gradient(circle at 85% 18%,rgba(121,77,255,.24),transparent 30%),
-    linear-gradient(180deg,#0e2840 0%,#0a1828 42%,#07121d 100%);
-}
-header{background:rgba(8,24,38,.90);border-bottom-color:rgba(77,190,255,.35)}
-.logo small{color:#33d2ff}.book,.primary,.mobile-book{background:linear-gradient(135deg,#18bfff,#735cff)}
-.hero-bg img{filter:saturate(1.15) brightness(1.05) contrast(1.02)}
-.hero:after{background:linear-gradient(180deg,rgba(7,28,48,.05),rgba(5,24,42,.22) 48%,#07121d 100%),linear-gradient(90deg,rgba(8,30,52,.40),transparent 58%)}
-.eyebrow{color:#80e9ff;text-shadow:0 0 18px rgba(54,200,255,.45)}
-.fact{background:linear-gradient(180deg,rgba(27,72,103,.96),rgba(13,45,68,.96));border-color:#337fa6;box-shadow:0 15px 40px rgba(0,110,180,.20)}
-.card{background:linear-gradient(180deg,rgba(20,59,86,.98),rgba(10,31,49,.98));border-color:#2d759d}
-.card p,.notes ul{color:#e0f3fb}.secondary{border-color:#65cffa;background:rgba(16,65,95,.55)}
-.cta-box{background:radial-gradient(circle at center,rgba(60,190,255,.22),transparent 66%),linear-gradient(180deg,#12344c,#0a2032);border-color:#337fa6}
-.cta-box p{color:#d4ecf8} footer{border-top-color:#245b78;color:#a9d4e7}
-@media(max-width:850px){.mobile-menu{background:#0c2638;border-color:#285e7c}}
-
-</style>
+<link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body class="room-page theme-social">
 <header>
 <div class="wrap nav">
 <a class="logo" href="index.html">Placebo<small>ESCAPE ROOM</small></a>
 <nav class="links">
 <a href="index.html#rooms">החוויות</a><a href="index.html#events">ימי הולדת ואירועים</a><a href="index.html#gallery">לקוחות</a><a href="index.html#contact">צור קשר</a><a href="takanon.html">תקנון</a><a href="prices.html">מחירון</a>
 </nav>
-<a class="book" href="https://www.vcita.com/v/oc14o85vj2nz2di7/online_scheduling?service_id=uhx2egrtlu0h47e3">להזמנה מהירה</a><div class="menu-btn">☰</div>
+<a class="book" href="#booking">להזמנה מהירה</a><div class="menu-btn">☰</div>
 </div>
 </header>
 <div class="mobile-menu" id="mobileMenu">
@@ -104,7 +29,7 @@ header{background:rgba(8,24,38,.90);border-bottom-color:rgba(77,190,255,.35)}
 <h1>המדיה החברתית</h1>
 <h2>חדר בריחה קומי</h2>
 <p>נוכל הרשתות גנב את כל הלייקים, התגובות והשיתופים. אתם נכנסים לעולם הווירטואלי כדי לעצור אותו.</p>
-<div class="hero-actions"><a class="primary" href="https://www.vcita.com/v/oc14o85vj2nz2di7/online_scheduling?service_id=uhx2egrtlu0h47e3">להזמנה</a><a class="secondary" href="prices.html">למחירון</a></div>
+<div class="hero-actions"><a class="primary" href="#booking">להזמנה</a><a class="secondary" href="#booking">למחירון</a></div>
 </div>
 </section>
 
@@ -119,13 +44,75 @@ header{background:rgba(8,24,38,.90);border-bottom-color:rgba(77,190,255,.35)}
 <div class="cta-box">
 <h2>מוכנים להיכנס?</h2>
 <p>בחרו את החוויה שלכם והזמינו מקום. לשאלות והתאמה לקבוצה אפשר לדבר איתנו ב־WhatsApp.</p>
-<div class="bottom-actions"><a class="book" href="https://www.vcita.com/v/oc14o85vj2nz2di7/online_scheduling?service_id=uhx2egrtlu0h47e3">להזמנה</a><a class="secondary" href="https://wa.me/972544484301">WhatsApp</a><a class="secondary" href="index.html#rooms">לכל החוויות</a></div>
+<div class="bottom-actions"><a class="book" href="#booking">להזמנה</a><a class="secondary" href="https://wa.me/972544484301">WhatsApp</a><a class="secondary" href="index.html#rooms">לכל החוויות</a></div>
 </div>
 </section>
+
+<section class="room-booking-section" id="booking">
+  <div class="wrap">
+    <div class="booking-section-title">
+      <span>מחיר וזמינות במקום אחד</span>
+      <h2>מזמינים את המדיה החברתית</h2>
+      <p>בדקו את המחיר לקבוצה ובחרו תאריך ושעה פנויים בלי לצאת מהעמוד.</p>
+    </div>
+
+    <div class="booking-layout">
+      
+<div class="booking-price-card">
+  <div class="booking-card-head">
+    <span class="booking-kicker">מחירון</span>
+    <h3>כמה זה עולה?</h3>
+  </div>
+  <div class="booking-price-table-wrap">
+    <table class="booking-price-table">
+      <thead><tr><th>שחקנים</th><th>לשחקן</th><th>לקבוצה</th></tr></thead>
+      <tbody>
+        <tr><td>2</td><td>190 ₪</td><td>380 ₪</td></tr>
+        <tr><td>3</td><td>140 ₪</td><td>420 ₪</td></tr>
+        <tr><td>4</td><td>130 ₪</td><td>520 ₪</td></tr>
+        <tr><td>5</td><td>125 ₪</td><td>625 ₪</td></tr>
+        <tr><td>6</td><td>115 ₪</td><td>690 ₪</td></tr>
+        <tr><td>7</td><td>110 ₪</td><td>770 ₪</td></tr>
+        <tr><td>8</td><td>100 ₪</td><td>800 ₪</td></tr>
+        <tr><td>9</td><td>100 ₪</td><td>900 ₪</td></tr>
+        <tr><td>10</td><td>100 ₪</td><td>1,000 ₪</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="booking-price-notes">
+    <p>ילדים מגיל 4 בתשלום מלא.</p>
+    <p>מקדמה של 200 ₪ מתקזזת מהתשלום הסופי.</p>
+    <p>המחיר נקבע לפי מספר המשתתפים שמגיעים בפועל.</p>
+    <p>חיילים בשירות סדיר וסטודנטים: 10 ₪ הנחה בהצגת תעודה בתוקף.</p>
+  </div>
+  <a class="booking-full-price" href="prices.html">למחירון המלא</a>
+</div>
+
+      <div class="booking-scheduler-card">
+        <div class="booking-card-head">
+          <span class="booking-kicker">הזמנה אונליין</span>
+          <h3>בחרו תאריך ושעה</h3>
+        </div>
+        <div class="vcita-frame-wrap">
+          <iframe
+            class="vcita-frame"
+            src="https://www.vcita.com/v/oc14o85vj2nz2di7/online_scheduling?service_id=uhx2egrtlu0h47e3"
+            title="הזמנת המדיה החברתית"
+            loading="lazy"
+            allow="payment *"
+            referrerpolicy="strict-origin-when-cross-origin">
+          </iframe>
+        </div>
+        <p class="booking-fallback">אם חלון ההזמנה לא נטען אצלכם, <a href="https://www.vcita.com/v/oc14o85vj2nz2di7/online_scheduling?service_id=uhx2egrtlu0h47e3" target="_blank" rel="noopener">פתחו את ההזמנה בחלון חדש</a>.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
 </main>
 
 <footer><div class="wrap">Placebo Escape Room · הגביש 4, כניסה א', נתניה · 052-3882038</div></footer>
-<a class="mobile-book" href="https://www.vcita.com/v/oc14o85vj2nz2di7/online_scheduling?service_id=uhx2egrtlu0h47e3">להזמנה מהירה</a>
+<a class="mobile-book" href="#booking">להזמנה מהירה</a>
 
 <script>
 const menuBtn=document.querySelector('.menu-btn');
