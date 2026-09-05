@@ -14,25 +14,77 @@
   <div class="wrap nav">
     <a class="logo" href="index.html">Placebo<small>ESCAPE ROOM</small></a>
     <nav class="links">
-      <a href="index.html#rooms">החוויות</a>
-      <a href="events.html" class="active">ימי הולדת ואירועים</a>
-      <a href="index.html#gallery">לקוחות</a>
-      <a href="index.html#contact">צור קשר</a>
-      <a href="takanon.html">תקנון</a>
-      <a href="prices.html">מחירון</a>
-    </nav>
+
+  <div class="nav-dropdown">
+    <button class="nav-dropdown-toggle" type="button">
+      החוויות <span class="nav-arrow">⌄</span>
+    </button>
+    <div class="nav-dropdown-menu">
+      <a href="monastery.html">המנזר</a>
+      <a href="throne.html">משחקי הכס</a>
+      <a href="protectors.html">מגני הממלכה</a>
+      <a href="super-clasico.html">הסופר קלאסיקו</a>
+      <a href="social-media.html">המדיה החברתית</a>
+    </div>
+  </div>
+
+  <div class="nav-dropdown">
+    <button class="nav-dropdown-toggle" type="button">
+      ימי הולדת ואירועים <span class="nav-arrow">⌄</span>
+    </button>
+    <div class="nav-dropdown-menu">
+      <a href="events.html#kids-events">ימי הולדת ילדים</a>
+      <a href="events.html#company-events">אירועי חברה</a>
+      <a href="events.html#adult-events">ימי הולדת למבוגרים</a>
+    </div>
+  </div>
+
+  <a href="index.html#gallery">לקוחות</a>
+  <a href="index.html#contact">צור קשר</a>
+  <a href="takanon.html">תקנון</a>
+  <a href="prices.html">מחירון</a>
+
+</nav>
     <a class="book" href="#event-calculator">בנו אירוע</a>
     <div class="menu-btn" aria-label="פתיחת תפריט">☰</div>
   </div>
 </header>
 
 <div class="mobile-menu" id="mobileMenu">
-  <a href="index.html#rooms">החוויות</a>
-  <a href="events.html">ימי הולדת ואירועים</a>
+
+  <div class="mobile-submenu">
+    <button class="mobile-submenu-toggle" type="button">
+      <span>החוויות</span>
+      <span class="mobile-submenu-arrow">⌄</span>
+    </button>
+
+    <div class="mobile-submenu-content">
+      <a href="monastery.html">המנזר</a>
+      <a href="throne.html">משחקי הכס</a>
+      <a href="protectors.html">מגני הממלכה</a>
+      <a href="super-clasico.html">הסופר קלאסיקו</a>
+      <a href="social-media.html">המדיה החברתית</a>
+    </div>
+  </div>
+
+  <div class="mobile-submenu">
+    <button class="mobile-submenu-toggle" type="button">
+      <span>ימי הולדת ואירועים</span>
+      <span class="mobile-submenu-arrow">⌄</span>
+    </button>
+
+    <div class="mobile-submenu-content">
+      <a href="events.html#kids-events">ימי הולדת ילדים</a>
+      <a href="events.html#company-events">אירועי חברה</a>
+      <a href="events.html#adult-events">ימי הולדת למבוגרים</a>
+    </div>
+  </div>
+
   <a href="index.html#gallery">לקוחות</a>
   <a href="index.html#contact">צור קשר</a>
   <a href="takanon.html">תקנון</a>
   <a href="prices.html">מחירון</a>
+
 </div>
 
 <main>
@@ -56,7 +108,7 @@
         <p>כל אירוע מקבל את האופי שלו — אבל כולם נהנים מאותו מתחם, חדרי בריחה ואפשרות לאירוח.</p>
       </div>
 
-      <article class="event-showcase kids">
+      <article class="event-showcase kids" id="kids-events">
         <div class="event-copy">
           <div class="event-number">01</div>
           <div class="event-label">🎂 ימי הולדת לילדים</div>
@@ -70,7 +122,7 @@
         </div>
       </article>
 
-      <article class="event-showcase reverse company">
+      <article class="event-showcase reverse company" id="company-events">
         <div class="event-copy">
           <div class="event-number">02</div>
           <div class="event-label">👥 אירועי חברה וגיבוש</div>
@@ -84,7 +136,7 @@
         </div>
       </article>
 
-      <article class="event-showcase adults">
+      <article class="event-showcase adults" id="adult-events">
         <div class="event-copy">
           <div class="event-number">03</div>
           <div class="event-label">🥂 ימי הולדת למבוגרים</div>
@@ -509,5 +561,22 @@
   updateSummary();
 })();
 </script>
+
+<script>
+document.querySelectorAll('.mobile-submenu-toggle').forEach(function(button) {
+  button.addEventListener('click', function() {
+    const submenu = button.closest('.mobile-submenu');
+
+    document.querySelectorAll('.mobile-submenu').forEach(function(item) {
+      if (item !== submenu) {
+        item.classList.remove('open');
+      }
+    });
+
+    submenu.classList.toggle('open');
+  });
+});
+</script>
+
 </body>
 </html>

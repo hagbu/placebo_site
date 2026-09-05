@@ -227,3 +227,17 @@ body.events-page footer p{color:var(--home-muted,#c6dbe5);line-height:1.8}
   }
   body.events-page footer{padding-bottom:110px}
 }
+
+/* Fix dropdown background on events page */
+.events-page .nav-dropdown-menu{
+  background:#17344a;
+  border:1px solid #2f7fa2;
+}
+
+.events-page .nav-dropdown-menu a{
+  color:#ffffff;
+}
+
+.events-page .nav-dropdown-menu a:hover{
+  background:#1d425a;
+}

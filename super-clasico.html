@@ -12,13 +12,75 @@
 <div class="wrap nav">
 <a class="logo" href="index.html">Placebo<small>ESCAPE ROOM</small></a>
 <nav class="links">
-<a href="index.html#rooms">החוויות</a><a href="events.html">ימי הולדת ואירועים</a><a href="index.html#gallery">לקוחות</a><a href="index.html#contact">צור קשר</a><a href="takanon.html">תקנון</a><a href="prices.html">מחירון</a>
+
+  <div class="nav-dropdown">
+    <button class="nav-dropdown-toggle" type="button">
+      החוויות <span class="nav-arrow">⌄</span>
+    </button>
+    <div class="nav-dropdown-menu">
+      <a href="monastery.html">המנזר</a>
+      <a href="throne.html">משחקי הכס</a>
+      <a href="protectors.html">מגני הממלכה</a>
+      <a href="super-clasico.html">הסופר קלאסיקו</a>
+      <a href="social-media.html">המדיה החברתית</a>
+    </div>
+  </div>
+
+  <div class="nav-dropdown">
+    <button class="nav-dropdown-toggle" type="button">
+      ימי הולדת ואירועים <span class="nav-arrow">⌄</span>
+    </button>
+    <div class="nav-dropdown-menu">
+      <a href="events.html#kids-events">ימי הולדת ילדים</a>
+      <a href="events.html#company-events">אירועי חברה</a>
+      <a href="events.html#adult-events">ימי הולדת למבוגרים</a>
+    </div>
+  </div>
+
+  <a href="index.html#gallery">לקוחות</a>
+  <a href="index.html#contact">צור קשר</a>
+  <a href="takanon.html">תקנון</a>
+  <a href="prices.html">מחירון</a>
+
 </nav>
 <a class="book" href="#booking-calendar">להזמנה מהירה</a><div class="menu-btn">☰</div>
 </div>
 </header>
 <div class="mobile-menu" id="mobileMenu">
-<a href="index.html#rooms">החוויות</a><a href="events.html">ימי הולדת ואירועים</a><a href="index.html#gallery">לקוחות</a><a href="index.html#contact">צור קשר</a><a href="takanon.html">תקנון</a><a href="prices.html">מחירון</a>
+
+  <div class="mobile-submenu">
+    <button class="mobile-submenu-toggle" type="button">
+      <span>החוויות</span>
+      <span class="mobile-submenu-arrow">⌄</span>
+    </button>
+
+    <div class="mobile-submenu-content">
+      <a href="monastery.html">המנזר</a>
+      <a href="throne.html">משחקי הכס</a>
+      <a href="protectors.html">מגני הממלכה</a>
+      <a href="super-clasico.html">הסופר קלאסיקו</a>
+      <a href="social-media.html">המדיה החברתית</a>
+    </div>
+  </div>
+
+  <div class="mobile-submenu">
+    <button class="mobile-submenu-toggle" type="button">
+      <span>ימי הולדת ואירועים</span>
+      <span class="mobile-submenu-arrow">⌄</span>
+    </button>
+
+    <div class="mobile-submenu-content">
+      <a href="events.html#kids-events">ימי הולדת ילדים</a>
+      <a href="events.html#company-events">אירועי חברה</a>
+      <a href="events.html#adult-events">ימי הולדת למבוגרים</a>
+    </div>
+  </div>
+
+  <a href="index.html#gallery">לקוחות</a>
+  <a href="index.html#contact">צור קשר</a>
+  <a href="takanon.html">תקנון</a>
+  <a href="prices.html">מחירון</a>
+
 </div>
 
 <main>
@@ -110,5 +172,22 @@ if(menuBtn&&mobileMenu){
  });
 }
 </script>
+
+<script>
+document.querySelectorAll('.mobile-submenu-toggle').forEach(function(button) {
+  button.addEventListener('click', function() {
+    const submenu = button.closest('.mobile-submenu');
+
+    document.querySelectorAll('.mobile-submenu').forEach(function(item) {
+      if (item !== submenu) {
+        item.classList.remove('open');
+      }
+    });
+
+    submenu.classList.toggle('open');
+  });
+});
+</script>
+
 </body>
 </html>
