@@ -1413,3 +1413,173 @@ body.room-page .booking-fallback a{
     height:880px;
   }
 }
+
+/* =====================================================
+   BOOKING SECTION ON HOME PAGE
+   ===================================================== */
+
+body.page-home .room-booking-section{
+  scroll-margin-top:86px;
+  padding:70px 0 82px;
+  background:var(--bg);
+}
+
+body.page-home .booking-section-title{
+  text-align:center;
+  max-width:760px;
+  margin:0 auto 28px;
+}
+
+body.page-home .booking-section-title > span,
+body.page-home .booking-kicker{
+  display:inline-block;
+  color:var(--red);
+  font-weight:900;
+  letter-spacing:.5px;
+  margin-bottom:8px;
+}
+
+body.page-home .booking-section-title h2{
+  margin:0;
+  font-size:42px;
+}
+
+body.page-home .booking-section-title p{
+  margin:12px auto 0;
+  color:var(--muted);
+  font-size:18px;
+  line-height:1.7;
+}
+
+body.page-home .booking-layout{
+  display:grid;
+  grid-template-columns:minmax(280px,.72fr) minmax(0,1.28fr);
+  gap:20px;
+  align-items:start;
+}
+
+body.page-home .booking-price-card,
+body.page-home .booking-scheduler-card{
+  background:linear-gradient(180deg,var(--panel),var(--panel2));
+  border:1px solid var(--line);
+  border-radius:20px;
+  overflow:hidden;
+  box-shadow:0 18px 45px rgba(0,0,0,.18);
+}
+
+body.page-home .booking-card-head{
+  padding:24px 24px 18px;
+}
+
+body.page-home .booking-card-head h3{
+  margin:0;
+  font-size:27px;
+}
+
+body.page-home .booking-price-table-wrap{
+  overflow-x:auto;
+}
+
+body.page-home .booking-price-table{
+  width:100%;
+  border-collapse:collapse;
+  text-align:center;
+}
+
+body.page-home .booking-price-table th{
+  padding:14px 10px;
+  background:var(--panel2);
+  border-bottom:2px solid var(--red);
+}
+
+body.page-home .booking-price-table td{
+  padding:14px 10px;
+  border-bottom:1px solid var(--line);
+  font-weight:700;
+}
+
+body.page-home .booking-price-notes{
+  padding:18px 24px;
+  color:var(--muted);
+  line-height:1.65;
+}
+
+body.page-home .booking-price-notes p{
+  margin:7px 0;
+}
+
+body.page-home .booking-full-price{
+  display:block;
+  margin:0 24px 24px;
+  padding:13px;
+  border-radius:9px;
+  text-align:center;
+  background:linear-gradient(var(--button-start),var(--button-end));
+  font-weight:900;
+}
+
+body.page-home .vcita-frame-wrap{
+  width:100%;
+  background:#fff;
+}
+
+body.page-home .vcita-frame{
+  display:block;
+  width:100%;
+  min-height:820px;
+  height:820px;
+  border:0;
+}
+
+body.page-home .booking-fallback{
+  padding:14px 24px 20px;
+  margin:0;
+  color:var(--muted);
+}
+
+body.page-home .booking-fallback a{
+  color:var(--red);
+  font-weight:900;
+  text-decoration:underline;
+}
+
+@media(max-width:850px){
+  body.page-home .booking-layout{
+    grid-template-columns:1fr;
+  }
+
+  body.page-home .booking-price-card{
+    order:1;
+  }
+
+  body.page-home .booking-scheduler-card{
+    order:2;
+  }
+}
+
+@media(max-width:620px){
+  body.page-home .room-booking-section{
+    padding:50px 0 70px;
+  }
+
+  body.page-home .booking-section-title h2{
+    font-size:32px;
+  }
+
+  body.page-home .booking-card-head{
+    padding:20px 18px 15px;
+  }
+
+  body.page-home .booking-price-notes{
+    padding:16px 18px;
+  }
+
+  body.page-home .booking-full-price{
+    margin:0 18px 18px;
+  }
+
+  body.page-home .vcita-frame{
+    min-height:820px;
+    height:820px;
+  }
+}
