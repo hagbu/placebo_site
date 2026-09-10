@@ -1742,3 +1742,199 @@ body.page-home .booking-fallback a{
     align-items:center;
   }
 }
+/* ===== SHARED LOCATION + FOOTER FOR ALL PAGES ===== */
+
+body.room-page .location-section,
+body.price-page .location-section,
+body.terms-page .location-section,
+body.events-page .location-section{
+  padding:80px 0;
+  background:var(--bg, var(--home-bg));
+  border-top:1px solid var(--line, var(--home-line));
+}
+
+body.room-page .location-grid,
+body.price-page .location-grid,
+body.terms-page .location-grid,
+body.events-page .location-grid{
+  display:grid;
+  grid-template-columns:1fr 1.15fr;
+  gap:24px;
+  align-items:stretch;
+}
+
+body.room-page .location-info,
+body.price-page .location-info,
+body.terms-page .location-info,
+body.events-page .location-info{
+  background:linear-gradient(
+    180deg,
+    var(--panel, var(--home-panel)),
+    var(--panel2, var(--home-panel2))
+  );
+  border:1px solid var(--line, var(--home-line));
+  border-radius:22px;
+  padding:38px;
+}
+
+body.room-page .location-label,
+body.price-page .location-label,
+body.terms-page .location-label,
+body.events-page .location-label{
+  color:var(--red, var(--home-red));
+  font-weight:900;
+  margin-bottom:12px;
+}
+
+body.room-page .location-info h2,
+body.price-page .location-info h2,
+body.terms-page .location-info h2,
+body.events-page .location-info h2{
+  margin:0 0 18px;
+  font-size:42px;
+  line-height:1.05;
+}
+
+body.room-page .location-info h2 span,
+body.price-page .location-info h2 span,
+body.terms-page .location-info h2 span,
+body.events-page .location-info h2 span{
+  color:var(--red, var(--home-red));
+}
+
+body.room-page .location-info p,
+body.price-page .location-info p,
+body.terms-page .location-info p,
+body.events-page .location-info p{
+  color:var(--muted, var(--home-muted));
+  font-size:19px;
+  line-height:1.7;
+}
+
+body.room-page .location-details,
+body.price-page .location-details,
+body.terms-page .location-details,
+body.events-page .location-details{
+  margin:24px 0;
+  display:grid;
+  gap:10px;
+  color:var(--muted, var(--home-muted));
+}
+
+body.room-page .location-actions,
+body.price-page .location-actions,
+body.terms-page .location-actions,
+body.events-page .location-actions{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+}
+
+body.room-page .location-btn,
+body.price-page .location-btn,
+body.terms-page .location-btn,
+body.events-page .location-btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-height:48px;
+  padding:0 18px;
+  border-radius:10px;
+  border:1px solid var(--line, var(--home-line));
+  background:var(--panel2, var(--home-panel2));
+  font-weight:900;
+  text-decoration:none;
+}
+
+body.room-page .primary-location,
+body.price-page .primary-location,
+body.terms-page .primary-location,
+body.events-page .primary-location{
+  background:linear-gradient(
+    var(--button-start, var(--home-button-start)),
+    var(--button-end, var(--home-button-end))
+  );
+}
+
+body.room-page .location-map,
+body.price-page .location-map,
+body.terms-page .location-map,
+body.events-page .location-map{
+  min-height:390px;
+  overflow:hidden;
+  border-radius:22px;
+  border:1px solid var(--line, var(--home-line));
+}
+
+body.room-page .location-map iframe,
+body.price-page .location-map iframe,
+body.terms-page .location-map iframe,
+body.events-page .location-map iframe{
+  width:100%;
+  height:100%;
+  min-height:390px;
+  border:0;
+  display:block;
+}
+
+/* Footer */
+body.room-page .footer-grid,
+body.price-page .footer-grid,
+body.terms-page .footer-grid,
+body.events-page .footer-grid{
+  display:grid;
+  grid-template-columns:1.3fr 1fr 1fr;
+  gap:28px;
+  text-align:right;
+}
+
+@media (max-width:850px){
+  body.room-page .location-grid,
+  body.price-page .location-grid,
+  body.terms-page .location-grid,
+  body.events-page .location-grid,
+  body.room-page .footer-grid,
+  body.price-page .footer-grid,
+  body.terms-page .footer-grid,
+  body.events-page .footer-grid{
+    grid-template-columns:1fr;
+  }
+}
+
+@media (max-width:620px){
+  body.room-page .location-section,
+  body.price-page .location-section,
+  body.terms-page .location-section,
+  body.events-page .location-section{
+    padding:55px 0;
+  }
+
+  body.room-page .location-info,
+  body.price-page .location-info,
+  body.terms-page .location-info,
+  body.events-page .location-info{
+    padding:26px 20px;
+  }
+
+  body.room-page .location-info h2,
+  body.price-page .location-info h2,
+  body.terms-page .location-info h2,
+  body.events-page .location-info h2{
+    font-size:34px;
+  }
+
+  body.room-page .location-actions,
+  body.price-page .location-actions,
+  body.terms-page .location-actions,
+  body.events-page .location-actions{
+    display:grid;
+    grid-template-columns:1fr;
+  }
+
+  body.room-page .location-btn,
+  body.price-page .location-btn,
+  body.terms-page .location-btn,
+  body.events-page .location-btn{
+    width:100%;
+  }
+}
