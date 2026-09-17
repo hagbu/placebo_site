@@ -1,0 +1,256 @@
+/* ============================================================
+   PLACEBO ESCAPE ROOM — LIGHT SKY THEME
+   New visual theme. The previous stylesheet is preserved as
+   style_bak.css and provides the existing layout/responsive rules.
+   ============================================================ */
+
+@import url("style_bak.css");
+
+/* ============================================================
+   NEW PALETTE
+   ============================================================ */
+:root{
+  --home-bg:#dcebf2;
+  --home-panel:#f9fcfd;
+  --home-panel2:#edf6fa;
+  --home-line:#b7d4df;
+
+  --home-text:#17384a;
+  --home-muted:#607d8b;
+
+  --home-red:#168eae;
+  --home-red2:#126f89;
+  --home-accent:#e6a62e;
+
+  --home-button-start:#24afd1;
+  --home-button-end:#4f69df;
+
+  --home-header-bg:rgba(249,252,253,.96);
+  --home-header-text:#17384a;
+  --home-soft-bg:#edf6fa;
+
+  --light-shadow:rgba(39,79,99,.13);
+  --light-shadow-strong:rgba(39,79,99,.20);
+}
+
+/* ============================================================
+   HOME — LIGHT THEME
+   ============================================================ */
+body.page-home{
+  --bg:var(--home-bg);
+  --panel:var(--home-panel);
+  --panel2:var(--home-panel2);
+  --section-light:#f8fcfd;
+  --section-soft:#e8f3f7;
+  --section-accent:#f1f8fa;
+  --line:var(--home-line);
+
+  --text:var(--home-text);
+  --muted:var(--home-muted);
+  --red:var(--home-red);
+  --red2:var(--home-red2);
+  --gold:var(--home-accent);
+
+  --button-start:var(--home-button-start);
+  --button-end:var(--home-button-end);
+  --primary-start:#1598b8;
+  --primary-end:#126f89;
+
+  --header-bg:var(--home-header-bg);
+  --header-text:var(--home-header-text);
+
+  --hero-text:#fff;
+  --hero-shadow:rgba(0,0,0,.72);
+  --hero-dark:rgba(8,31,45,.44);
+  --hero-soft:rgba(8,31,45,.18);
+  --hero-edge:#fff;
+
+  --image-tag-bg:rgba(20,58,76,.88);
+  --image-tag-text:#fff;
+  --shadow:var(--light-shadow);
+
+  background:var(--home-bg);
+  color:var(--home-text);
+}
+
+/* Header */
+body.page-home header{
+  background:var(--home-header-bg);
+  border-bottom:1px solid rgba(95,145,165,.28);
+  box-shadow:0 3px 16px rgba(39,79,99,.07);
+}
+body.page-home .logo{color:#17384a}
+body.page-home .links{color:#4f6f7e}
+body.page-home .links a:hover{color:#137f9c}
+body.page-home .nav-dropdown-toggle{color:#4f6f7e}
+body.page-home .nav-dropdown-toggle:hover{color:#137f9c}
+body.page-home .nav-dropdown-menu{
+  background:#f9fcfd;
+  border-color:#bfd9e3;
+  box-shadow:0 12px 30px rgba(39,79,99,.14);
+}
+body.page-home .nav-dropdown-menu a{color:#294f62}
+body.page-home .nav-dropdown-menu a:hover{background:#e9f4f8;color:#137f9c}
+
+/* Hero remains photographic/dark for readability */
+body.page-home .hero-copy,
+body.page-home .hero-copy h1,
+body.page-home .hero-copy p{color:#fff}
+body.page-home .hero-copy h1 span{color:#40c7e8}
+body.page-home .hero-actions .primary{color:#fff;box-shadow:0 8px 22px rgba(18,111,137,.24)}
+body.page-home .hero-actions .secondary{color:#fff;border-color:rgba(255,255,255,.58);background:rgba(8,31,45,.30)}
+
+/* Quick information strip */
+body.page-home .quick{background:#b7d4df;border-color:#b7d4df}
+body.page-home .quick div{background:#eaf4f8;color:#24495b}
+body.page-home .quick strong{color:#24495b}
+body.page-home .quick span{color:#688391}
+body.page-home .quick .ico{color:#168eae}
+
+/* Sections */
+body.page-home #rooms,
+body.page-home .story-band,
+body.page-home .proofs{background:#f8fcfd}
+body.page-home #events{background:#e8f3f7}
+body.page-home .title h2{color:#17384a}
+body.page-home .title p{color:#607d8b}
+body.page-home .title h2 span{color:#168eae}
+
+/* Room cards */
+body.page-home .room-card{
+  background:linear-gradient(180deg,#ffffff 0%,#f2f8fa 100%);
+  border-color:#bfd9e3;
+  box-shadow:0 14px 34px rgba(39,79,99,.12);
+  color:#17384a;
+}
+body.page-home .room-card:hover{
+  border-color:#59afc8;
+  box-shadow:0 18px 40px rgba(39,79,99,.18);
+}
+body.page-home .room-body h3{color:#17384a}
+body.page-home .room-body p{color:#607d8b}
+body.page-home .meta{color:#607d8b;border-color:#d0e2e9}
+body.page-home .tag{background:rgba(20,58,76,.90);color:#fff;border-color:rgba(255,255,255,.30)}
+body.page-home .room-btn{
+  color:#fff;
+  background:linear-gradient(135deg,#20a8c9,#4f69df);
+  box-shadow:0 6px 16px rgba(49,105,170,.18);
+}
+
+/* Hosting / event cards */
+body.page-home .host-copy{
+  background:#f9fcfd;
+  color:#17384a;
+  border-color:#bfd9e3;
+  box-shadow:0 14px 34px rgba(39,79,99,.10);
+}
+body.page-home .host-copy h2{color:#17384a}
+body.page-home .host-copy p{color:#607d8b}
+body.page-home .host-list div{
+  background:#edf6fa;
+  color:#294f62;
+  border-color:#c7dde5;
+}
+body.page-home .host-photo{border-color:#bfd9e3}
+body.page-home .gallery-caption{color:#294f62}
+body.page-home .proof{color:#294f62;border-color:#c7dde5}
+
+/* ============================================================
+   NORMAL ROOM / PRICE / TERMS PAGES
+   Monastery intentionally keeps its horror theme.
+   ============================================================ */
+body.theme-throne,
+body.theme-social,
+body.theme-protectors,
+body.theme-soccer,
+body.price-page,
+body.terms-page{
+  --bg:#dcebf2;
+  --panel:#f9fcfd;
+  --panel2:#edf6fa;
+  --line:#b7d4df;
+  --text:#17384a;
+  --muted:#607d8b;
+  --red:#168eae;
+  --accent:#e6a62e;
+  --button-start:#20a8c9;
+  --button-end:#4f69df;
+  background:#dcebf2;
+  color:#17384a;
+}
+
+/* Keep monastery untouched */
+body.theme-monastery{
+  --bg:#050505;
+  --panel:#101010;
+  --line:#292929;
+  --text:#fff;
+  --muted:#b9b9b9;
+  --red:#d31319;
+  --accent:#c20f16;
+  --button-start:#e52027;
+  --button-end:#aa090e;
+}
+
+/* Shared light surfaces outside monastery */
+body.theme-throne .card,
+body.theme-social .card,
+body.theme-protectors .card,
+body.theme-soccer .card,
+body.price-page .card,
+body.terms-page .card{
+  background:#f9fcfd;
+  color:#17384a;
+  border-color:#bfd9e3;
+  box-shadow:0 12px 30px rgba(39,79,99,.10);
+}
+
+/* Shared location/contact areas */
+body.page-home .location-section,
+body.theme-throne .location-section,
+body.theme-social .location-section,
+body.theme-protectors .location-section,
+body.theme-soccer .location-section,
+body.price-page .location-section,
+body.terms-page .location-section{
+  background:#e8f3f7;
+  color:#17384a;
+}
+
+/* Footer: dark blue anchor at the bottom gives the light site contrast */
+body.page-home footer,
+body.theme-throne footer,
+body.theme-social footer,
+body.theme-protectors footer,
+body.theme-soccer footer,
+body.price-page footer,
+body.terms-page footer{
+  background:#17384a;
+  color:#eef7fa;
+}
+
+/* Buttons — consistent, modern and readable */
+body.page-home .book,
+body.theme-throne .book,
+body.theme-social .book,
+body.theme-protectors .book,
+body.theme-soccer .book,
+body.price-page .book,
+body.terms-page .book{
+  color:#fff;
+  background:linear-gradient(135deg,#20a8c9,#4f69df);
+  box-shadow:0 6px 16px rgba(49,105,170,.18);
+}
+
+/* ============================================================
+   MOBILE POLISH
+   ============================================================ */
+@media (max-width:760px){
+  body.page-home header{background:rgba(249,252,253,.98)}
+  body.page-home .mobile-menu,
+  body.page-home .mobile-nav{
+    background:#f9fcfd;
+    color:#294f62;
+  }
+  body.page-home .room-card{box-shadow:0 9px 24px rgba(39,79,99,.11)}
+}
