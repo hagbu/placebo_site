@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Placebo - Reviews Preview</title>
+<style>
+*{box-sizing:border-box}body{margin:0;font-family:Arial,sans-serif;background:#dcebf2;color:#17384a}.wrap{width:min(1180px,92%);margin:auto}.preview{padding:70px 0}.heading{display:flex;align-items:flex-end;justify-content:space-between;gap:30px;margin-bottom:30px}.kicker{color:#168eae;font-weight:800}.heading h1{font-size:clamp(30px,4vw,48px);margin:7px 0}.heading h1 span{color:#168eae}.heading p{color:#607d8b}.rating{background:#fff;border:1px solid #bfd9e3;border-radius:18px;padding:14px 24px;text-align:center;box-shadow:0 8px 24px rgba(39,79,99,.09)}.rating b{display:block;color:#4285f4;font-size:22px}.stars{color:#fbbc04;letter-spacing:2px;font-size:19px}.shell{position:relative}.track{display:flex;gap:18px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;padding:8px 3px 18px}.track::-webkit-scrollbar{display:none}.card{flex:0 0 calc((100% - 36px)/3);scroll-snap-align:start;min-height:220px;background:#fff;border:1px solid #bfd9e3;border-radius:22px;padding:22px;box-shadow:0 12px 30px rgba(39,79,99,.10);display:flex;flex-direction:column}.top{display:flex;align-items:center;gap:12px}.avatar{width:46px;height:46px;border-radius:50%;display:grid;place-items:center;background:#edf6fa;color:#4285f4;font-weight:900;font-size:20px}.top strong{display:block}.g{margin-inline-start:auto;color:#4285f4;font-size:23px;font-weight:900}.card p{color:#486b7b;line-height:1.7;flex:1}.source{font-size:12px;color:#7b929d;border-top:1px solid #e1edf1;padding-top:12px}.arrow{position:absolute;top:50%;transform:translateY(-50%);z-index:2;width:44px;height:44px;border-radius:50%;border:1px solid #b7d4df;background:#fff;color:#17384a;font-size:30px;cursor:pointer;box-shadow:0 8px 20px rgba(39,79,99,.15)}#prev{right:-20px}#next{left:-20px}.note{text-align:center;color:#78909b;font-size:12px;margin-top:8px}@media(max-width:760px){.preview{padding:45px 0}.heading{display:block;text-align:center}.rating{max-width:210px;margin:18px auto}.card{flex-basis:88%}#prev{right:2px}#next{left:2px}}
+</style>
+</head>
+<body>
+<section class="preview"><div class="wrap">
+<div class="heading"><div><span class="kicker">מה אומרים עלינו</span><h1>הלקוחות שלנו <span>ממליצים</span></h1><p>בקרוב: ביקורות Google אמיתיות שמתעדכנות אוטומטית</p></div><div class="rating"><b>Google</b><span class="stars">★★★★★</span><small>חיבור ל-Google בתהליך</small></div></div>
+<div class="shell"><button class="arrow" id="prev">‹</button><div class="track" id="track">
+<article class="card"><div class="top"><div class="avatar">G</div><div><strong>ביקורת לדוגמה</strong><div class="stars">★★★★★</div></div><span class="g">G</span></div><p>כאן תופיע ביקורת אמיתית מ-Google ברגע שה-API יאושר.</p><div class="source">Google · תצוגה מקדימה</div></article>
+<article class="card"><div class="top"><div class="avatar">G</div><div><strong>ביקורת לדוגמה</strong><div class="stars">★★★★★</div></div><span class="g">G</span></div><p>הקרוסלה כבר מוכנה. בהמשך הנתונים יתחלפו אוטומטית לביקורות Google אמיתיות.</p><div class="source">Google · תצוגה מקדימה</div></article>
+<article class="card"><div class="top"><div class="avatar">G</div><div><strong>ביקורת לדוגמה</strong><div class="stars">★★★★★</div></div><span class="g">G</span></div><p>עיצוב זמני לבדיקה בלבד — ללא המצאת שמות או תוכן של לקוחות.</p><div class="source">Google · תצוגה מקדימה</div></article>
+<article class="card"><div class="top"><div class="avatar">G</div><div><strong>ביקורת לדוגמה</strong><div class="stars">★★★★★</div></div><span class="g">G</span></div><p>לאחר חיבור Google Business Profile נציג כאן ביקורות אמיתיות עם ייחוס ל-Google.</p><div class="source">Google · תצוגה מקדימה</div></article>
+</div><button class="arrow" id="next">›</button></div><div class="note">תצוגה מקדימה בלבד — כרגע אין כאן ביקורות מומצאות בשם לקוחות אמיתיים.</div>
+</div></section>
+<script>const t=document.getElementById('track'),c=t.querySelector('.card');function go(d){t.scrollBy({left:d*(c.offsetWidth+18),behavior:'smooth'})}document.getElementById('next').onclick=()=>go(-1);document.getElementById('prev').onclick=()=>go(1);setInterval(()=>go(-1),4200);</script>
+</body></html>
