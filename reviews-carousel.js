@@ -1,4 +1,20 @@
 (function(){
+  // Add the Player 12 podcast to the homepage main navigation.
+  const desktopNav=document.querySelector('header .links');
+  if(desktopNav && !desktopNav.querySelector('a[href="player-12.html"]')){
+    const link=document.createElement('a');
+    link.href='player-12.html';
+    link.textContent='השחקן ה־12';
+    desktopNav.appendChild(link);
+  }
+  const mobileNav=document.getElementById('mobileMenu');
+  if(mobileNav && !mobileNav.querySelector('a[href="player-12.html"]')){
+    const link=document.createElement('a');
+    link.href='player-12.html';
+    link.textContent='השחקן ה־12';
+    mobileNav.appendChild(link);
+  }
+
   const target=document.querySelector('.proofs');
   if(!target) return;
   const reviews=[
