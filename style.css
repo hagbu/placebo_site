@@ -831,38 +831,56 @@ body.podcast-page footer .book {
 
 
 /* ============================================================
-   DESKTOP NAVIGATION — keep all menu labels on one line.
-   The room, pricing and terms pages use wider navigation gaps
-   than the homepage. Keep their original colors and themes.
+   CONSISTENT DESKTOP HEADER WIDTH
+   All pages use the homepage's full-width navigation container.
+   The narrower .wrap widths remain unchanged for page content.
    ============================================================ */
 @media (min-width: 851px) {
-    body.room-page .nav,
-    body.price-page .nav,
-    body.terms-page .nav {
-        gap: 12px;
+    body.room-page header .wrap.nav,
+    body.price-page header .wrap.nav,
+    body.terms-page header .wrap.nav {
+        width: min(1220px, calc(100% - 30px));
+        gap: 22px;
     }
 
-    body.room-page .links,
-    body.price-page .links,
-    body.terms-page .links {
-        gap: 14px;
-        flex-wrap: nowrap;
+    body.room-page header .links,
+    body.price-page header .links,
+    body.terms-page header .links {
+        gap: 25px;
         align-items: center;
-        min-width: 0;
+        flex-wrap: nowrap;
     }
 
-    body.room-page .links > a,
-    body.price-page .links > a,
-    body.terms-page .links > a,
-    body.room-page .nav-dropdown-toggle,
-    body.price-page .nav-dropdown-toggle,
-    body.terms-page .nav-dropdown-toggle {
+    body.room-page header .links > a,
+    body.price-page header .links > a,
+    body.terms-page header .links > a,
+    body.room-page header .nav-dropdown-toggle,
+    body.price-page header .nav-dropdown-toggle,
+    body.terms-page header .nav-dropdown-toggle {
         white-space: nowrap;
     }
 
-    body.room-page .nav > .book,
-    body.price-page .nav > .book,
-    body.terms-page .nav > .book {
+    body.room-page header .nav > .book,
+    body.price-page header .nav > .book,
+    body.terms-page header .nav > .book {
         flex-shrink: 0;
+    }
+}
+
+/* Switch to the existing mobile navigation before desktop links collide. */
+@media (min-width: 851px) and (max-width: 1150px) {
+    body.room-page header .links,
+    body.price-page header .links,
+    body.terms-page header .links,
+    body.room-page header .nav > .book,
+    body.price-page header .nav > .book,
+    body.terms-page header .nav > .book {
+        display: none;
+    }
+
+    body.room-page header .menu-btn,
+    body.price-page header .menu-btn,
+    body.terms-page header .menu-btn {
+        display: block;
     }
 }
