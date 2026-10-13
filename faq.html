@@ -20,20 +20,81 @@
   </style>
 </head>
 <body class="page-home">
-  <header>
-    <div class="wrap nav">
-      <a class="logo" href="index.html">Placebo<small>ESCAPE ROOM</small></a>
-      <nav class="links">
-        <a href="index.html#rooms">חדרי הבריחה</a>
-        <a href="events.html">ימי הולדת ואירועים</a>
-        <a href="prices.html">מחירון</a>
-        <a href="faq.html" aria-current="page">שאלות ותשובות</a>
-        <a href="takanon.html">תקנון</a>
-        <a href="player-12.html">השחקן ה־12</a>
-      </nav>
-      <a class="book" href="index.html#rooms">להזמנה מהירה</a>
+<header><div class="wrap nav">
+<a class="logo" href="index.html">Placebo<small>ESCAPE ROOM</small></a>
+<nav class="links">
+
+  <div class="nav-dropdown">
+    <button class="nav-dropdown-toggle" type="button">
+      החוויות <span class="nav-arrow">⌄</span>
+    </button>
+    <div class="nav-dropdown-menu">
+      <a href="monastery.html">המנזר</a>
+      <a href="throne.html">משחקי הכס</a>
+      <a href="protectors.html">מגני הממלכה</a>
+      <a href="super-clasico.html">הסופר קלאסיקו</a>
+      <a href="social-media.html">המדיה החברתית</a>
     </div>
-  </header>
+  </div>
+
+  <div class="nav-dropdown">
+    <button class="nav-dropdown-toggle" type="button">
+      ימי הולדת ואירועים <span class="nav-arrow">⌄</span>
+    </button>
+    <div class="nav-dropdown-menu">
+      <a href="events.html#kids-events">ימי הולדת ילדים</a>
+      <a href="events.html#company-events">אירועי חברה</a>
+      <a href="events.html#adult-events">ימי הולדת למבוגרים</a>
+    </div>
+  </div>
+
+  <a href="index.html#gallery">לקוחות</a>
+  <a href="index.html#contact">צור קשר</a>
+  <a href="takanon.html">תקנון</a>
+  <a href="prices.html">מחירון</a>
+
+<a href="faq.html">שאלות ותשובות</a>
+  <a href="player-12.html">השחקן ה־12</a></nav>
+<a class="book" href="index.html#rooms">להזמנה מהירה</a><div class="menu-btn">☰</div>
+</div></header>
+<div class="mobile-menu" id="mobileMenu">
+
+  <div class="mobile-submenu">
+    <button class="mobile-submenu-toggle" type="button">
+      <span>החוויות</span>
+      <span class="mobile-submenu-arrow">⌄</span>
+    </button>
+
+    <div class="mobile-submenu-content">
+      <a href="monastery.html">המנזר</a>
+      <a href="throne.html">משחקי הכס</a>
+      <a href="protectors.html">מגני הממלכה</a>
+      <a href="super-clasico.html">הסופר קלאסיקו</a>
+      <a href="social-media.html">המדיה החברתית</a>
+    </div>
+  </div>
+
+  <div class="mobile-submenu">
+    <button class="mobile-submenu-toggle" type="button">
+      <span>ימי הולדת ואירועים</span>
+      <span class="mobile-submenu-arrow">⌄</span>
+    </button>
+
+    <div class="mobile-submenu-content">
+      <a href="events.html#kids-events">ימי הולדת ילדים</a>
+      <a href="events.html#company-events">אירועי חברה</a>
+      <a href="events.html#adult-events">ימי הולדת למבוגרים</a>
+    </div>
+  </div>
+
+  <a href="index.html#gallery">לקוחות</a>
+  <a href="index.html#contact">צור קשר</a>
+  <a href="takanon.html">תקנון</a>
+  <a href="prices.html">מחירון</a>
+
+<a href="faq.html">שאלות ותשובות</a>
+  <a href="player-12.html">השחקן ה־12</a></div>
+
 
   <main class="faq-main">
     <h1>שאלות ותשובות על חדרי הבריחה בפלסיבו</h1>
@@ -108,5 +169,38 @@
       <p><a href="prices.html">מחירון</a> · <a href="takanon.html">תקנון</a> · <a href="index.html">דף הבית</a></p>
     </div>
   </footer>
+<script>
+  // Mobile menu: use the same behavior as the other pages.
+  const menuBtn = document.querySelector('.menu-btn');
+  const mobileMenu = document.getElementById('mobileMenu');
+
+  if (menuBtn && mobileMenu) {
+    menuBtn.addEventListener('click', function () {
+      mobileMenu.classList.toggle('open');
+      menuBtn.textContent = mobileMenu.classList.contains('open') ? '✕' : '☰';
+    });
+
+    mobileMenu.querySelectorAll('a').forEach(function (link) {
+      link.addEventListener('click', function () {
+        mobileMenu.classList.remove('open');
+        menuBtn.textContent = '☰';
+      });
+    });
+  }
+
+  document.querySelectorAll('.mobile-submenu-toggle').forEach(function (button) {
+    button.addEventListener('click', function () {
+      const submenu = button.closest('.mobile-submenu');
+
+      document.querySelectorAll('.mobile-submenu').forEach(function (item) {
+        if (item !== submenu) {
+          item.classList.remove('open');
+        }
+      });
+
+      submenu.classList.toggle('open');
+    });
+  });
+</script>
 </body>
 </html>
