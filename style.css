@@ -918,3 +918,37 @@ body.page-home .home-seo-intro a {
     text-decoration: underline;
     text-underline-offset: 3px;
 }
+
+/* TERPECA awards section */
+.awards-section {
+  background: #173244;
+  color: #ffffff;
+  text-align: center;
+  padding: 50px 20px;
+}
+
+.awards-section h2 {
+  margin: 0 0 12px;
+  font-size: 28px;
+}
+
+.awards-section p {
+  margin: 0 0 28px;
+  opacity: 0.85;
+}
+
+.awards-section .awards-images {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 35px;
+}
+
+.awards-section .awards-images img {
+  display: block;
+  width: 150px;
+  height: 150px;
+  max-width: 100%;
+  object-fit: contain;
+}
