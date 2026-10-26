@@ -98,3 +98,16 @@ css/pages/podcast.css מגדיר משתנים רק בתוך body.podcast-page:
     python3 scripts/check_css_links.py
 הבדיקה מאתרת קובצי CSS מקומיים חסרים בקישורי HTML ובפקודות @import.
 זו בדיקת נתיבים בלבד; היא אינה מחליפה בדיקות עיצוב בדפדפן.
+
+
+ניהול צבעים נוח
+----------------
+1. css/variables.css — צבעי המותג והאתר המשותפים.
+2. css/core/theme-variables.css — התאמות ומשתנים לפי סוג עמוד;
+   כאן גם נמצאת פלטת המנזר העצמאית.
+3. css/core/site-overrides.css — עיצוב מעודכן שמשתמש במשתנים.
+4. css/pages/podcast.css — צבעים ייחודיים לפודקאסט.
+
+כדי לשנות צבע מותג: התחילו ב-css/variables.css.
+כדי לשנות צבע רק במנזר: ערכו את body.theme-monastery בקובץ theme-variables.css.
+אל תשנו את סדר @import בקובצי הכניסה ללא בדיקת עמודים.
