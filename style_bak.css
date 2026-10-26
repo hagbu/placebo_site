@@ -1,5 +1,6 @@
 /* Legacy styles are split by responsibility and loaded in their original order.
    Keep this order until the full CSS cleanup and visual regression checks finish. */
+@import url("css/core/theme-variables.css");
 @import url("css/core/legacy-home.css");
 @import url("css/core/legacy-rooms.css");
 @import url("css/core/legacy-pages.css");
