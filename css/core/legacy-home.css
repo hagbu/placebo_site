@@ -10,33 +10,8 @@
 
    אפשר לשנות Theme של חדר בלי להשפיע על חדר אחר.
 */
-/* =====================================================
-   MAIN SITE COLORS
-   שינוי כאן משנה את כל האתר חוץ מהמנזר
-   ===================================================== */
-
-:root{
-/*  --home-bg:#102131; הגוון הכחול שהיה בהתחלה*/
-  --home-bg:#dcebf2;
-  --home-panel:#17344a;
-  --home-panel2:#1d425a;
-  --home-line:#2f7fa2;
-
-  --home-text:#ffffff;
-  --home-muted:#c6dbe5;
-
-  --home-red:#32b8e6;
-  --home-red2:#5865f2;
-  --home-accent:#f4bd45;
-
-  --home-button-start:#29c2f2;
-  --home-button-end:#665cf5;
-
-  /* Shared header / common surfaces */
-  --home-header-bg:#b9b9b9;
-  --home-header-text:#ffffff;
-  --home-soft-bg:#102131;
-}
+/* Shared root color tokens live in css/variables.css.
+   The theme-specific variables below remain here. */
 
 /* ===================== COLOR CONTROL ===================== */
 body.page-home{
