@@ -22,12 +22,21 @@ css/pages/podcast.css   - הפודקאסט (player-12.html)
 
 עיצוב משותף / עיצוב ישן שעדיין בשימוש
 --------------------------------------
-style.css               - עיצוב משלים ועדכונים; טוען את הקבצים המשותפים
-style_bak.css           - עיצוב בסיסי ישן, עדיין פעיל דרך style.css
+style.css               - קובץ הכניסה הראשי; מייבא CSS לפי סדר קבוע
+style_bak.css           - קובץ כניסה לעיצוב הישן, מחולק לשישה קבצים תחת css/core/
+css/core/legacy-home.css              - בסיס דף הבית
+css/core/legacy-rooms.css             - בסיס חדרי הבריחה
+css/core/legacy-pages.css             - עמודי מחיר ותקנון
+css/core/legacy-unified.css           - עיצוב אחיד בין עמודים
+css/core/legacy-booking-navigation.css - הזמנות וניווט
+css/core/legacy-location-footer.css   - מיקום ופוטר
+css/core/site-overrides.css           - התאמות העיצוב העדכניות
+css/core/responsive-header.css        - התאמות ניווט רספונסיבי
+css/pages/home-extras.css             - תוספות לדף הבית
 events.css              - קובץ האירועים המקורי, נשמר זמנית להשוואה
 
-אין למחוק את style_bak.css או לשנות את סדר הטעינה לפני השלמת
-ארגון העיצוב ובדיקת כל העמודים.
+הקבצים חולקו ללא שינוי מכוון בסדר הכללים המקורי.
+אין לשנות את סדר הייבוא לפני בדיקות רגרסיה של כל העמודים.
 
 סדר טעינת קבצים
 ----------------
