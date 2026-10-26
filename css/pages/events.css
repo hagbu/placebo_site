@@ -80,7 +80,7 @@ body.events-page .links a {
     opacity: .9;
 }
 
-body.events-page .links a: hover,body.events-page .links a.active {
+body.events-page .links a:hover,body.events-page .links a.active {
     opacity: 1;
     color: #102131;
 }
@@ -267,7 +267,7 @@ body.events-page .mobile-menu {
     position: relative;
 }
 
-.event-link: hover {
+.event-link:hover {
     border-color: var(--home-red,#32b8e6);
     transform: translateY(-1px);
 }
@@ -453,11 +453,11 @@ body.events-page .mobile-menu {
     font-weight: 900;
 }
 
-.number-control button: first-child {
+.number-control button:first-child {
     border-radius: 10px 0 0 10px;
 }
 
-.number-control button: last-child {
+.number-control button:last-child {
     border-radius: 0 10px 10px 0;
 }
 
@@ -760,7 +760,7 @@ body.events-page footer p {
         font-weight: 700;
     }
 
-    body.events-page .mobile-menu a: last-child {
+    body.events-page .mobile-menu a:last-child {
         border-bottom: 0;
     }
 
@@ -961,6 +961,6 @@ body.events-page footer p {
     color: #ffffff;
 }
 
-.events-page .nav-dropdown-menu a: hover {
+.events-page .nav-dropdown-menu a:hover {
     background: #1d425a;
 }
