@@ -1,6 +1,6 @@
 /* Podcast page styles. Kept separate for easier maintenance. */
 
-:root {
+body.podcast-page {
     --g: #e5a82b;
     --d: #071019;
     --p: #101a24;
