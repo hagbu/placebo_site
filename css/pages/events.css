@@ -419,7 +419,7 @@ body.events-page .mobile-menu {
     font-weight: 800;
 }
 
-.choice-card input: checked+span {
+.choice-card input:checked+span {
     border-color: #70ddff;
     background: rgba(41,194,242,.14);
     box-shadow: inset 0 0 0 1px rgba(112,221,255,.3);
@@ -512,7 +512,7 @@ body.events-page .mobile-menu {
     font-size: 18px;
 }
 
-.room-count-row input: checked+span {
+.room-count-row input:checked+span {
     background: linear-gradient(135deg,#29c2f2,#665cf5);
     border-color: transparent;
 }
@@ -554,7 +554,7 @@ body.events-page .mobile-menu {
     white-space: nowrap;
 }
 
-.room-choice input: checked+span {
+.room-choice input:checked+span {
     border-color: #70ddff;
     background: rgba(41,194,242,.15);
 }
@@ -565,7 +565,7 @@ body.events-page .mobile-menu {
 
 .room-choice.disabled {
     opacity: .38;
-    cursor: not-allowed;
+    cursor:not-allowed;
 }
 
 .room-warning {
@@ -689,9 +689,9 @@ body.events-page .mobile-menu {
     padding: 0 14px;
 }
 
-.whatsapp-send: disabled {
+.whatsapp-send:disabled {
     opacity: .38;
-    cursor: not-allowed;
+    cursor:not-allowed;
     filter: grayscale(.4);
 }
 
