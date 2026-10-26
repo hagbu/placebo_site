@@ -8,68 +8,7 @@
    Room-specific theme rules are maintained separately.
    ========================================================== */
 
-/* Home page: compatibility aliases and hero defaults. */
-body.page-home {
-    --bg: var(--home-bg);
-    --panel: var(--home-panel);
-    --panel2: var(--home-panel2);
-    --line: var(--home-line);
-    --text: var(--home-text);
-    --muted: var(--home-muted);
-    --red: var(--home-red);
-    --red2: var(--home-red2);
-    --gold: var(--home-accent);
-    --button-start: var(--home-button-start);
-    --button-end: var(--home-button-end);
-
-    --primary-start: #21a7ba;
-    --primary-end: #13798a;
-
-    --header-bg: #b9b9b9;
-    --header-text: #182b35;
-
-    --hero-text: #ffffff;
-    --hero-shadow: rgba(0, 0, 0, .78);
-    --hero-dark: rgba(0, 0, 0, .42);
-    --hero-soft: rgba(0, 0, 0, .18);
-    --hero-edge: #ffffff;
-
-    --image-tag-bg: rgba(19, 42, 52, .82);
-    --image-tag-text: #ffffff;
-    --shadow: rgba(24, 43, 53, .14);
-}
-
-/* Shared palette for room pages (except the monastery), prices and terms. */
-body.theme-throne,
-body.theme-social,
-body.theme-protectors,
-body.theme-soccer,
-body.price-page,
-body.terms-page {
-    --bg: var(--home-bg);
-    --panel: var(--home-panel);
-    --panel2: var(--home-panel2);
-    --line: var(--home-line);
-    --text: var(--home-text);
-    --muted: var(--home-muted);
-    --red: var(--home-red);
-    --accent: var(--home-accent);
-    --button-start: var(--home-button-start);
-    --button-end: var(--home-button-end);
-}
-
-/* The monastery deliberately keeps its independent dark/red palette. */
-body.theme-monastery {
-    --bg: #050505;
-    --panel: #101010;
-    --line: #292929;
-    --text: #fff;
-    --muted: #b9b9b9;
-    --red: #d31319;
-    --accent: #c20f16;
-    --button-start: #e52027;
-    --button-end: #aa090e;
-}
+/* Theme variables are defined in css/core/theme-variables.css. */
 
 /* ===================== HOME PAGE ===================== */
 body.page-home, body.page-home *{box-sizing:border-box}
