@@ -1,124 +1,75 @@
-/* ============================================================
-   PLACEBO ESCAPE ROOM - SHARED STYLESHEET
-   ============================================================
+/* ==========================================================
+   LEGACY HOME & SHARED THEME VARIABLES
 
-   איך עובדים מכאן:
-   1) צבעים בסיסיים של כל עמוד/חדר נמצאים מיד מתחת לכותרת COLOR CONTROL.
-   2) עיצוב דף הבית נמצא ב-HOME PAGE.
-   3) כל דפי החדרים חולקים ROOM PAGE BASE, ולכל חדר יש THEME נפרד.
-   4) מחירון ותקנון נמצאים בסוף בקבוצות נפרדות.
+   Global colors: css/variables.css
+   Current home overrides: css/core/site-overrides.css
 
-   אפשר לשנות Theme של חדר בלי להשפיע על חדר אחר.
-*/
-/* Shared root color tokens live in css/variables.css.
-   The theme-specific variables below remain here. */
+   Keep the variables here for compatibility with existing pages.
+   Room-specific theme rules are maintained separately.
+   ========================================================== */
 
-/* ===================== COLOR CONTROL ===================== */
-body.page-home{
-  /* ===== HOME THEME - כל צבעי עמוד הבית נשלטים מכאן ===== */
+/* Home page: compatibility aliases and hero defaults. */
+body.page-home {
+    --bg: var(--home-bg);
+    --panel: var(--home-panel);
+    --panel2: var(--home-panel2);
+    --line: var(--home-line);
+    --text: var(--home-text);
+    --muted: var(--home-muted);
+    --red: var(--home-red);
+    --red2: var(--home-red2);
+    --gold: var(--home-accent);
+    --button-start: var(--home-button-start);
+    --button-end: var(--home-button-end);
 
-  /*!* רקע כללי *!*/
-  /*--bg:#f7f8f6;*/
+    --primary-start: #21a7ba;
+    --primary-end: #13798a;
 
-  /*!* משטחים / כרטיסים *!*/
-  /*--panel:#ffffff;*/
-  /*--panel2:#eef5f6;*/
+    --header-bg: #b9b9b9;
+    --header-text: #182b35;
 
-  /*!* צבעי אזורים - בשביל קצב בין לבן לגוון עדין *!*/
-  /*--section-light:#ffffff;*/
-  /*--section-soft:#eef5f6;*/
-  /*--section-accent:#f8f2e7;*/
+    --hero-text: #ffffff;
+    --hero-shadow: rgba(0, 0, 0, .78);
+    --hero-dark: rgba(0, 0, 0, .42);
+    --hero-soft: rgba(0, 0, 0, .18);
+    --hero-edge: #ffffff;
 
-  /*!* קווים ומסגרות *!*/
-  /*--line:#d9e2e3;*/
-
-  /*!* טקסט *!*/
-  /*--text:#182b35;*/
-  /*--muted:#6d7d83;*/
-
-  /*!* צבע ראשי - טורקיז בוגר *!*/
-  /*--red:#1799ad;*/
-  /*--red2:#126f80;*/
-
-  /*!* צבע חם *!*/
-  /*--gold:#f2ad32;*/
-
-  /*!* כפתורים חמים *!*/
-  /*--button-start:#21a7ba;*/
-  /*--button-end:#13798a;*/
-
-  --bg:var(--home-bg);
-  --panel:var(--home-panel);
-  --panel2:var(--home-panel2);
-  --line:var(--home-line);
-
-  --text:var(--home-text);
-  --muted:var(--home-muted);
-
-  --red:var(--home-red);
-  --red2:var(--home-red2);
-  --gold:var(--home-accent);
-
-  --button-start:var(--home-button-start);
-  --button-end:var(--home-button-end);
-
-  /* כפתורים כחולים */
-  --primary-start:#21a7ba;
-  --primary-end:#13798a;
-
-  /* ===== HEADER ===== */
-  --header-bg:#b9b9b9;
-  --header-text:#182b35;
-
-  /* ===== HERO ===== */
-  /* הטקסט שעל הקולאז' נשאר לבן */
-  --hero-text:#ffffff;
-  --hero-shadow:rgba(0,0,0,.78);
-  --hero-dark:rgba(0,0,0,.42);
-  --hero-soft:rgba(0,0,0,.18);
-  --hero-edge:#ffffff;
-
-  /* תגיות שמופיעות על תמונות */
-  --image-tag-bg:rgba(19,42,52,.82);
-  --image-tag-text:#ffffff;
-
-  /* צללים */
-  --shadow:rgba(24,43,53,.14);
+    --image-tag-bg: rgba(19, 42, 52, .82);
+    --image-tag-text: #ffffff;
+    --shadow: rgba(24, 43, 53, .14);
 }
 
-/* =====================================================
-   כל העמודים משתמשים בצבעי עמוד הבית
-   ===================================================== */
-
+/* Shared palette for room pages (except the monastery), prices and terms. */
 body.theme-throne,
 body.theme-social,
 body.theme-protectors,
 body.theme-soccer,
 body.price-page,
-body.terms-page{
-  --bg:var(--home-bg);
-  --panel:var(--home-panel);
-  --panel2:var(--home-panel2);
-  --line:var(--home-line);
-
-  --text:var(--home-text);
-  --muted:var(--home-muted);
-
-  --red:var(--home-red);
-  --accent:var(--home-accent);
-
-  --button-start:var(--home-button-start);
-  --button-end:var(--home-button-end);
+body.terms-page {
+    --bg: var(--home-bg);
+    --panel: var(--home-panel);
+    --panel2: var(--home-panel2);
+    --line: var(--home-line);
+    --text: var(--home-text);
+    --muted: var(--home-muted);
+    --red: var(--home-red);
+    --accent: var(--home-accent);
+    --button-start: var(--home-button-start);
+    --button-end: var(--home-button-end);
 }
 
-body.theme-monastery{
-  --bg:#050505; --panel:#101010; --line:#292929;
-  --text:#fff; --muted:#b9b9b9; --red:#d31319; --accent:#c20f16;
-  --button-start:#e52027; --button-end:#aa090e;
+/* The monastery deliberately keeps its independent dark/red palette. */
+body.theme-monastery {
+    --bg: #050505;
+    --panel: #101010;
+    --line: #292929;
+    --text: #fff;
+    --muted: #b9b9b9;
+    --red: #d31319;
+    --accent: #c20f16;
+    --button-start: #e52027;
+    --button-end: #aa090e;
 }
-
-
-
 
 /* ===================== HOME PAGE ===================== */
 body.page-home, body.page-home *{box-sizing:border-box}
