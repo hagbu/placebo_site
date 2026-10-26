@@ -80,3 +80,13 @@ super-clasico.html  -> theme-soccer
 - לשמור על העיצוב הקיים בזמן הארגון.
 
 תמונות מוחלפות בקובצי HTML באמצעות src= כפי שהיה עד היום.
+
+
+משתני צבע ייחודיים לפודקאסט
+---------------------------
+css/pages/podcast.css מגדיר משתנים רק בתוך body.podcast-page:
+    --podcast-gold
+    --podcast-background
+    --podcast-panel
+    --podcast-muted
+כך אפשר לשנות את צבעי הפודקאסט בלי לשנות את צבעי שאר האתר.
