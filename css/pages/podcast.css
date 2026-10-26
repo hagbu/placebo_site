@@ -1,14 +1,14 @@
 /* Podcast page styles. Kept separate for easier maintenance. */
 
 body.podcast-page {
-    --g: #e5a82b;
-    --d: #071019;
-    --p: #101a24;
-    --m: #b8c1c9;
+    --podcast-gold: #e5a82b;
+    --podcast-background: #071019;
+    --podcast-panel: #101a24;
+    --podcast-muted: #b8c1c9;
 }
 
 body.podcast-page {
-    background: var(--d);
+    background: var(--podcast-background);
     color: #f7f4ea;
 }
 
@@ -44,7 +44,7 @@ body.podcast-page {
 }
 
 .kicker {
-    color: var(--g);
+    color: var(--podcast-gold);
     font-weight: 900;
 }
 
@@ -55,7 +55,7 @@ body.podcast-page {
 }
 
 .p12-hero h1 span {
-    color: var(--g);
+    color: var(--podcast-gold);
 }
 
 .p12-hero p {
@@ -114,7 +114,7 @@ body.podcast-page {
 }
 
 .title12 p, .copy12 p {
-    color: var(--m);
+    color: var(--podcast-muted);
     font-size: 18px;
     line-height: 1.8;
 }
@@ -145,7 +145,7 @@ body.podcast-page {
 }
 
 .topic p {
-    color: var(--m);
+    color: var(--podcast-muted);
     margin: 0;
     line-height: 1.6;
 }
@@ -184,7 +184,7 @@ body.podcast-page {
 }
 
 .community-copy {
-    background: var(--p);
+    background: var(--podcast-panel);
     border: 1px solid #2b3b47;
     border-radius: 25px;
     padding: 34px;
@@ -199,7 +199,7 @@ body.podcast-page {
 }
 
 .community-copy p {
-    color: var(--m);
+    color: var(--podcast-muted);
     line-height: 1.8;
 }
 
