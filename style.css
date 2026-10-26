@@ -1,23 +1,5 @@
 @import url("style_bak.css");
-
-:root {
-    --home-bg: #dcebf2;
-    --home-panel: #f9fcfd;
-    --home-panel2: #edf6fa;
-    --home-line: #b7d4df;
-    --home-text: #17384a;
-    --home-muted: #607d8b;
-    --home-red: #168eae;
-    --home-red2: #126f89;
-    --home-accent: #e6a62e;
-    --home-button-start: #24afd1;
-    --home-button-end: #4f69df;
-    --home-header-bg: rgba(249, 252, 253, .96);
-    --home-header-text: #17384a;
-    --home-soft-bg: #edf6fa;
-    --light-shadow: rgba(39, 79, 99, .13);
-    --light-shadow-strong: rgba(39, 79, 99, .20)
-}
+@import url("css/variables.css");
 
 body.page-home {
     --bg: var(--home-bg);
