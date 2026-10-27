@@ -1,17 +1,113 @@
-PLACEBO - STYLE GUIDE
+PLACEBO - CSS STYLE GUIDE
+=========================
 
-1. כל הצבעים והעיצוב נמצאים ב-style.css.
-2. בתחילת style.css יש COLOR CONTROL - זה המקום הראשון לשינוי צבעים.
-3. דפי חדרים:
-   monastery.html      -> theme-monastery
-   throne.html         -> theme-throne
-   social-media.html   -> theme-social
-   protectors.html     -> theme-protectors
-   super-clasico.html  -> theme-soccer
-4. שינוי בתוך THEME מסוים משפיע רק על אותו חדר.
-5. ROOM PAGE BASE משפיע על כל חמשת דפי החדרים.
-6. HOME PAGE משפיע רק על index.html.
-7. PRICE PAGES משפיע על שני המחירונים.
-8. TERMS PAGE משפיע רק על התקנון.
+מטרה
+-----
+עיצוב קריא, מסודר, עם הפרדה בין עיצוב משותף לעיצוב של עמוד בודד.
+כל שינוי צריך להישאר קטן, ברור וקל לבדיקה.
 
-תמונות עדיין מחליפים ב-HTML דרך src=... כפי שעשינו עד היום.
+איפה משנים צבעים?
+------------------
+css/variables.css
+    משתני הצבע המשותפים לדף הבית ולרכיבים שמשתמשים בהם.
+    למשל --home-red, --home-bg, --home-text, --home-button-start.
+    שימו לב: עדיין קיימים צבעים שנכתבו ישירות בקבצים אחרים;
+    לא כל צבע באתר נשלט כרגע דרך variables.css.
+
+עיצוב ייחודי לעמוד
+------------------
+css/pages/faq.css       - שאלות ותשובות (faq.html)
+css/pages/events.css    - אירועים (events.html)
+css/pages/podcast.css   - הפודקאסט (player-12.html)
+
+עיצוב משותף / עיצוב ישן שעדיין בשימוש
+--------------------------------------
+style.css               - קובץ הכניסה הראשי; מייבא CSS לפי סדר קבוע
+style_bak.css           - קובץ כניסה לעיצוב הישן, מחולק לשישה קבצים תחת css/core/
+css/core/legacy-home.css              - בסיס דף הבית
+css/core/legacy-rooms.css             - בסיס חדרי הבריחה
+css/core/legacy-pages.css             - עמודי מחיר ותקנון
+css/core/legacy-unified.css           - עיצוב אחיד בין עמודים
+css/core/legacy-booking-navigation.css - הזמנות וניווט
+css/core/legacy-location-footer.css   - מיקום ופוטר
+css/core/site-overrides.css           - התאמות העיצוב העדכניות
+css/core/responsive-header.css        - התאמות ניווט רספונסיבי
+css/pages/home-extras.css             - תוספות לדף הבית
+events.css              - קובץ האירועים המקורי, נשמר זמנית להשוואה
+
+הקבצים חולקו ללא שינוי מכוון בסדר הכללים המקורי.
+אין לשנות את סדר הייבוא לפני בדיקות רגרסיה של כל העמודים.
+
+סדר טעינת קבצים
+----------------
+ברוב העמודים:
+    style.css
+    (בתוכו: style_bak.css ואחריו css/variables.css)
+
+בעמודים מיוחדים:
+    faq.html       -> style.css ואז css/pages/faq.css
+    events.html    -> style.css ואז css/pages/events.css
+    player-12.html -> style.css ואז css/pages/podcast.css
+
+קובץ שניטען אחרון עשוי לדרוס כללים מקובץ קודם.
+יש לשמור על סדר הטעינה כשמארגנים את העיצוב.
+
+חדרי בריחה
+----------
+monastery.html      -> theme-monastery
+throne.html         -> theme-throne
+social-media.html   -> theme-social
+protectors.html     -> theme-protectors
+super-clasico.html  -> theme-soccer
+
+חלק מהצבעים של החדרים מוגדרים בתוך ה-theme שלהם.
+לא משנים את העיצוב המיוחד של חדר בלי לבדוק אותו בנפרד.
+
+הוספת עמוד חדש בעתיד
+---------------------
+1. להשתמש ב-style.css לעיצוב המשותף.
+2. אם יש עיצוב ייחודי משמעותי, ליצור css/pages/<page-name>.css.
+3. לטעון את קובץ העמוד אחרי style.css.
+4. להשתמש במשתנים משותפים ככל שניתן.
+5. לבדוק תצוגת מחשב, מובייל, תפריטים וקישורים.
+
+כללי כתיבת CSS
+---------------
+- כל selector וכל מאפיין יהיו קריאים, עם הזחות עקביות.
+- לא לדחוס הרבה כללים לשורה אחת.
+- להעדיף שינוי במקום המקורי על הוספת דריסה בסוף הקובץ.
+- לא לשנות שמות class בלי לוודא שכל HTML/JavaScript תואם.
+- לשמור על העיצוב הקיים בזמן הארגון.
+
+תמונות מוחלפות בקובצי HTML באמצעות src= כפי שהיה עד היום.
+
+
+משתני צבע ייחודיים לפודקאסט
+---------------------------
+css/pages/podcast.css מגדיר משתנים רק בתוך body.podcast-page:
+    --podcast-gold
+    --podcast-background
+    --podcast-panel
+    --podcast-muted
+כך אפשר לשנות את צבעי הפודקאסט בלי לשנות את צבעי שאר האתר.
+
+
+בדיקת קישורים לקובצי CSS
+------------------------
+לאחר הוספת עמוד או שינוי נתיבי CSS, להריץ מתיקיית הפרויקט:
+    python3 scripts/check_css_links.py
+הבדיקה מאתרת קובצי CSS מקומיים חסרים בקישורי HTML ובפקודות @import.
+זו בדיקת נתיבים בלבד; היא אינה מחליפה בדיקות עיצוב בדפדפן.
+
+
+ניהול צבעים נוח
+----------------
+1. css/variables.css — צבעי המותג והאתר המשותפים.
+2. css/core/theme-variables.css — התאמות ומשתנים לפי סוג עמוד;
+   כאן גם נמצאת פלטת המנזר העצמאית.
+3. css/core/site-overrides.css — עיצוב מעודכן שמשתמש במשתנים.
+4. css/pages/podcast.css — צבעים ייחודיים לפודקאסט.
+
+כדי לשנות צבע מותג: התחילו ב-css/variables.css.
+כדי לשנות צבע רק במנזר: ערכו את body.theme-monastery בקובץ theme-variables.css.
+אל תשנו את סדר @import בקובצי הכניסה ללא בדיקת עמודים.

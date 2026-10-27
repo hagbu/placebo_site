@@ -1,0 +1,67 @@
+/* Homepage: informational copy between the room cards and highlights. */
+body.page-home .home-seo-intro {
+    padding: 52px 0;
+    background: var(--section-light, #f8fcfd);
+    color: var(--text, #17384a);
+}
+
+body.page-home .home-seo-intro .wrap {
+    max-width: 950px;
+}
+
+body.page-home .home-seo-intro h2 {
+    margin: 0 0 14px;
+    font-size: clamp(26px, 3vw, 36px);
+}
+
+body.page-home .home-seo-intro h2:not(:first-child) {
+    margin-top: 30px;
+}
+
+body.page-home .home-seo-intro p {
+    margin: 0;
+    font-size: 17px;
+    line-height: 1.9;
+}
+
+body.page-home .home-seo-intro a {
+    color: var(--red, #168eae);
+    font-weight: 700;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+/* TERPECA awards section */
+.awards-section {
+  background: #173244;
+  color: #ffffff;
+  text-align: center;
+  padding: 50px 20px;
+}
+
+.awards-section h2 {
+  margin: 0 0 12px;
+  font-size: 28px;
+}
+
+.awards-section p {
+  margin: 0 0 28px;
+  opacity: 0.85;
+}
+
+.awards-section .awards-images {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 35px;
+}
+
+.awards-section .awards-images img {
+  display: block;
+  width: 150px;
+  height: 150px;
+  max-width: 100%;
+  object-fit: contain;
+}
+

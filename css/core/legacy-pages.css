@@ -1,0 +1,176 @@
+/* ===================== PRICE PAGES ===================== */
+body.price-page, body.price-page *{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body.price-page{margin:0;font-family:Arial,Helvetica,sans-serif;background:radial-gradient(circle at 50% -10%,rgba(180,0,0,.15),transparent 30%),var(--bg);color:var(--text)}
+body.price-page a{color:inherit;text-decoration:none}
+body.price-page .wrap{width:min(1040px,calc(100% - 28px));margin:auto}
+body.price-page header{position:sticky;top:0;z-index:50;background:rgba(0,0,0,.94);border-bottom:1px solid var(--line);backdrop-filter:blur(12px)}
+body.price-page .nav{min-height:72px;display:flex;align-items:center;justify-content:space-between;gap:22px}
+body.price-page .logo{font-size:30px;font-weight:900;line-height:.86}
+body.price-page .logo small{display:block;color:#f21c25;font-size:11px;letter-spacing:2.2px;margin-top:7px}
+body.price-page .links{display:flex;gap:22px;font-weight:700;color:#ddd}
+body.price-page .links a:hover{color:#fff}
+body.price-page .book{background:linear-gradient(var(--button-start),var(--button-end));padding:13px 20px;border-radius:9px;font-weight:900}
+body.price-page .menu-btn{display:none;font-size:28px;cursor:pointer;user-select:none}
+body.price-page .mobile-menu{display:none}
+body.price-page .hero{text-align:center;padding:72px 0 38px}
+body.price-page .hero .eyebrow{color:#ff3b42;font-weight:900;font-size:14px;letter-spacing:1px}
+body.price-page .hero h1{margin:10px 0 12px;font-size:clamp(46px,7vw,74px);letter-spacing:-2px}
+body.price-page .hero p{color:var(--muted);font-size:18px;line-height:1.7;margin:0 auto;max-width:720px}
+body.price-page .price-card{background:linear-gradient(180deg,#111,#090909);border:1px solid var(--line);border-radius:20px;overflow:hidden;margin-bottom:20px;box-shadow:0 22px 60px rgba(0,0,0,.35)}
+body.price-page .price-card h2{margin:0;padding:25px 24px;text-align:center;font-size:28px;border-bottom:1px solid var(--line)}
+body.price-page .price-card h2 span{color:var(--red)}
+body.price-page table{width:100%;border-collapse:collapse;text-align:center}
+body.price-page th{background:#151515;color:#fff;font-size:17px;padding:17px 10px;border-bottom:2px solid var(--red)}
+body.price-page td{padding:17px 10px;border-bottom:1px solid #292929;font-size:18px;font-weight:700}
+body.price-page tr:last-child td{border-bottom:0}
+body.price-page tbody tr:hover{background:#121212}
+body.price-page .notes, body.price-page .extras{background:#0e0e0e;border:1px solid var(--line);border-radius:18px;padding:26px;margin-bottom:18px}
+body.price-page .notes h2, body.price-page .extras h2{margin:0 0 15px;font-size:26px}
+body.price-page ul{margin:0;padding-right:22px;color:#d0d0d0;line-height:1.85}
+body.price-page li+li{margin-top:7px}
+body.price-page .extras-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+body.price-page .extra{background:#151515;border:1px solid #292929;border-radius:13px;padding:18px}
+body.price-page .extra b{display:block;font-size:19px;margin-bottom:7px}
+body.price-page .extra span{color:#ff3b42;font-size:21px;font-weight:900}
+body.price-page .small{color:#aaa;line-height:1.7;margin:18px 0 0}
+body.price-page .back-row{display:flex;gap:12px;justify-content:center;margin:28px 0 70px;flex-wrap:wrap}
+body.price-page .secondary{padding:13px 20px;border-radius:9px;border:1px solid #555;font-weight:800;background:#111}
+body.price-page footer{border-top:1px solid #202020;padding:32px 0 90px;color:#999;text-align:center}
+body.price-page .mobile-book{display:none}
+@media (max-width:850px){
+body.price-page .links, body.price-page .nav>.book{display:none}
+body.price-page .menu-btn{display:block}
+body.price-page .mobile-menu{position:fixed;top:66px;right:0;left:0;z-index:9999;background:#080808;border-block:1px solid #2a2a2a;padding:10px 20px 18px}
+body.price-page .mobile-menu.open{display:block}
+body.price-page .mobile-menu a{display:block;padding:15px 4px;border-bottom:1px solid #222;font-weight:700}
+body.price-page .mobile-menu a:last-child{border-bottom:0}
+}
+@media (max-width:620px){
+body.price-page .nav{min-height:66px}
+body.price-page .logo{font-size:26px}
+body.price-page .hero{padding:50px 0 28px}
+body.price-page .extras-grid{grid-template-columns:1fr}
+body.price-page th, body.price-page td{font-size:15px;padding:14px 6px}
+body.price-page .notes, body.price-page .extras{padding:21px 17px}
+body.price-page .mobile-book{display:flex;position:fixed;z-index:100;right:12px;left:12px;bottom:12px;min-height:56px;align-items:center;justify-content:center;border-radius:14px;background:linear-gradient(var(--button-start),var(--button-end));font-weight:900;box-shadow:0 12px 36px rgba(0,0,0,.62)}
+}
+
+
+/* ===================== TERMS PAGE ===================== */
+body.terms-page, body.terms-page *{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body.terms-page{margin:0;font-family:Arial,Helvetica,sans-serif;background:radial-gradient(circle at 50% -10%,rgba(180,0,0,.14),transparent 28%),var(--bg);color:var(--text)}
+body.terms-page a{color:inherit;text-decoration:none}
+body.terms-page .wrap{width:min(1040px,calc(100% - 28px));margin:auto}
+body.terms-page header{position:sticky;top:0;z-index:50;background:rgba(0,0,0,.94);border-bottom:1px solid var(--line);backdrop-filter:blur(12px)}
+body.terms-page .nav{min-height:72px;display:flex;align-items:center;justify-content:space-between;gap:22px}
+body.terms-page .logo{font-size:30px;font-weight:900;line-height:.86}
+body.terms-page .logo small{display:block;color:#f21c25;font-size:11px;letter-spacing:2.2px;margin-top:7px}
+body.terms-page .links{display:flex;align-items:center;gap:22px;font-weight:700;color:#ddd}
+body.terms-page .links a:hover{color:#fff}
+body.terms-page .book{background:linear-gradient(var(--button-start),var(--button-end));padding:13px 20px;border-radius:9px;font-weight:900}
+body.terms-page .menu-btn{display:none;font-size:28px;cursor:pointer;user-select:none}
+body.terms-page .mobile-menu{display:none}
+body.terms-page .hero{text-align:center;padding:76px 0 44px}
+body.terms-page .hero .eyebrow{color:#ff3b42;font-weight:900;font-size:14px;letter-spacing:1px}
+body.terms-page .hero h1{margin:10px 0 12px;font-size:clamp(44px,7vw,74px);letter-spacing:-2px}
+body.terms-page .hero p{color:var(--muted);font-size:18px;line-height:1.7;margin:0 auto;max-width:720px}
+body.terms-page .notice{margin:0 auto 26px;border:1px solid #4d1618;background:linear-gradient(180deg,rgba(140,0,0,.15),rgba(140,0,0,.06));border-radius:14px;padding:16px 18px;color:#ddd;line-height:1.6}
+body.terms-page .rules{padding:0 0 74px}
+body.terms-page .rule-section{background:linear-gradient(180deg,#101010,#090909);border:1px solid var(--line);border-radius:18px;padding:28px;margin-bottom:16px}
+body.terms-page .rule-section h2{margin:0 0 16px;font-size:27px}
+body.terms-page .rule-section h2 span{color:var(--red)}
+body.terms-page .rule-section ul{margin:0;padding-right:22px;color:#d2d2d2;line-height:1.85}
+body.terms-page .rule-section li+li{margin-top:8px}
+body.terms-page .contact{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:22px}
+body.terms-page .contact div{background:#151515;border:1px solid #292929;border-radius:12px;padding:18px}
+body.terms-page .contact strong{display:block;margin-bottom:7px}
+body.terms-page .contact span{color:#bbb}
+body.terms-page .back-row{display:flex;gap:12px;justify-content:center;margin-top:28px;flex-wrap:wrap}
+body.terms-page .secondary{padding:13px 20px;border-radius:9px;border:1px solid #555;font-weight:800;background:#111}
+body.terms-page footer{border-top:1px solid #202020;padding:32px 0 90px;color:#999;text-align:center}
+body.terms-page .mobile-book{display:none}
+@media (max-width:850px){
+body.terms-page .links, body.terms-page .nav>.book{display:none}
+body.terms-page .menu-btn{display:block}
+body.terms-page .mobile-menu{position:fixed;top:66px;right:0;left:0;z-index:9999;background:#080808;border-block:1px solid #2a2a2a;padding:10px 20px 18px}
+body.terms-page .mobile-menu.open{display:block}
+body.terms-page .mobile-menu a{display:block;padding:15px 4px;border-bottom:1px solid #222;font-weight:700}
+body.terms-page .mobile-menu a:last-child{border-bottom:0}
+body.terms-page .contact{grid-template-columns:1fr}
+}
+@media (max-width:620px){
+body.terms-page .nav{min-height:66px}
+body.terms-page .logo{font-size:26px}
+body.terms-page .hero{padding:54px 0 30px}
+body.terms-page .rule-section{padding:22px 18px}
+body.terms-page .rule-section h2{font-size:23px}
+body.terms-page .mobile-book{display:flex;position:fixed;z-index:100;right:12px;left:12px;bottom:12px;min-height:56px;align-items:center;justify-content:center;border-radius:14px;background:linear-gradient(var(--button-start),var(--button-end));font-weight:900;box-shadow:0 12px 36px rgba(0,0,0,.62)}
+}
+
+
+/* =========================================================
+   HOME HERO - SINGLE IMAGE
+   To replace the hero later, replace images/home-hero.webp
+   ========================================================= */
+body.page-home .hero6{
+  position:relative;
+  min-height:clamp(520px,68vh,760px);
+  padding:0;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  overflow:hidden;
+  background:var(--bg);
+  border-bottom:1px solid var(--line);
+}
+body.page-home .home-hero-image{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:center center;
+  display:block;
+}
+body.page-home .home-hero-overlay{
+  position:absolute;
+  inset:0;
+  z-index:1;
+  background:linear-gradient(90deg,rgba(8,24,37,.46),rgba(8,24,37,.22),rgba(8,24,37,.46));
+}
+body.page-home .hero6-title{
+  position:relative;
+  z-index:2;
+  width:min(900px,calc(100% - 32px));
+  padding:48px 20px;
+  text-align:center;
+  color:var(--hero-text);
+  text-shadow:0 3px 18px var(--hero-shadow);
+}
+body.page-home .hero6-kicker{
+  color:var(--hero-text);
+  opacity:.92;
+}
+body.page-home .hero6-title h1{
+  color:var(--hero-text);
+  font-size:clamp(52px,6.5vw,92px);
+}
+body.page-home .hero6-title h1 span{color:var(--hero-text);}
+body.page-home .hero6-title p{
+  color:var(--hero-text);
+  font-size:clamp(18px,2vw,23px);
+}
+body.page-home .hero6 .secondary{
+  color:#fff;
+  border-color:rgba(255,255,255,.82);
+  background:rgba(9,31,45,.34);
+  backdrop-filter:blur(5px);
+}
+@media (max-width:620px){
+  body.page-home .hero6{min-height:610px;}
+  body.page-home .home-hero-image{object-position:center center;}
+  body.page-home .hero6-title{padding:34px 12px;}
+  body.page-home .hero6-title h1{font-size:46px;letter-spacing:-2px;}
+}
