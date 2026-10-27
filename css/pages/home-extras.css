@@ -31,6 +31,80 @@ body.page-home .home-seo-intro a {
     text-underline-offset: 3px;
 }
 
+/* Directions video: keep the same frame size before and after pressing Play. */
+body.page-home .directions-section {
+    padding: 52px 0;
+    background: var(--home-panel);
+    color: var(--home-text);
+    text-align: center;
+}
+
+body.page-home .directions-section h2 {
+    margin: 0 0 24px;
+    font-size: clamp(26px, 3vw, 36px);
+}
+
+body.page-home .directions-video {
+    position: relative;
+    width: 100%;
+    max-width: 900px;
+    min-height: 200px;
+    aspect-ratio: 16 / 9;
+    margin: 0 auto;
+    overflow: hidden;
+    border-radius: 16px;
+    background: var(--home-text);
+    box-shadow: 0 12px 30px var(--light-shadow);
+}
+
+body.page-home .directions-video-preview,
+body.page-home .directions-video iframe {
+    position: absolute;
+    inset: 0;
+    display: block;
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    border: 0;
+}
+
+body.page-home .directions-video-preview {
+    background: transparent;
+    color: #fff;
+    cursor: pointer;
+}
+
+body.page-home .directions-video-thumbnail {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+body.page-home .directions-video-play {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    display: grid;
+    place-items: center;
+    width: 76px;
+    height: 76px;
+    border: 2px solid #fff;
+    border-radius: 50%;
+    background: var(--home-red2);
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.3);
+    transform: translate(-50%, -50%);
+}
+
+body.page-home .directions-video-preview:hover .directions-video-play {
+    background: var(--home-red);
+}
+
+body.page-home .directions-video-preview:focus-visible {
+    outline: 4px solid var(--home-accent);
+    outline-offset: -6px;
+}
+
 /* TERPECA awards section */
 .awards-section {
   background: #173244;
