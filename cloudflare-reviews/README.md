@@ -85,14 +85,18 @@ python3 scripts/check_css_links.py
 Tests use SQLite and fake Google responses, not real credentials or reviewer data.
 They cover approval/hiding, updated and deleted reviews, stale content, encrypted
 tokens, OAuth replay and wrong accounts, authorization, CSRF and the selection cap.
-Live OAuth and the scheduled job still require verification in Cloudflare.
+Live OAuth, public display of four approved reviews, and manual synchronization
+have been verified. A six-hour Cron Trigger was saved in Cloudflare; its
+unattended execution was not separately observed during setup.
 
-The Google OAuth app is currently configured as External / Testing. Google can
-expire refresh tokens issued in testing after seven days for this scope. Before
-launch, complete Branding, privacy/terms information, move to the appropriate
-production publishing state, and complete any verification Google requires. The
-Business Profile API allowlist approval is separate from OAuth publication.
-During testing the admin supports reconnecting when a token expires.
+On 28 October 2026, the Google OAuth app was moved to External / In production,
+as confirmed by the console screenshot. Branding links and authorized domains
+were saved. The owner then reconnected Google and confirmed that a manual refresh
+displayed the success message. The new authorization is no longer subject to
+Testing's seven-day refresh-token lifetime. Revocation or other token-expiration
+conditions can still require reconnection. Business Profile API allowlist approval,
+OAuth production publishing, and separate branding verification are distinct;
+this status does not claim that branding verification was completed.
 
 The current service defaults to the verified account/location IDs and the existing
 Google Maps link. Optional variables `SERVICE_ORIGIN`, `PUBLIC_ORIGINS` (comma-separated
