@@ -70,18 +70,42 @@ body.page-home .title h2{font-size:43px;margin:0;letter-spacing:-1.7px}
 body.page-home .title h2 span{color:var(--red)}
 body.page-home .title p{color:var(--muted);font-size:18px;margin:10px 0 0}
 body.page-home .rooms{display:grid;grid-template-columns:repeat(5,1fr);gap:15px}
-body.page-home .room-card{background:linear-gradient(180deg,var(--panel),var(--panel2));border:1px solid var(--line);
- border-radius:16px;overflow:hidden;box-shadow:0 18px 50px var(--shadow);
- transition:.22s ease}
+body.page-home .room-card {
+    display: flex;
+    flex-direction: column;
+    background: linear-gradient(180deg,var(--panel),var(--panel2));
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 18px 50px var(--shadow);
+    transition: .22s ease;
+}
 body.page-home .room-card:hover{transform:translateY(-6px);border-color:var(--red)}
-body.page-home .room-img{height:315px;position:relative;overflow:hidden}
+body.page-home .room-img {
+    height: 315px;
+    flex-shrink: 0;
+    position: relative;
+    overflow: hidden;
+}
 body.page-home .room-img img{transition:.35s ease}
 body.page-home .room-card:hover .room-img img{transform:scale(1.04)}
 body.page-home .tag{position:absolute;top:12px;right:12px;background:var(--image-tag-bg);color:var(--image-tag-text);
  border:1px solid var(--line);border-radius:8px;padding:7px 10px;font-size:13px;font-weight:900}
-body.page-home .room-body{padding:17px}
+/* Let the copy absorb extra space so metadata and booking buttons stay aligned. */
+body.page-home .room-body {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    padding: 17px;
+}
 body.page-home .room-body h3{font-size:25px;margin:0 0 8px}
-body.page-home .room-body p{margin:0;color:var(--muted);line-height:1.56;min-height:92px}
+body.page-home .room-body p {
+    flex: 1;
+    margin: 0;
+    color: var(--muted);
+    line-height: 1.56;
+    min-height: 92px;
+}
 body.page-home .meta{display:flex;justify-content:space-between;gap:8px;padding:13px 0;margin:14px 0;
  border-top:1px solid var(--line);border-bottom:1px solid var(--line);color:var(--muted);font-size:12px}
 body.page-home .room-btn{display:block;background:linear-gradient(var(--button-start),var(--button-end));text-align:center;
