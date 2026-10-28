@@ -1,0 +1,56 @@
+/* Shared navigation typography for all pages.
+   Colors/backgrounds intentionally remain controlled by each page theme. */
+:root {
+  --nav-font-size: 16px;
+  --nav-font-weight: 700;
+  --mobile-nav-font-size: 18px;
+  --mobile-subnav-font-size: 16px;
+}
+
+/* Main desktop links and dropdown triggers use identical typography. */
+body header .links > a,
+body header .links > .nav-dropdown > .nav-dropdown-toggle {
+  font-size: var(--nav-font-size);
+  font-weight: var(--nav-font-weight);
+  line-height: 1.4;
+}
+
+/* Dropdown options match the navigation text across themes. */
+body header .nav-dropdown-menu a {
+  font-size: var(--nav-font-size);
+  font-weight: var(--nav-font-weight);
+  line-height: 1.4;
+}
+
+/* Keep the visually replaced first label in sync with the shared size. */
+body header .links > .nav-dropdown:first-child > .nav-dropdown-toggle::before {
+  font-size: var(--nav-font-size);
+  font-weight: var(--nav-font-weight);
+}
+
+body .mobile-menu > a,
+body .mobile-menu .mobile-submenu-toggle {
+  font-size: var(--mobile-nav-font-size);
+  font-weight: var(--nav-font-weight);
+  line-height: 1.4;
+}
+
+body .mobile-menu .mobile-submenu-content a {
+  font-size: var(--mobile-subnav-font-size);
+  font-weight: var(--nav-font-weight);
+  line-height: 1.4;
+}
+
+body .mobile-menu > .mobile-submenu:first-child > .mobile-submenu-toggle > span:first-child::before {
+  font-size: var(--mobile-nav-font-size);
+  font-weight: var(--nav-font-weight);
+}
+
+/* The podcast stylesheet loads after style.css; these more-specific
+   selectors preserve shared typography despite its font: inherit reset. */
+body.podcast-page .mobile-menu > a,
+body.podcast-page .mobile-menu .mobile-submenu-toggle {
+  font-size: var(--mobile-nav-font-size);
+  font-weight: var(--nav-font-weight);
+  line-height: 1.4;
+}
