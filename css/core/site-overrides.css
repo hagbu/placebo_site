@@ -359,6 +359,9 @@ body.page-home .book, body.theme-throne .book, body.theme-social .book, body.the
 }
 
 .review-avatar {
+    position: relative;
+    overflow: hidden;
+    flex-shrink: 0;
     width: 46px;
     height: 46px;
     border-radius: 50%;
@@ -368,6 +371,31 @@ body.page-home .book, body.theme-throne .book, body.theme-social .book, body.the
     color: #4285f4;
     font-weight: 900;
     font-size: 20px
+}
+
+.review-avatar img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.review-card p {
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+}
+
+.reviews-note a {
+    color: #24677c;
+    text-decoration: underline;
+}
+
+.reviews-arrow[hidden] { display: none; }
+
+.reviews-track:focus-visible, .reviews-arrow:focus-visible {
+    outline: 3px solid #247ea2;
+    outline-offset: 3px;
 }
 
 .google-mark {

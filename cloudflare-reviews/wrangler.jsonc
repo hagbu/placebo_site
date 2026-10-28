@@ -1,0 +1,24 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "placebo-reviews",
+  "main": "worker.js",
+  "compatibility_date": "2026-10-28",
+  "workers_dev": true,
+  "observability": { "enabled": false },
+  "triggers": { "crons": ["0 */6 * * *"] },
+  "d1_databases": [{
+    "binding": "DB",
+    "database_name": "placebo-reviews-db",
+    "database_id": "9f6a489e-880e-4115-b1d7-080a70b2e7bd"
+  }],
+  "vars": {
+    "SERVICE_ORIGIN": "https://placebo-reviews.hagbior.workers.dev",
+    "PUBLIC_ORIGINS": "https://hagbu.github.io,https://placebo.co.il,https://www.placebo.co.il",
+    "GOOGLE_ACCOUNT_ID": "108142947186819830415",
+    "GOOGLE_LOCATION_ID": "265165118537175429",
+    "GOOGLE_MAPS_URL": "https://maps.app.goo.gl/xHy1HUsoMLEGq3bR9"
+  },
+  // Add GOOGLE_CLIENT_ID as a variable, and GOOGLE_CLIENT_SECRET and
+  // ADMIN_PASSWORD as Secrets in the dashboard. Never put secrets here.
+  "keep_vars": true
+}
