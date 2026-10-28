@@ -1,0 +1,30 @@
+/* Dock mobile actions to the viewport; page styles keep their colors and visibility. */
+@media (max-width: 900px) {
+    body[class] a.mobile-book,
+    body[class] a.mobile-event-cta {
+        position: fixed;
+        top: auto;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        z-index: 120;
+        box-sizing: border-box;
+        margin: 0;
+        min-height: calc(58px + env(safe-area-inset-bottom, 0px));
+        padding-bottom: env(safe-area-inset-bottom, 0px);
+        border-radius: 14px 14px 0 0;
+    }
+
+    body.events-page:has(> .mobile-event-cta) footer {
+        padding-bottom: calc(110px + env(safe-area-inset-bottom, 0px));
+    }
+}
+
+@media (max-width: 620px) {
+    body.page-home footer,
+    body.room-page footer,
+    body.price-page footer,
+    body.terms-page footer {
+        padding-bottom: calc(105px + env(safe-area-inset-bottom, 0px));
+    }
+}
