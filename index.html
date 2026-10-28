@@ -387,13 +387,13 @@
   </div>
 </section>
 
-<!-- Directions video: the video ID is configured in directions-video.js. -->
+<!-- Directions video: the MP4 path is configured in directions-video.js. -->
 <section class="directions-section" aria-labelledby="directions-heading">
   <div class="wrap">
     <h2 id="directions-heading">איך מגיעים אלינו?</h2>
     <div class="directions-video" id="directions-video">
       <button class="directions-video-preview" type="button" aria-label="הפעלת סרטון: איך מגיעים אלינו?" disabled>
-        <img class="directions-video-thumbnail" alt="" loading="lazy" decoding="async" width="480" height="360">
+        <img class="directions-video-thumbnail" src="images/how-to-arrive-thumbnail.jpg" alt="" loading="lazy" decoding="async" width="480" height="360">
         <span class="directions-video-play" aria-hidden="true">
           <svg viewBox="0 0 24 24" width="32" height="32" focusable="false">
             <path d="M8 5v14l11-7z" fill="currentColor" />
@@ -401,6 +401,7 @@
         </span>
       </button>
     </div>
+    <p id="directions-video-error" role="status" hidden>סרטון ההגעה אינו זמין כרגע. אפשר להיעזר במפה ובכפתורי הניווט שמעל.</p>
     <noscript><p>כדי לצפות בסרטון ההגעה, יש להפעיל JavaScript בדפדפן.</p></noscript>
   </div>
 </section>
