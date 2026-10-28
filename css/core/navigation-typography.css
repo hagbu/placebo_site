@@ -22,6 +22,11 @@ body header .nav-dropdown-menu a {
   line-height: 1.4;
 }
 
+/* The first label is replaced via ::before; hide its original text. */
+body header .links > .nav-dropdown:first-child > .nav-dropdown-toggle {
+  font-size: 0;
+}
+
 /* Keep the visually replaced first label in sync with the shared size. */
 body header .links > .nav-dropdown:first-child > .nav-dropdown-toggle::before {
   font-size: var(--nav-font-size);
