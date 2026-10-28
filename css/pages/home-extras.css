@@ -58,7 +58,7 @@ body.page-home .directions-video {
 }
 
 body.page-home .directions-video-preview,
-body.page-home .directions-video iframe {
+body.page-home .directions-video video {
     position: absolute;
     inset: 0;
     display: block;
