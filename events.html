@@ -233,7 +233,7 @@
                 <label for="alcoholOption">אלכוהול</label>
                 <select id="alcoholOption" class="calc-select">
                   <option value="no">ללא</option>
-                  <option value="yes">להוסיף אלכוהול</option>
+                  <option value="yes">להוסיף אלכוהול (+300 ₪)</option>
                 </select>
               </div>
               <div class="addon-box">
@@ -244,7 +244,7 @@
                 </select>
               </div>
             </div>
-            <div class="pricing-note">כיבוד ואלכוהול נכללים בבקשה ונאשר את מחירם מולכם לפני סגירת האירוע.</div>
+            <div class="pricing-note">מחיר הכיבוד ייקבע מולכם לפני סגירת האירוע.</div>
           </div>
         </div>
 
@@ -370,7 +370,8 @@
     ],
     extraPersonOver30: 200,
     friday: 250,
-    hostingExtra: 350
+    hostingExtra: 350,
+    alcohol: 300
   };
 
   const eventNames = {
@@ -492,6 +493,11 @@
       details.push('חצי שעה נוספת בחדר האירוח');
     }
 
+    if (price !== null && type !== 'kids' && alcoholSelect.value === 'yes') {
+      price += PRICES.alcohol;
+      details.push('תוספת אלכוהול');
+    }
+
     return { price, details };
   }
 
@@ -514,7 +520,7 @@
       ['חלוקה', `${roomCount()} חדר${roomCount() > 1 ? 'ים' : ''}`],
       ['חדרים', rooms.length ? rooms.map(r => r.name).join(', ') : 'טרם נבחרו'],
       ['כיבוד', foodNames[foodSelect.value]],
-      ['אלכוהול', type === 'kids' ? 'לא רלוונטי' : (alcoholSelect.value === 'yes' ? 'כן' : 'ללא')],
+      ['אלכוהול', type === 'kids' ? 'לא רלוונטי' : (alcoholSelect.value === 'yes' ? `כן (+${money(PRICES.alcohol)})` : 'ללא')],
       ['חדר אירוח', hostingNames[hostingSelect.value]]
     ];
 
@@ -522,7 +528,7 @@
 
     if (calc.price !== null) {
       summaryPrice.textContent = money(calc.price);
-      summarySmall.textContent = 'הערכה לפי מחירון יום הולדת לילדים והתוספות שנבחרו. כיבוד/אלכוהול יתומחרו בנפרד אם נבחרו.';
+      summarySmall.textContent = 'הערכה לפי מחירון יום הולדת לילדים והתוספות שנבחרו. כיבוד יתומחר בנפרד אם נבחר.';
     } else {
       summaryPrice.textContent = 'נקבע יחד';
       summarySmall.textContent = 'לאירועי חברה וימי הולדת למבוגרים נבנה הצעה לפי ההרכב, החדרים והאירוח שבחרתם.';
@@ -537,7 +543,7 @@
     const rooms = selectedRooms();
     const calc = calculatePrice();
     const roomList = rooms.map(r => `• ${r.name}`).join('\n');
-    const alcohol = type === 'kids' ? 'לא' : (alcoholSelect.value === 'yes' ? 'כן' : 'לא');
+    const alcohol = type === 'kids' ? 'לא' : (alcoholSelect.value === 'yes' ? `כן (+${money(PRICES.alcohol)})` : 'לא');
 
     return [
       'היי, אני רוצה לבדוק אירוע ב-Placebo 🎉',
