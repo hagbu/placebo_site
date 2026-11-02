@@ -964,3 +964,99 @@ body.events-page footer p {
 .events-page .nav-dropdown-menu a:hover {
     background: #1d425a;
 }
+
+/* Match the shared light site navigation and keep text legible on each surface. */
+body.events-page header .logo,
+body.events-page header .links,
+body.events-page header .nav-dropdown-toggle,
+body.events-page .mobile-menu,
+body.events-page .mobile-submenu-toggle {
+    color: var(--home-text);
+}
+
+body.events-page header .links a:hover,
+body.events-page header .nav-dropdown-toggle:hover {
+    color: var(--home-red2);
+}
+
+body.events-page .nav-dropdown-menu {
+    background: var(--home-panel);
+    border-color: var(--home-line);
+    box-shadow: 0 12px 30px var(--light-shadow);
+}
+
+body.events-page .nav-dropdown-menu a {
+    color: var(--home-text);
+}
+
+body.events-page .nav-dropdown-menu a:hover {
+    background: var(--home-panel2);
+    color: var(--home-red2);
+}
+
+body.events-page .events-hero {
+    color: #fff;
+}
+
+body.events-page .events-hero p {
+    color: #e1edf2;
+}
+
+body.events-page .events-hero h1 span {
+    color: #80e8ff;
+}
+
+body.events-page .events-hero-actions .secondary {
+    color: #fff;
+    border-color: #c2dae3;
+    background: rgba(255, 255, 255, .08);
+}
+
+body.events-page .events-title .events-kicker,
+body.events-page .event-label {
+    color: var(--home-red2);
+}
+
+body.events-page .event-number {
+    color: rgba(23, 56, 74, .10);
+}
+
+body.events-page .event-link {
+    color: var(--home-red2);
+    background: #edf6fa;
+}
+
+body.events-page .calculator-section {
+    background: linear-gradient(180deg, #e8f3f7, var(--home-bg));
+}
+
+body.events-page .calc-step {
+    background: linear-gradient(180deg, var(--home-panel), var(--home-panel2));
+}
+
+body.events-page .step-title > span,
+body.events-page .room-count-row input:checked + span {
+    color: #fff;
+}
+
+body.events-page .room-warning {
+    color: #704400;
+}
+
+body.events-page .summary-sticky {
+    color: #fff;
+}
+
+body.events-page .summary-lines > div,
+body.events-page .summary-price span,
+body.events-page .summary-small {
+    color: #d5e8f0;
+}
+
+body.events-page footer {
+    color: #fff;
+}
+
+body.events-page footer p {
+    color: #d5e8f0;
+}
