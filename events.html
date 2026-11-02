@@ -225,9 +225,8 @@
               <div class="addon-box">
                 <label for="foodOption">כיבוד</label>
                 <select id="foodOption" class="calc-select">
-                  <option value="none">ללא</option>
-                  <option value="partial">כיבוד חלקי</option>
-                  <option value="full">כיבוד מלא</option>
+                  <option value="full">כיבוד מלא: חטיפים, שתייה ופיצה</option>
+                  <option value="none">ללא כיבוד</option>
                 </select>
               </div>
               <div class="addon-box" id="alcoholBox">
@@ -240,9 +239,8 @@
               <div class="addon-box">
                 <label for="hostingOption">חדר אירוח</label>
                 <select id="hostingOption" class="calc-select">
-                  <option value="none">ללא תוספת</option>
-                  <option value="30">חצי שעה (+350 ₪)</option>
-                  <option value="60">שעה (+450 ₪)</option>
+                  <option value="standard">מומלץ: חצי שעה לפני החדר וחצי שעה אחרי החדר</option>
+                  <option value="extra">חצי שעה נוספת בסוף (+350 ₪)</option>
                 </select>
               </div>
             </div>
@@ -372,8 +370,7 @@
     ],
     extraPersonOver30: 200,
     friday: 250,
-    hosting30: 350,
-    hosting60: 450
+    hostingExtra: 350
   };
 
   const eventNames = {
@@ -394,8 +391,11 @@
     soccer: 'סופר קלאסיקו'
   };
 
-  const foodNames = { none: 'ללא', partial: 'כיבוד חלקי', full: 'כיבוד מלא' };
-  const hostingNames = { none: 'ללא תוספת', '30': 'חצי שעה', '60': 'שעה' };
+  const foodNames = { none: 'ללא כיבוד', full: 'כיבוד מלא: חטיפים, שתייה ופיצה' };
+  const hostingNames = {
+    standard: 'חצי שעה לפני החדר וחצי שעה אחרי החדר',
+    extra: 'חצי שעה לפני החדר וחצי שעה אחרי החדר, בתוספת חצי שעה בסוף (+350 ₪)'
+  };
 
   const peopleInput = document.getElementById('peopleCount');
   const daySelect = document.getElementById('eventDay');
@@ -487,12 +487,9 @@
       details.push('תוספת יום שישי');
     }
 
-    if (price !== null && hostingSelect.value === '30') {
-      price += PRICES.hosting30;
-      details.push('חדר אירוח חצי שעה');
-    } else if (price !== null && hostingSelect.value === '60') {
-      price += PRICES.hosting60;
-      details.push('חדר אירוח שעה');
+    if (price !== null && hostingSelect.value === 'extra') {
+      price += PRICES.hostingExtra;
+      details.push('חצי שעה נוספת בחדר האירוח');
     }
 
     return { price, details };
