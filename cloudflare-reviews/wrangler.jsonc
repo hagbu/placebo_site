@@ -13,7 +13,7 @@
   }],
   "vars": {
     "SERVICE_ORIGIN": "https://placebo-reviews.hagbior.workers.dev",
-    "PUBLIC_ORIGINS": "https://hagbu.github.io,https://placebo.co.il,https://www.placebo.co.il",
+    "PUBLIC_ORIGINS": "https://hagbu.github.io,https://placebo.co.il,https://www.placebo.co.il,https://placebo-website-hosting.web.app,https://placebo-website-hosting.firebaseapp.com,https://placebo-website-hosting--pr7-codex-firebase-previ-l1ex5w1b.web.app,http://127.0.0.1:5000",
     "GOOGLE_ACCOUNT_ID": "108142947186819830415",
     "GOOGLE_LOCATION_ID": "265165118537175429",
     "GOOGLE_MAPS_URL": "https://maps.app.goo.gl/xHy1HUsoMLEGq3bR9"
