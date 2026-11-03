@@ -41,7 +41,7 @@
         display: flex;
         gap: 4px;
         padding: 5px 5px calc(5px + env(safe-area-inset-bottom, 0px));
-        background: #161d25;
+        background: #ccebf2;
         box-shadow: 0 -4px 20px rgba(0, 0, 0, .25);
     }
     body[class] .mobile-action-bar .mobile-action {
@@ -62,4 +62,8 @@
     body[class] .mobile-action-bar .mobile-action-book { background: #167f9c; }
     body[class] .mobile-action-bar .mobile-action-whatsapp { background: #187c3c; }
     body[class] .mobile-action-bar .mobile-action-phone { background: #4b5563; }
+}
+
+@media (max-width: 620px) {
+    body:has(.mobile-action-bar) footer { padding-bottom: calc(105px + env(safe-area-inset-bottom, 0px)); }
 }
