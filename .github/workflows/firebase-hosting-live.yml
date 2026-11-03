@@ -1,0 +1,27 @@
+name: Deploy Firebase Hosting live
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: firebase-hosting-live
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Prepare site files
+        run: python3 scripts/prepare_hosting.py
+      - uses: FirebaseExtended/action-hosting-deploy@v0
+        with:
+          firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_PLACEBO_WEBSITE_HOSTING }}
+          projectId: placebo-website-hosting
+          channelId: live
