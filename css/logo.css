@@ -1,4 +1,4 @@
-/* The supplied logo keeps its black background as a compact brand badge. */
+/* Keep the logo frame transparent so no edge shows around the image. */
 body header a.logo {
   display: inline-flex;
   flex: 0 0 auto;
@@ -8,7 +8,7 @@ body header a.logo {
   height: 55px;
   overflow: hidden;
   border-radius: 6px;
-  background: #000;
+  background: transparent;
 }
 body header a.logo img {
   display: block;
