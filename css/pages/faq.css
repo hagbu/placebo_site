@@ -37,8 +37,15 @@
     line-height: 1.9;
 }
 
-.faq-item a {
+.faq-item p a {
+    color: #006b80;
     text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+.faq-item p a:focus-visible {
+    outline: 3px solid #006b80;
+    outline-offset: 3px;
 }
 
 .faq-actions {
