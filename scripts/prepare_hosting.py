@@ -5,7 +5,7 @@ root = Path(__file__).resolve().parent.parent
 public = root / "public"
 public.mkdir(exist_ok=True)
 
-for pattern in ("*.html", "*.css", "*.js"):
+for pattern in ("*.html", "*.css", "*.js", "favicon.ico", "favicon.png"):
     for source in root.glob(pattern):
         shutil.copy2(source, public / source.name)
 
