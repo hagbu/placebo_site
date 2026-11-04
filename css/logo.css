@@ -35,3 +35,49 @@ body header a.logo:focus-visible {
   body[class] header .links > .nav-dropdown:first-child > .nav-dropdown-toggle { font-size: 0; }
   body[class] header .nav > .book { padding-inline: 14px; }
 }
+
+/* Keep desktop navigation consistent and on one line across page themes. */
+@media (min-width: 1151px) {
+  body[class] header .wrap.nav {
+    width: min(1220px, calc(100% - 30px));
+    gap: 10px;
+  }
+  body[class] header .links {
+    display: flex;
+    align-items: center;
+    flex-wrap: nowrap;
+    gap: 10px;
+  }
+  body[class] header .links > a,
+  body[class] header .links > .nav-dropdown > .nav-dropdown-toggle,
+  body[class] header .links > .nav-dropdown:first-child > .nav-dropdown-toggle::before,
+  body[class] header .nav > .book {
+    white-space: nowrap;
+    font-size: 14px;
+  }
+  body[class] header .links > .nav-dropdown:first-child > .nav-dropdown-toggle { font-size: 0; }
+  body[class] header .nav > .book { flex-shrink: 0; padding-inline: 14px; }
+}
+
+/* At intermediate widths, use the existing compact menu before links collide. */
+@media (min-width: 851px) and (max-width: 1150px) {
+  body[class] header .links,
+  body[class] header .nav > .book { display: none; }
+  body[class] header .nav > .menu-btn { display: block; cursor: pointer; }
+  body[class] .mobile-menu.open {
+    display: block;
+    position: fixed;
+    top: 74px;
+    right: 0;
+    left: 0;
+    z-index: 150;
+    max-height: calc(100vh - 74px);
+    overflow-y: auto;
+    padding: 10px 20px 20px;
+    background: var(--panel, #fff);
+    color: var(--text, #143846);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, .16);
+  }
+  body[class] .mobile-menu.open > a { display: block; padding: 12px 5px; }
+  body[class] .mobile-menu .mobile-submenu { display: block; }
+}
