@@ -1,0 +1,37 @@
+/* אזור ההגעה במנזר: צבעים כהים וניגודיות ברורה, בהתאם לעיצוב החדר. */
+body.theme-monastery .location-info {
+    background: #181818;
+    border-color: #494949;
+    color: #fff;
+}
+
+body.theme-monastery .location-label,
+body.theme-monastery .location-info h2 span {
+    color: #ff8585;
+}
+
+body.theme-monastery .location-info h2 {
+    color: #fff;
+}
+
+body.theme-monastery .location-info p,
+body.theme-monastery .location-details {
+    color: #ededed;
+}
+
+body.theme-monastery .location-btn {
+    background: #303030;
+    border-color: #777;
+    color: #fff;
+}
+
+body.theme-monastery .location-btn.primary-location {
+    background: #a9131a;
+    border-color: #d64c52;
+    color: #fff;
+}
+
+body.theme-monastery .location-btn:focus-visible {
+    outline: 3px solid #fff;
+    outline-offset: 3px;
+}
