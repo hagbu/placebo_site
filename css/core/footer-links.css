@@ -1,0 +1,23 @@
+/* קישורים שימושיים בתחתית האתר: בולטים כמו כותרות הפוטר. */
+body footer .footer-useful-links {
+    padding: 12px 0 22px;
+    text-align: center;
+}
+
+body footer .footer-useful-links p,
+body footer .footer-useful-links a {
+    color: #fff;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 1.9;
+}
+
+body footer .footer-useful-links a:hover {
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+body footer .footer-useful-links a:focus-visible {
+    outline: 2px solid #fff;
+    outline-offset: 3px;
+}
