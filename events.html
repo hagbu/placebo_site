@@ -176,7 +176,7 @@
             <div class="choice-grid three" id="eventTypeChoices">
               <label class="choice-card"><input type="radio" name="eventType" value="kids" checked><span>🎂 יום הולדת לילדים</span></label>
               <label class="choice-card"><input type="radio" name="eventType" value="company"><span>🎉 אירוע חברה / יום הולדת למבוגרים</span></label>
-              <label class="choice-card"><input type="radio" name="eventType" value="hosting"><span>🏠 חדר אירוח בלבד</span></label>
+              <label class="choice-card"><input type="radio" name="eventType" value="hosting"><span>🏠 חדר אירוח ללא חבילה</span></label>
             </div>
           </div>
 
@@ -185,7 +185,7 @@
               <div class="step-title"><span>2</span> כמה משתתפים?</div>
               <div class="number-control">
                 <button type="button" id="peopleMinus" aria-label="הפחת משתתף">−</button>
-                <input id="peopleCount" type="number" value="10" min="10" max="50" inputmode="numeric">
+                <input id="peopleCount" type="number" value="10" min="10" max="55" inputmode="numeric">
                 <button type="button" id="peoplePlus" aria-label="הוסף משתתף">+</button>
               </div>
             </div>
@@ -209,8 +209,9 @@
               <label><input type="radio" name="roomCount" value="2"><span>2</span></label>
               <label><input type="radio" name="roomCount" value="3"><span>3</span></label>
               <label><input type="radio" name="roomCount" value="4"><span>4</span></label>
+              <label><input type="radio" name="roomCount" value="5"><span>5</span></label>
             </div>
-            <div class="capacity-note">חדר רגיל: עד 10 משתתפים · סופר קלאסיקו: עד 22 משתתפים</div>
+            <div class="capacity-note">חדר רגיל: עד 10 משתתפים · סופר קלאסיקו: עד 22 משתתפים ונחשב שני חדרים; בקבוצות מעל 50 הוא מתאים לעד 25</div>
           </div>
 
           <div class="calc-step" id="roomChoiceStep">
@@ -221,7 +222,7 @@
               <label class="room-choice" data-capacity="10"><input type="checkbox" value="throne"><span><b>משחקי הכס</b><small>עד 10</small></span></label>
               <label class="room-choice" data-capacity="10"><input type="checkbox" value="social"><span><b>המדיה החברתית</b><small>עד 10</small></span></label>
               <label class="room-choice" data-capacity="10"><input type="checkbox" value="protectors"><span><b>מגני הממלכה</b><small>עד 10</small></span></label>
-              <label class="room-choice soccer" data-capacity="22"><input type="checkbox" value="soccer"><span><b>סופר קלאסיקו</b><small>עד 22</small></span></label>
+              <label class="room-choice soccer" data-capacity="22"><input type="checkbox" value="soccer"><span><b>סופר קלאסיקו</b><small id="soccerCapacity">עד 22 · שני חדרים</small></span></label>
             </div>
             <div class="room-warning" id="roomWarning" role="status"></div>
           </div>
@@ -261,6 +262,7 @@
                       <tr><td>עד 30</td><td>9</td><td>11</td><td>11</td></tr>
                       <tr><td>עד 40</td><td>11</td><td>15</td><td>13</td></tr>
                       <tr><td>עד 50</td><td>15</td><td>17</td><td>15</td></tr>
+                      <tr><td>עד 55</td><td>16</td><td>18</td><td>16</td></tr>
                     </tbody>
                   </table>
                 </div>
@@ -391,12 +393,13 @@
     { upTo: 10, price: 1800 }, { upTo: 15, price: 2400 },
     { upTo: 20, price: 3000 }, { upTo: 25, price: 3400 },
     { upTo: 30, price: 3700 },
-    { upTo: 40, price: 4400 }, { upTo: 50, price: 5200 }
+    { upTo: 40, price: 4400 }, { upTo: 50, price: 5200 },
+    { upTo: 55, price: 5600 }
   ];
   const eventNames = {
     kids: 'יום הולדת לילדים',
     company: 'אירוע חברה / יום הולדת למבוגרים',
-    hosting: 'חדר אירוח בלבד'
+    hosting: 'חדר אירוח ללא חבילה'
   };
   const dayNames = {
     sun: 'ראשון', mon: 'שני', tue: 'שלישי', wed: 'רביעי', thu: 'חמישי', fri: 'שישי עד 15:00'
@@ -423,25 +426,31 @@
   const selectedRadioValue = name => document.querySelector(`input[name="${name}"]:checked`)?.value;
   const eventType = () => selectedRadioValue('eventType') || 'kids';
   const roomCount = () => Number(selectedRadioValue('roomCount') || 1);
-  const people = () => Math.max(10, Math.min(50, Math.floor(Number(peopleInput.value) || 10)));
+  const people = () => Math.max(10, Math.min(55, Math.floor(Number(peopleInput.value) || 10)));
   const money = amount => new Intl.NumberFormat('he-IL').format(amount) + ' ₪';
   const selectedRooms = () => roomCheckboxes.filter(input => input.checked).map(input => ({
     id: input.value,
     name: roomNames[input.value],
-    capacity: Number(input.closest('.room-choice').dataset.capacity)
+    capacity: input.value === 'soccer' && people() > 50
+      ? 25
+      : Number(input.closest('.room-choice').dataset.capacity)
   }));
 
   function maxRooms(count) {
     if (count === 10) return 1;
     if (count <= 20) return 2;
     if (count <= 30) return 3;
-    return 4;
+    if (count <= 40) return 4;
+    return 5;
   }
 
   function updateRoomChoices() {
     const count = people();
+    document.getElementById('soccerCapacity').textContent = count > 50
+      ? 'עד 25 · שני חדרים'
+      : 'עד 22 · שני חדרים';
     const maximum = maxRooms(count);
-    const minimum = count > 20 ? 2 : 1;
+    const minimum = count > 10 ? 2 : 1;
     roomCountInputs.forEach(input => {
       input.disabled = Number(input.value) < minimum || Number(input.value) > maximum;
     });
@@ -451,33 +460,26 @@
     }
     const target = roomCount();
     const chosen = selectedRooms();
-    const classicSelected = chosen.some(room => room.id === 'soccer');
+    const selectedUnits = chosen.reduce((total, room) => total + (room.id === 'soccer' ? 2 : 1), 0);
     const pairedRoomSelected = chosen.some(room => room.id === 'throne' || room.id === 'protectors');
     roomCheckboxes.forEach(input => {
       const isPairedConflict = (input.value === 'throne' || input.value === 'protectors') &&
         pairedRoomSelected && !input.checked;
-      const isClassicConflict = count <= 20 && target > 1 &&
-        (input.value === 'soccer' || classicSelected);
-      const classicWithThree = count > 20 && count <= 30 && target > 2 && input.value === 'soccer';
-      input.disabled = !input.checked && (chosen.length >= target || isPairedConflict || isClassicConflict || classicWithThree);
+      const roomUnits = input.value === 'soccer' ? 2 : 1;
+      input.disabled = !input.checked && (selectedUnits + roomUnits > target || isPairedConflict);
       input.closest('.room-choice').classList.toggle('disabled', input.disabled);
     });
-    roomHelp.textContent = target === 1 ? 'בחרו חדר אחד.' : `בחרו בדיוק ${target} חדרים.`;
+    roomHelp.textContent = target === 1 ? 'בחרו חדר אחד.' : `בחרו בסך הכול ${target} חדרים; סופר קלאסיקו נחשב שני חדרים.`;
   }
 
   function validateRooms() {
     const selected = selectedRooms();
     const target = roomCount();
     const count = people();
-    if (selected.length !== target) return target === 1 ? 'בחרו חדר אחד.' : `בחרו ${target} חדרים.`;
+    const selectedUnits = selected.reduce((total, room) => total + (room.id === 'soccer' ? 2 : 1), 0);
+    if (selectedUnits !== target) return target === 1 ? 'בחרו חדר אחד.' : `בחרו חדרים בסך ${target} חדרים. סופר קלאסיקו נחשב שני חדרים.`;
     if (selected.some(room => room.id === 'throne') && selected.some(room => room.id === 'protectors')) {
       return 'משחקי הכס ומגני הממלכה הם אותו חדר פיזי, ולכן אי אפשר לבחור את שניהם יחד.';
-    }
-    if (count <= 20 && target > 1 && selected.some(room => room.id === 'soccer')) {
-      return 'עד 20 משתתפים ניתן לבחור בסופר קלאסיקו לבדו או בשני חדרים אחרים.';
-    }
-    if (count > 20 && count <= 30 && target > 2 && selected.some(room => room.id === 'soccer')) {
-      return 'עד 30 משתתפים אפשר לבחור בסופר קלאסיקו וחדר נוסף, או בשלושה חדרים אחרים.';
     }
     const capacity = selected.reduce((total, room) => total + room.capacity, 0);
     if (capacity < count) return `החדרים שבחרתם מתאימים לעד ${capacity} משתתפים. יש לבחור חלוקה מתאימה.`;
@@ -496,6 +498,7 @@
       price = count * 125;
     } else {
       const next = packagePrices.findIndex(pack => count <= pack.upTo);
+      if (next === -1) return null;
       const upper = packagePrices[next];
       const lower = packagePrices[Math.max(0, next - 1)];
       price = Math.min(upper.price, lower.price + (count - lower.upTo) * 200);
@@ -518,7 +521,8 @@
     ];
     summaryTitle.textContent = eventNames[type];
     summaryLines.innerHTML = lines.map(([label, value]) => `<div><span>${label}</span><b>${value}</b></div>`).join('');
-    summaryPrice.textContent = money(calculatePrice());
+    const price = calculatePrice();
+    summaryPrice.textContent = price === null ? 'בתיאום מול הצוות' : money(price);
     summarySmall.textContent = 'המחיר הוא הערכה בלבד. המחיר הסופי, זמינות החדרים ופרטי האירוע כפופים לאישור הצוות.';
     roomWarning.textContent = validation;
     roomWarning.classList.toggle('show', Boolean(validation));
@@ -549,12 +553,12 @@
     resetRooms();
   });
   document.getElementById('peoplePlus').addEventListener('click', () => {
-    peopleInput.value = Math.min(50, people() + 1);
+    peopleInput.value = Math.min(55, people() + 1);
     resetRooms();
   });
   peopleInput.addEventListener('input', () => {
     const count = Number(peopleInput.value);
-    if (Number.isInteger(count) && count >= 10 && count <= 50) resetRooms();
+    if (Number.isInteger(count) && count >= 10 && count <= 55) resetRooms();
   });
   peopleInput.addEventListener('change', () => { peopleInput.value = people(); resetRooms(); });
   [daySelect, foodSelect, hostingSelect].forEach(input => input.addEventListener('change', updateSummary));
@@ -571,7 +575,7 @@
     if (validation) { summaryError.textContent = validation; return; }
     const lines = [...summaryLines.querySelectorAll('div')].map(line => `${line.querySelector('span').textContent}: ${line.querySelector('b').textContent}`);
     const message = ['היי, אני רוצה לבדוק אירוע ב-Placebo 🎉', `סוג האירוע: ${eventNames[eventType()]}`, ...lines,
-      `הערכת המחיר שהוצגה באתר: ${money(calculatePrice())}`].join('\n');
+      calculatePrice() === null ? 'הערכת מחיר בתיאום מול הצוות' : `הערכת המחיר שהוצגה באתר: ${money(calculatePrice())}`].join('\n');
     window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`, '_blank', 'noopener');
   });
   configureEventType();
