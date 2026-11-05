@@ -42,7 +42,7 @@
       const section=document.createElement('section');
       section.className='google-reviews-section';
       section.setAttribute('aria-label','ביקורות נבחרות מגוגל');
-      section.innerHTML='<div class="wrap"><div class="reviews-heading"><div><span class="reviews-kicker">מה אומרים עלינו</span><h2>הלקוחות שלנו <span>ממליצים</span></h2><p>ביקורות נבחרות מגוגל, באישור צוות פלסיבו</p></div><div class="google-rating"><b>Google Maps</b></div></div><div class="reviews-shell"><button class="reviews-arrow reviews-prev" type="button" aria-label="ביקורת קודמת">‹</button><div class="reviews-track" tabindex="0" aria-label="גלריית ביקורות"></div><button class="reviews-arrow reviews-next" type="button" aria-label="ביקורת הבאה">›</button></div><div class="reviews-note"></div></div>';
+      section.innerHTML='<div class="wrap"><div class="reviews-heading"><div><span class="reviews-kicker">מה אומרים עלינו</span><h2>הלקוחות שלנו <span>ממליצים</span></h2></div><div class="google-rating"><b>Google Maps</b></div></div><div class="reviews-shell"><button class="reviews-arrow reviews-prev" type="button" aria-label="ביקורת קודמת">‹</button><div class="reviews-track" tabindex="0" aria-label="גלריית ביקורות"></div><button class="reviews-arrow reviews-next" type="button" aria-label="ביקורת הבאה">›</button></div><div class="reviews-note"></div></div>';
       const rating=section.querySelector('.google-rating');
       rating.append(text('strong',data.rating.toFixed(1)+' מתוך 5'),text('small',data.total.toLocaleString('he-IL')+' ביקורות בגוגל'));
       const track=section.querySelector('.reviews-track');
