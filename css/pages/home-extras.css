@@ -105,10 +105,10 @@ body.page-home .directions-video-preview:focus-visible {
     outline-offset: -6px;
 }
 
-/* TERPECA nominations at the top of the home-page hero. */
-body.page-home .hero-awards {
+/* TERPECA nominations at the top of the hero image. */
+body .hero-awards {
     position: absolute;
-    z-index: 2;
+    z-index: 4;
     top: 12px;
     left: clamp(16px, 17vw, 190px);
     display: flex;
@@ -117,7 +117,7 @@ body.page-home .hero-awards {
     pointer-events: none;
 }
 
-body.page-home .hero-awards img {
+body .hero-awards img {
     width: 64px;
     height: 64px;
     object-fit: contain;
@@ -125,13 +125,13 @@ body.page-home .hero-awards img {
 }
 
 @media (max-width: 620px) {
-    body.page-home .hero-awards {
+    body .hero-awards {
         left: 12px;
         flex-direction: column;
         gap: 10px;
     }
 
-    body.page-home .hero-awards img {
+    body .hero-awards img {
         width: 54px;
         height: 54px;
     }
