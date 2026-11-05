@@ -9,7 +9,7 @@
   <title>ימי הולדת ואירועי חברה בחדרי בריחה בנתניה | פלסיבו</title>
   <meta name="description" content="חוגגים בפלסיבו נתניה: ימי הולדת לילדים ולמבוגרים, אירועי חברה, חדר אירועים פרטי וחבילות פעילות במתחם חדרי הבריחה.">
   <link rel="stylesheet" href="style.css?v=footer-links-1">
-  <link rel="stylesheet" href="css/pages/events.css">
+  <link rel="stylesheet" href="css/pages/events.css?v=calculator-2">
 <script>window.OpenNagishConfig = { lang: 'he', position: 'bottom-left', mobileBottomOffset: 75, statementUrl: '/accessibility.html' };</script>
 <script src="https://cdn.jsdelivr.net/npm/open-nagish@1.1.4/dist/open-nagish.min.js" defer></script>
 <link rel="stylesheet" href="css/logo.css?v=3">
@@ -151,7 +151,7 @@
           <div class="event-label">🥂 ימי הולדת למבוגרים</div>
           <h3>קצת אקשן.<br>קצת שתייה. הרבה חוויה.</h3>
           <p>יום הולדת שלא מסתכם בעוד שולחן במסעדה. משחקים, תחרות, חדר אירוח ואפשרות לכיבוד ואלכוהול.</p>
-          <a href="#event-calculator" class="event-link" data-event-pick="adults">בנו יום הולדת למבוגרים ←</a>
+          <a href="#event-calculator" class="event-link" data-event-pick="company">בנו יום הולדת למבוגרים ←</a>
         </div>
         <div class="event-photos">
           <figure class="photo-main"><img src="images/placebo-photo-12.webp" alt="יום הולדת למבוגרים ב-Placebo"></figure>
@@ -175,8 +175,8 @@
             <div class="step-title"><span>1</span> סוג האירוע</div>
             <div class="choice-grid three" id="eventTypeChoices">
               <label class="choice-card"><input type="radio" name="eventType" value="kids" checked><span>🎂 יום הולדת לילדים</span></label>
-              <label class="choice-card"><input type="radio" name="eventType" value="company"><span>👥 אירוע חברה</span></label>
-              <label class="choice-card"><input type="radio" name="eventType" value="adults"><span>🥂 יום הולדת למבוגרים</span></label>
+              <label class="choice-card"><input type="radio" name="eventType" value="company"><span>🥂 אירוע חברה / יום הולדת למבוגרים</span></label>
+              <label class="choice-card"><input type="radio" name="eventType" value="hosting"><span>🏠 חדר אירוח בלבד</span></label>
             </div>
           </div>
 
@@ -185,7 +185,7 @@
               <div class="step-title"><span>2</span> כמה משתתפים?</div>
               <div class="number-control">
                 <button type="button" id="peopleMinus" aria-label="הפחת משתתף">−</button>
-                <input id="peopleCount" type="number" value="10" min="2" max="52" inputmode="numeric">
+                <input id="peopleCount" type="number" value="10" min="10" max="50" inputmode="numeric">
                 <button type="button" id="peoplePlus" aria-label="הוסף משתתף">+</button>
               </div>
             </div>
@@ -202,7 +202,7 @@
             </div>
           </div>
 
-          <div class="calc-step">
+          <div class="calc-step" id="roomCountStep">
             <div class="step-title"><span>4</span> לכמה חדרים רוצים להתפצל?</div>
             <div class="room-count-row" id="roomCountChoices">
               <label><input type="radio" name="roomCount" value="1" checked><span>1</span></label>
@@ -213,7 +213,7 @@
             <div class="capacity-note">חדר רגיל: עד 10 משתתפים · סופר קלאסיקו: עד 22 משתתפים</div>
           </div>
 
-          <div class="calc-step">
+          <div class="calc-step" id="roomChoiceStep">
             <div class="step-title"><span>5</span> איזה חדרים?</div>
             <p class="step-help" id="roomHelp">בחרו חדר אחד.</p>
             <div class="rooms-choice-grid" id="roomChoices">
@@ -240,18 +240,40 @@
                 <label for="alcoholOption">אלכוהול</label>
                 <select id="alcoholOption" class="calc-select">
                   <option value="no">ללא</option>
-                  <option value="yes">להוסיף אלכוהול (+300 ₪)</option>
+                  <option value="yes">כולל אלכוהול</option>
                 </select>
               </div>
               <div class="addon-box">
                 <label for="hostingOption">חדר אירוח</label>
                 <select id="hostingOption" class="calc-select">
-                  <option value="standard">מומלץ: חצי שעה לפני החדר וחצי שעה אחרי החדר</option>
-                  <option value="extra">חצי שעה נוספת בסוף (+350 ₪)</option>
+                  <option value="standard">מתכונת רגילה</option>
+                  <option value="extra">מתכונת מוארכת (+350 ₪)</option>
                 </select>
               </div>
             </div>
-            <div class="pricing-note">מחיר הכיבוד ייקבע מולכם לפני סגירת האירוע.</div>
+            <div class="event-package-details">
+              <h3>מה כולל האירוח?</h3>
+              <p><strong>מתכונת רגילה:</strong> חצי שעה לפני הפעילות, עם כיבוד ושתייה אם בחרתם בכיבוד, וחצי שעה אחרי הפעילות לפיצות (אם בחרתם בכיבוד) ולטקס עוגה.</p>
+              <p><strong>מתכונת מוארכת:</strong> חצי שעה לפני הפעילות, עם כיבוד ושתייה אם בחרתם בכיבוד, ושעה שלמה אחרי הפעילות לפיצות (אם בחרתם בכיבוד) ולטקס עוגה.</p>
+              <p>העוגה אינה כלולה ויש להביא אותה מהבית.</p>
+              <p><strong>אלכוהול:</strong> בירה למשתתף ובקבוק יין לכל 15 משתתפים.</p>
+              <details>
+                <summary>מה כולל הכיבוד?</summary>
+                <div class="refreshments-table-wrap">
+                  <table class="refreshments-table">
+                    <thead><tr><th>משתתפים</th><th>פיצות</th><th>קערות חטיפים</th><th>בקבוקי שתייה</th></tr></thead>
+                    <tbody>
+                      <tr><td>עד 10</td><td>3</td><td>4</td><td>4</td></tr>
+                      <tr><td>עד 15</td><td>5</td><td>5</td><td>5</td></tr>
+                      <tr><td>עד 20</td><td>6</td><td>7</td><td>7</td></tr>
+                      <tr><td>עד 30</td><td>9</td><td>11</td><td>11</td></tr>
+                      <tr><td>עד 40</td><td>11</td><td>15</td><td>13</td></tr>
+                      <tr><td>עד 50</td><td>15</td><td>17</td><td>15</td></tr>
+                    </tbody>
+                  </table>
+                </div>
+              </details>
+            </div>
           </div>
         </div>
 
@@ -372,49 +394,38 @@
 (() => {
   const WHATSAPP_NUMBER = '972544484301';
 
-  const PRICES = {
-    kidsPackages: [
-      { upTo: 10, price: 1800 },
-      { upTo: 15, price: 2400 },
-      { upTo: 20, price: 3000 },
-      { upTo: 25, price: 3400 },
-      { upTo: 30, price: 3700 }
-    ],
-    extraPersonOver30: 200,
-    friday: 250,
-    hostingExtra: 350,
-    alcohol: 300
-  };
-
+  // מחירי בסיס כוללים חדרי בריחה, אירוח במתכונת רגילה וכיבוד.
+  const packagePrices = [
+    { upTo: 10, price: 1800 }, { upTo: 15, price: 2400 },
+    { upTo: 20, price: 3000 }, { upTo: 30, price: 3700 },
+    { upTo: 40, price: 4400 }, { upTo: 50, price: 5200 }
+  ];
+  // עלות הכיבוד כתוספת לאירוח בלבד או כהנחה כשמוותרים עליו בחבילה.
+  const extras = [
+    { upTo: 10, food: 200, alcohol: 300 },
+    { upTo: 20, food: 300, alcohol: 400 },
+    { upTo: 30, food: 400, alcohol: 500 },
+    { upTo: 40, food: 500, alcohol: 600 },
+    { upTo: 50, food: 600, alcohol: 700 }
+  ];
   const eventNames = {
     kids: 'יום הולדת לילדים',
-    company: 'אירוע חברה',
-    adults: 'יום הולדת למבוגרים'
+    company: 'אירוע חברה / יום הולדת למבוגרים',
+    hosting: 'חדר אירוח בלבד'
   };
-
   const dayNames = {
     sun: 'ראשון', mon: 'שני', tue: 'שלישי', wed: 'רביעי', thu: 'חמישי', fri: 'שישי'
   };
-
   const roomNames = {
-    monastery: 'המנזר',
-    throne: 'משחקי הכס',
-    social: 'המדיה החברתית',
-    protectors: 'מגני הממלכה',
-    soccer: 'סופר קלאסיקו'
+    monastery: 'המנזר', throne: 'משחקי הכס', social: 'המדיה החברתית',
+    protectors: 'מגני הממלכה', soccer: 'סופר קלאסיקו'
   };
-
-  const foodNames = { none: 'ללא כיבוד', full: 'כיבוד מלא: חטיפים, שתייה ופיצה' };
-  const hostingNames = {
-    standard: 'חצי שעה לפני החדר וחצי שעה אחרי החדר',
-    extra: 'חצי שעה לפני החדר וחצי שעה אחרי החדר, בתוספת חצי שעה בסוף (+350 ₪)'
-  };
-
   const peopleInput = document.getElementById('peopleCount');
   const daySelect = document.getElementById('eventDay');
   const roomHelp = document.getElementById('roomHelp');
   const roomWarning = document.getElementById('roomWarning');
   const roomCheckboxes = [...document.querySelectorAll('#roomChoices input[type="checkbox"]')];
+  const roomCountInputs = [...document.querySelectorAll('input[name="roomCount"]')];
   const foodSelect = document.getElementById('foodOption');
   const alcoholSelect = document.getElementById('alcoholOption');
   const alcoholBox = document.getElementById('alcoholBox');
@@ -429,204 +440,158 @@
   const selectedRadioValue = name => document.querySelector(`input[name="${name}"]:checked`)?.value;
   const eventType = () => selectedRadioValue('eventType') || 'kids';
   const roomCount = () => Number(selectedRadioValue('roomCount') || 1);
-  const people = () => Math.max(2, Math.min(52, Number(peopleInput.value) || 2));
+  const people = () => Math.max(10, Math.min(50, Math.floor(Number(peopleInput.value) || 10)));
+  const money = amount => new Intl.NumberFormat('he-IL').format(amount) + ' ₪';
+  const tierFor = (tiers, count) => tiers.find(tier => count <= tier.upTo);
+  const selectedRooms = () => roomCheckboxes.filter(input => input.checked).map(input => ({
+    id: input.value,
+    name: roomNames[input.value],
+    capacity: Number(input.closest('.room-choice').dataset.capacity)
+  }));
 
-  function kidsBasePrice(count) {
-    const pack = PRICES.kidsPackages.find(p => count <= p.upTo);
-    if (pack) return pack.price;
-    return PRICES.kidsPackages.at(-1).price + ((count - 30) * PRICES.extraPersonOver30);
+  function maxRooms(count) {
+    if (count === 10) return 1;
+    if (count <= 20) return 2;
+    if (count <= 30) return 3;
+    return 4;
   }
 
-  function selectedRooms() {
-    return roomCheckboxes.filter(c => c.checked).map(c => ({
-      id: c.value,
-      name: roomNames[c.value],
-      capacity: Number(c.closest('.room-choice').dataset.capacity)
-    }));
-  }
-
-  function validateRooms() {
-    const target = roomCount();
-    const selected = selectedRooms();
-    const hasSharedConflict = selected.some(r => r.id === 'throne') && selected.some(r => r.id === 'protectors');
-    const capacity = selected.reduce((sum, r) => sum + r.capacity, 0);
-    let message = '';
-
-    if (selected.length < target) {
-      message = `בחרו עוד ${target - selected.length} חדר${target - selected.length > 1 ? 'ים' : ''}.`;
-    } else if (selected.length > target) {
-      message = `בחרתם יותר מ-${target} חדרים.`;
-    } else if (hasSharedConflict) {
-      message = 'משחקי הכס ומגני הממלכה הם אותו חדר פיזי, ולכן אי אפשר לבחור את שניהם יחד.';
-    } else if (capacity < people()) {
-      message = `החדרים שבחרתם מתאימים לעד ${capacity} משתתפים. עבור ${people()} משתתפים צריך לבחור חלוקה אחרת או חדר נוסף.`;
-    }
-
-    roomWarning.textContent = message;
-    roomWarning.classList.toggle('show', Boolean(message));
-    return { valid: !message, message, capacity };
-  }
-
-  function updateRoomLimitUI(changedCheckbox) {
-    const target = roomCount();
-    const checked = roomCheckboxes.filter(c => c.checked);
-
-    if (changedCheckbox?.checked && checked.length > target) {
-      changedCheckbox.checked = false;
-    }
-
-    const nowChecked = roomCheckboxes.filter(c => c.checked);
-    const atLimit = nowChecked.length >= target;
-    roomCheckboxes.forEach(c => {
-      c.disabled = !c.checked && atLimit;
-      c.closest('.room-choice').classList.toggle('disabled', c.disabled);
+  function updateRoomChoices() {
+    const count = people();
+    const maximum = maxRooms(count);
+    const minimum = count > 20 ? 2 : 1;
+    roomCountInputs.forEach(input => {
+      input.disabled = Number(input.value) < minimum || Number(input.value) > maximum;
     });
-
+    if (roomCount() > maximum || roomCount() < minimum) {
+      const newCount = Math.max(minimum, Math.min(maximum, roomCount()));
+      roomCountInputs.find(input => Number(input.value) === newCount).checked = true;
+    }
+    const target = roomCount();
+    const chosen = selectedRooms();
+    const classicSelected = chosen.some(room => room.id === 'soccer');
+    const pairedRoomSelected = chosen.some(room => room.id === 'throne' || room.id === 'protectors');
+    roomCheckboxes.forEach(input => {
+      const isPairedConflict = (input.value === 'throne' || input.value === 'protectors') &&
+        pairedRoomSelected && !input.checked;
+      const isClassicConflict = count <= 20 && target > 1 &&
+        (input.value === 'soccer' || classicSelected);
+      const classicWithThree = count > 20 && count <= 30 && target > 2 && input.value === 'soccer';
+      input.disabled = !input.checked && (chosen.length >= target || isPairedConflict || isClassicConflict || classicWithThree);
+      input.closest('.room-choice').classList.toggle('disabled', input.disabled);
+    });
     roomHelp.textContent = target === 1 ? 'בחרו חדר אחד.' : `בחרו בדיוק ${target} חדרים.`;
   }
 
-  function calculatePrice() {
-    const type = eventType();
-    let price = null;
-    const details = [];
-
-    if (type === 'kids') {
-      price = kidsBasePrice(people());
-      details.push(`חבילת ילדים לפי ${people()} משתתפים`);
+  function validateRooms() {
+    if (eventType() === 'hosting') return '';
+    const selected = selectedRooms();
+    const target = roomCount();
+    const count = people();
+    if (selected.length !== target) return target === 1 ? 'בחרו חדר אחד.' : `בחרו ${target} חדרים.`;
+    if (selected.some(room => room.id === 'throne') && selected.some(room => room.id === 'protectors')) {
+      return 'משחקי הכס ומגני הממלכה הם אותו חדר פיזי, ולכן אי אפשר לבחור את שניהם יחד.';
     }
-
-    if (price !== null && daySelect.value === 'fri') {
-      price += PRICES.friday;
-      details.push('תוספת יום שישי');
+    if (count <= 20 && target > 1 && selected.some(room => room.id === 'soccer')) {
+      return 'עד 20 משתתפים ניתן לבחור בסופר קלאסיקו לבדו או בשני חדרים אחרים.';
     }
-
-    if (price !== null && hostingSelect.value === 'extra') {
-      price += PRICES.hostingExtra;
-      details.push('חצי שעה נוספת בחדר האירוח');
+    if (count > 20 && count <= 30 && target > 2 && selected.some(room => room.id === 'soccer')) {
+      return 'עד 30 משתתפים אפשר לבחור בסופר קלאסיקו וחדר נוסף, או בשלושה חדרים אחרים.';
     }
-
-    if (price !== null && type !== 'kids' && alcoholSelect.value === 'yes') {
-      price += PRICES.alcohol;
-      details.push('תוספת אלכוהול');
-    }
-
-    return { price, details };
+    const capacity = selected.reduce((total, room) => total + room.capacity, 0);
+    if (capacity < count) return `החדרים שבחרתם מתאימים לעד ${capacity} משתתפים. יש לבחור חלוקה מתאימה.`;
+    return '';
   }
 
-  function money(n) {
-    return new Intl.NumberFormat('he-IL').format(n) + ' ₪';
+  function calculatePrice() {
+    const count = people();
+    const extra = tierFor(extras, count);
+    const hostingOnly = eventType() === 'hosting';
+    let price = hostingOnly ? (hostingSelect.value === 'hour' ? 450 : 350) : tierFor(packagePrices, count).price;
+    if (daySelect.value === 'fri') price += 250;
+    if (!hostingOnly && hostingSelect.value === 'extra') price += 350;
+    if (hostingOnly && foodSelect.value === 'full') price += extra.food;
+    if (!hostingOnly && foodSelect.value === 'none') price -= extra.food;
+    if (eventType() !== 'kids' && alcoholSelect.value === 'yes') price += extra.alcohol;
+    return price;
   }
 
   function updateSummary() {
-    peopleInput.value = people();
     const type = eventType();
+    const hostingOnly = type === 'hosting';
     const rooms = selectedRooms();
     const validation = validateRooms();
-    const calc = calculatePrice();
-
-    summaryTitle.textContent = eventNames[type];
-
+    const hostingLabels = { standard: 'מתכונת רגילה', extra: 'מתכונת מוארכת', half: 'חצי שעה', hour: 'שעה' };
     const lines = [
-      ['משתתפים', people()],
-      ['יום', dayNames[daySelect.value]],
-      ['חלוקה', `${roomCount()} חדר${roomCount() > 1 ? 'ים' : ''}`],
-      ['חדרים', rooms.length ? rooms.map(r => r.name).join(', ') : 'טרם נבחרו'],
-      ['כיבוד', foodNames[foodSelect.value]],
-      ['אלכוהול', type === 'kids' ? 'לא רלוונטי' : (alcoholSelect.value === 'yes' ? `כן (+${money(PRICES.alcohol)})` : 'ללא')],
-      ['חדר אירוח', hostingNames[hostingSelect.value]]
+      ['משתתפים', people()], ['יום', dayNames[daySelect.value]],
+      ...(!hostingOnly ? [['חלוקה', roomCount() === 1 ? 'חדר אחד' : `${roomCount()} חדרים`], ['חדרים', rooms.length ? rooms.map(room => room.name).join(', ') : 'טרם נבחרו']] : []),
+      ['חדר אירוח', hostingLabels[hostingSelect.value]],
+      ['כיבוד', foodSelect.value === 'full' ? 'כיבוד' : 'ללא כיבוד'],
+      ['אלכוהול', alcoholSelect.value === 'yes' ? 'כולל' : 'ללא']
     ];
-
+    summaryTitle.textContent = eventNames[type];
     summaryLines.innerHTML = lines.map(([label, value]) => `<div><span>${label}</span><b>${value}</b></div>`).join('');
-
-    if (calc.price !== null) {
-      summaryPrice.textContent = money(calc.price);
-      summarySmall.textContent = 'הערכה לפי מחירון יום הולדת לילדים והתוספות שנבחרו. כיבוד יתומחר בנפרד אם נבחר.';
-    } else {
-      summaryPrice.textContent = 'נקבע יחד';
-      summarySmall.textContent = 'לאירועי חברה וימי הולדת למבוגרים נבנה הצעה לפי ההרכב, החדרים והאירוח שבחרתם.';
-    }
-
-    summaryError.textContent = validation.valid ? '' : validation.message;
-    whatsappSend.disabled = !validation.valid;
+    summaryPrice.textContent = money(calculatePrice());
+    summarySmall.textContent = 'המחיר הוא הערכה בלבד. המחיר הסופי, זמינות החדרים ופרטי האירוע כפופים לאישור הצוות.';
+    roomWarning.textContent = validation;
+    roomWarning.classList.toggle('show', Boolean(validation));
+    summaryError.textContent = validation;
+    whatsappSend.disabled = Boolean(validation);
   }
 
-  function buildWhatsappText() {
-    const type = eventType();
-    const rooms = selectedRooms();
-    const calc = calculatePrice();
-    const roomList = rooms.map(r => `• ${r.name}`).join('\n');
-    const alcohol = type === 'kids' ? 'לא' : (alcoholSelect.value === 'yes' ? `כן (+${money(PRICES.alcohol)})` : 'לא');
+  function resetRooms() {
+    roomCheckboxes.forEach(input => { input.checked = false; });
+    updateRoomChoices();
+    updateSummary();
+  }
 
-    return [
-      'היי, אני רוצה לבדוק אירוע ב-Placebo 🎉',
-      '',
-      `סוג האירוע: ${eventNames[type]}`,
-      `מספר משתתפים: ${people()}`,
-      `יום האירוע: ${dayNames[daySelect.value]}`,
-      '',
-      `מבקשים להתפצל ל-${roomCount()} חדרים:`,
-      roomList,
-      '',
-      `כיבוד: ${foodNames[foodSelect.value]}`,
-      `אלכוהול: ${alcohol}`,
-      `חדר אירוח: ${hostingNames[hostingSelect.value]}`,
-      '',
-      calc.price !== null ? `המחיר המשוער שהוצג באתר: ${money(calc.price)}` : 'אשמח לקבל הצעת מחיר לפי הפרטים האלה.'
-    ].join('\n');
+  function configureEventType() {
+    const type = eventType();
+    const hostingOnly = type === 'hosting';
+    document.getElementById('roomCountStep').hidden = hostingOnly;
+    document.getElementById('roomChoiceStep').hidden = hostingOnly;
+    alcoholSelect.value = 'no';
+    alcoholSelect.disabled = type === 'kids';
+    alcoholBox.classList.toggle('muted-addon', type === 'kids');
+    hostingSelect.innerHTML = hostingOnly
+      ? '<option value="half">חצי שעה</option><option value="hour">שעה</option>'
+      : '<option value="standard">מתכונת רגילה</option><option value="extra">מתכונת מוארכת (+350 ₪)</option>';
+    hostingSelect.disabled = type === 'kids';
+    foodSelect.value = hostingOnly ? 'none' : 'full';
+    resetRooms();
   }
 
   document.getElementById('peopleMinus').addEventListener('click', () => {
-    peopleInput.value = people() - 1;
-    updateSummary();
+    peopleInput.value = Math.max(10, people() - 1);
+    resetRooms();
   });
   document.getElementById('peoplePlus').addEventListener('click', () => {
-    peopleInput.value = people() + 1;
-    updateSummary();
+    peopleInput.value = Math.min(50, people() + 1);
+    resetRooms();
   });
-  peopleInput.addEventListener('input', updateSummary);
-  daySelect.addEventListener('change', updateSummary);
-  foodSelect.addEventListener('change', updateSummary);
-  alcoholSelect.addEventListener('change', updateSummary);
-  hostingSelect.addEventListener('change', updateSummary);
-
-  document.querySelectorAll('input[name="eventType"]').forEach(input => input.addEventListener('change', () => {
-    const kids = eventType() === 'kids';
-    alcoholSelect.value = 'no';
-    alcoholBox.classList.toggle('muted-addon', kids);
-    alcoholSelect.disabled = kids;
-    updateSummary();
-  }));
-
-  document.querySelectorAll('input[name="roomCount"]').forEach(input => input.addEventListener('change', () => {
-    roomCheckboxes.forEach(c => c.checked = false);
-    updateRoomLimitUI();
-    updateSummary();
-  }));
-
-  roomCheckboxes.forEach(input => input.addEventListener('change', () => {
-    updateRoomLimitUI(input);
-    updateSummary();
-  }));
-
+  peopleInput.addEventListener('input', () => {
+    const count = Number(peopleInput.value);
+    if (Number.isInteger(count) && count >= 10 && count <= 50) resetRooms();
+  });
+  peopleInput.addEventListener('change', () => { peopleInput.value = people(); resetRooms(); });
+  [daySelect, foodSelect, alcoholSelect, hostingSelect].forEach(input => input.addEventListener('change', updateSummary));
+  document.querySelectorAll('input[name="eventType"]').forEach(input => input.addEventListener('change', configureEventType));
+  roomCountInputs.forEach(input => input.addEventListener('change', resetRooms));
+  roomCheckboxes.forEach(input => input.addEventListener('change', () => { updateRoomChoices(); updateSummary(); }));
   document.querySelectorAll('[data-event-pick]').forEach(link => link.addEventListener('click', () => {
-    const wanted = link.dataset.eventPick;
-    const radio = document.querySelector(`input[name="eventType"][value="${wanted}"]`);
-    if (radio) {
-      radio.checked = true;
-      radio.dispatchEvent(new Event('change'));
-    }
+    const radio = document.querySelector(`input[name="eventType"][value="${link.dataset.eventPick}"]`);
+    if (radio) { radio.checked = true; configureEventType(); }
   }));
 
   whatsappSend.addEventListener('click', () => {
     const validation = validateRooms();
-    if (!validation.valid) {
-      summaryError.textContent = validation.message;
-      document.getElementById('roomChoices').scrollIntoView({ behavior: 'smooth', block: 'center' });
-      return;
-    }
-    const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(buildWhatsappText())}`;
-    window.open(url, '_blank', 'noopener');
+    if (validation) { summaryError.textContent = validation; return; }
+    const lines = [...summaryLines.querySelectorAll('div')].map(line => `${line.querySelector('span').textContent}: ${line.querySelector('b').textContent}`);
+    const message = ['היי, אני רוצה לבדוק אירוע ב-Placebo 🎉', `סוג האירוע: ${eventNames[eventType()]}`, ...lines,
+      `הערכת המחיר שהוצגה באתר: ${money(calculatePrice())}`].join('\n');
+    window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`, '_blank', 'noopener');
   });
+  configureEventType();
 
   const menuBtn = document.querySelector('.menu-btn');
   const mobileMenu = document.getElementById('mobileMenu');

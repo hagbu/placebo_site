@@ -666,7 +666,8 @@ body.events-page .mobile-menu {
 
 .summary-price span {
     color: var(--home-muted,#c6dbe5);
-    font-size: 14px;
+    font-size: 16px;
+    font-weight: 800;
 }
 
 .summary-price strong {
@@ -1060,3 +1061,16 @@ body.events-page footer {
 body.events-page footer p {
     color: #d5e8f0;
 }
+/* Event hosting and refreshments details, next to the calculator choices. */
+.event-package-details {
+    margin-top: 18px;
+    font-size: 15px;
+    line-height: 1.6;
+}
+
+.event-package-details h3 { margin: 0 0 8px; font-size: 18px; }
+.event-package-details p { margin: 6px 0; }
+.event-package-details summary { cursor: pointer; font-weight: 700; }
+.refreshments-table-wrap { overflow-x: auto; margin-top: 8px; }
+.refreshments-table { width: 100%; border-collapse: collapse; text-align: right; }
+.refreshments-table th, .refreshments-table td { padding: 7px; border-bottom: 1px solid #bfd9e3; }
