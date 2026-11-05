@@ -105,6 +105,38 @@ body.page-home .directions-video-preview:focus-visible {
     outline-offset: -6px;
 }
 
+/* TERPECA nominations at the top of the home-page hero. */
+body.page-home .hero-awards {
+    position: absolute;
+    z-index: 2;
+    top: 12px;
+    left: clamp(16px, 17vw, 190px);
+    display: flex;
+    direction: ltr;
+    gap: 50px;
+    pointer-events: none;
+}
+
+body.page-home .hero-awards img {
+    width: 64px;
+    height: 64px;
+    object-fit: contain;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, .6));
+}
+
+@media (max-width: 620px) {
+    body.page-home .hero-awards {
+        left: 12px;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    body.page-home .hero-awards img {
+        width: 54px;
+        height: 54px;
+    }
+}
+
 /* Room-card nominations sit opposite the room category label. */
 body.page-home .room-awards {
     position: absolute;
