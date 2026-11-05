@@ -105,6 +105,24 @@ body.page-home .directions-video-preview:focus-visible {
     outline-offset: -6px;
 }
 
+/* Room-card nominations sit opposite the room category label. */
+body.page-home .room-awards {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    pointer-events: none;
+}
+
+body.page-home .room-img .room-awards img {
+    width: 54px;
+    height: 54px;
+    object-fit: contain;
+    filter: drop-shadow(0 2px 3px rgba(0, 0, 0, .55));
+}
+
 /* TERPECA awards section */
 .awards-section {
   background: #173244;
