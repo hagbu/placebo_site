@@ -9,7 +9,7 @@
   <title>ימי הולדת ואירועי חברה בחדרי בריחה בנתניה | פלסיבו</title>
   <meta name="description" content="חוגגים בפלסיבו נתניה: ימי הולדת לילדים ולמבוגרים, אירועי חברה, חדר אירועים פרטי וחבילות פעילות במתחם חדרי הבריחה.">
   <link rel="stylesheet" href="style.css?v=footer-links-1">
-  <link rel="stylesheet" href="css/pages/events.css?v=calculator-2">
+  <link rel="stylesheet" href="css/pages/events.css?v=calculator-3">
 <script>window.OpenNagishConfig = { lang: 'he', position: 'bottom-left', mobileBottomOffset: 75, statementUrl: '/accessibility.html' };</script>
 <script src="https://cdn.jsdelivr.net/npm/open-nagish@1.1.4/dist/open-nagish.min.js" defer></script>
 <link rel="stylesheet" href="css/logo.css?v=3">
@@ -150,7 +150,7 @@
           <div class="event-number">03</div>
           <div class="event-label">🥂 ימי הולדת למבוגרים</div>
           <h3>קצת אקשן.<br>קצת שתייה. הרבה חוויה.</h3>
-          <p>יום הולדת שלא מסתכם בעוד שולחן במסעדה. משחקים, תחרות, חדר אירוח ואפשרות לכיבוד ואלכוהול.</p>
+          <p>יום הולדת שלא מסתכם בעוד שולחן במסעדה. משחקים, תחרות, חדר אירוח ואפשרות לכיבוד.</p>
           <a href="#event-calculator" class="event-link" data-event-pick="company">בנו יום הולדת למבוגרים ←</a>
         </div>
         <div class="event-photos">
@@ -175,7 +175,7 @@
             <div class="step-title"><span>1</span> סוג האירוע</div>
             <div class="choice-grid three" id="eventTypeChoices">
               <label class="choice-card"><input type="radio" name="eventType" value="kids" checked><span>🎂 יום הולדת לילדים</span></label>
-              <label class="choice-card"><input type="radio" name="eventType" value="company"><span>🥂 אירוע חברה / יום הולדת למבוגרים</span></label>
+              <label class="choice-card"><input type="radio" name="eventType" value="company"><span>🎉 אירוע חברה / יום הולדת למבוגרים</span></label>
               <label class="choice-card"><input type="radio" name="eventType" value="hosting"><span>🏠 חדר אירוח בלבד</span></label>
             </div>
           </div>
@@ -197,7 +197,7 @@
                 <option value="tue">שלישי</option>
                 <option value="wed">רביעי</option>
                 <option value="thu">חמישי</option>
-                <option value="fri">שישי (+250 ₪)</option>
+                <option value="fri">שישי עד 15:00 (+250 ₪)</option>
               </select>
             </div>
           </div>
@@ -234,29 +234,20 @@
                 <select id="foodOption" class="calc-select">
                   <option value="full">כיבוד מלא: חטיפים, שתייה ופיצה</option>
                   <option value="none">ללא כיבוד</option>
-                </select>
-              </div>
-              <div class="addon-box" id="alcoholBox">
-                <label for="alcoholOption">אלכוהול</label>
-                <select id="alcoholOption" class="calc-select">
-                  <option value="no">ללא</option>
-                  <option value="yes">כולל אלכוהול</option>
+                  <option value="reduced">מתכונת מצומצמת</option>
                 </select>
               </div>
               <div class="addon-box">
                 <label for="hostingOption">חדר אירוח</label>
                 <select id="hostingOption" class="calc-select">
-                  <option value="standard">מתכונת רגילה</option>
-                  <option value="extra">מתכונת מוארכת (+350 ₪)</option>
+                  <option value="standard">חצי שעה לפני וחצי שעה אחרי הפעילות</option>
                 </select>
               </div>
             </div>
             <div class="event-package-details">
               <h3>מה כולל האירוח?</h3>
-              <p><strong>מתכונת רגילה:</strong> חצי שעה לפני הפעילות, עם כיבוד ושתייה אם בחרתם בכיבוד, וחצי שעה אחרי הפעילות לפיצות (אם בחרתם בכיבוד) ולטקס עוגה.</p>
-              <p><strong>מתכונת מוארכת:</strong> חצי שעה לפני הפעילות, עם כיבוד ושתייה אם בחרתם בכיבוד, ושעה שלמה אחרי הפעילות לפיצות (אם בחרתם בכיבוד) ולטקס עוגה.</p>
-              <p>העוגה אינה כלולה ויש להביא אותה מהבית.</p>
-              <p><strong>אלכוהול:</strong> בירה למשתתף ובקבוק יין לכל 15 משתתפים.</p>
+              <p><strong>מתכונת רגילה:</strong> קבלת פנים חצי שעה לפני הפעילות, עם כיבוד ושתייה כשנבחר כיבוד, וחצי שעה אחרי הפעילות לפיצות. העוגה אינה כלולה ואפשר להביא אותה באופן עצמאי.</p>
+              <p><strong>מתכונת מצומצמת:</strong> קבלת פנים חצי שעה לפני הפעילות, עם כיבוד ושתייה בהבאת האורחים, וחצי שעה אחרי הפעילות עם פיצה וטרופית: שני משולשי פיצה למשתתף.</p>
               <details>
                 <summary>מה כולל הכיבוד?</summary>
                 <div class="refreshments-table-wrap">
@@ -266,6 +257,7 @@
                       <tr><td>עד 10</td><td>3</td><td>4</td><td>4</td></tr>
                       <tr><td>עד 15</td><td>5</td><td>5</td><td>5</td></tr>
                       <tr><td>עד 20</td><td>6</td><td>7</td><td>7</td></tr>
+                      <tr><td>עד 25</td><td>7</td><td>8</td><td>8</td></tr>
                       <tr><td>עד 30</td><td>9</td><td>11</td><td>11</td></tr>
                       <tr><td>עד 40</td><td>11</td><td>15</td><td>13</td></tr>
                       <tr><td>עד 50</td><td>15</td><td>17</td><td>15</td></tr>
@@ -397,16 +389,9 @@
   // מחירי בסיס כוללים חדרי בריחה, אירוח במתכונת רגילה וכיבוד.
   const packagePrices = [
     { upTo: 10, price: 1800 }, { upTo: 15, price: 2400 },
-    { upTo: 20, price: 3000 }, { upTo: 30, price: 3700 },
+    { upTo: 20, price: 3000 }, { upTo: 25, price: 3400 },
+    { upTo: 30, price: 3700 },
     { upTo: 40, price: 4400 }, { upTo: 50, price: 5200 }
-  ];
-  // עלות הכיבוד כתוספת לאירוח בלבד או כהנחה כשמוותרים עליו בחבילה.
-  const extras = [
-    { upTo: 10, food: 200, alcohol: 300 },
-    { upTo: 20, food: 300, alcohol: 400 },
-    { upTo: 30, food: 400, alcohol: 500 },
-    { upTo: 40, food: 500, alcohol: 600 },
-    { upTo: 50, food: 600, alcohol: 700 }
   ];
   const eventNames = {
     kids: 'יום הולדת לילדים',
@@ -414,7 +399,7 @@
     hosting: 'חדר אירוח בלבד'
   };
   const dayNames = {
-    sun: 'ראשון', mon: 'שני', tue: 'שלישי', wed: 'רביעי', thu: 'חמישי', fri: 'שישי'
+    sun: 'ראשון', mon: 'שני', tue: 'שלישי', wed: 'רביעי', thu: 'חמישי', fri: 'שישי עד 15:00'
   };
   const roomNames = {
     monastery: 'המנזר', throne: 'משחקי הכס', social: 'המדיה החברתית',
@@ -427,8 +412,6 @@
   const roomCheckboxes = [...document.querySelectorAll('#roomChoices input[type="checkbox"]')];
   const roomCountInputs = [...document.querySelectorAll('input[name="roomCount"]')];
   const foodSelect = document.getElementById('foodOption');
-  const alcoholSelect = document.getElementById('alcoholOption');
-  const alcoholBox = document.getElementById('alcoholBox');
   const hostingSelect = document.getElementById('hostingOption');
   const summaryTitle = document.getElementById('summaryTitle');
   const summaryLines = document.getElementById('summaryLines');
@@ -442,7 +425,6 @@
   const roomCount = () => Number(selectedRadioValue('roomCount') || 1);
   const people = () => Math.max(10, Math.min(50, Math.floor(Number(peopleInput.value) || 10)));
   const money = amount => new Intl.NumberFormat('he-IL').format(amount) + ' ₪';
-  const tierFor = (tiers, count) => tiers.find(tier => count <= tier.upTo);
   const selectedRooms = () => roomCheckboxes.filter(input => input.checked).map(input => ({
     id: input.value,
     name: roomNames[input.value],
@@ -484,7 +466,6 @@
   }
 
   function validateRooms() {
-    if (eventType() === 'hosting') return '';
     const selected = selectedRooms();
     const target = roomCount();
     const count = people();
@@ -505,29 +486,35 @@
 
   function calculatePrice() {
     const count = people();
-    const extra = tierFor(extras, count);
     const hostingOnly = eventType() === 'hosting';
-    let price = hostingOnly ? (hostingSelect.value === 'hour' ? 450 : 350) : tierFor(packagePrices, count).price;
+    const roomPrices = { beforeHalf: 350, afterHalf: 350, beforeHour: 450, afterHour: 450, standard: 600 };
+    let price;
+
+    if (hostingOnly || foodSelect.value === 'none') {
+      price = count * 100 + roomPrices[hostingSelect.value];
+    } else if (foodSelect.value === 'reduced') {
+      price = count * 125;
+    } else {
+      const next = packagePrices.findIndex(pack => count <= pack.upTo);
+      const upper = packagePrices[next];
+      const lower = packagePrices[Math.max(0, next - 1)];
+      price = Math.min(upper.price, lower.price + (count - lower.upTo) * 200);
+    }
     if (daySelect.value === 'fri') price += 250;
-    if (!hostingOnly && hostingSelect.value === 'extra') price += 350;
-    if (hostingOnly && foodSelect.value === 'full') price += extra.food;
-    if (!hostingOnly && foodSelect.value === 'none') price -= extra.food;
-    if (eventType() !== 'kids' && alcoholSelect.value === 'yes') price += extra.alcohol;
     return price;
   }
 
   function updateSummary() {
     const type = eventType();
-    const hostingOnly = type === 'hosting';
     const rooms = selectedRooms();
     const validation = validateRooms();
-    const hostingLabels = { standard: 'מתכונת רגילה', extra: 'מתכונת מוארכת', half: 'חצי שעה', hour: 'שעה' };
+    const hostingLabels = { standard: 'חצי שעה לפני וחצי שעה אחרי', beforeHalf: 'חצי שעה לפני הפעילות', beforeHour: 'שעה לפני הפעילות', afterHalf: 'חצי שעה אחרי הפעילות', afterHour: 'שעה אחרי הפעילות' };
     const lines = [
       ['משתתפים', people()], ['יום', dayNames[daySelect.value]],
-      ...(!hostingOnly ? [['חלוקה', roomCount() === 1 ? 'חדר אחד' : `${roomCount()} חדרים`], ['חדרים', rooms.length ? rooms.map(room => room.name).join(', ') : 'טרם נבחרו']] : []),
+      ['חלוקה', roomCount() === 1 ? 'חדר אחד' : `${roomCount()} חדרים`],
+      ['חדרים', rooms.length ? rooms.map(room => room.name).join(', ') : 'טרם נבחרו'],
       ['חדר אירוח', hostingLabels[hostingSelect.value]],
-      ['כיבוד', foodSelect.value === 'full' ? 'כיבוד' : 'ללא כיבוד'],
-      ['אלכוהול', alcoholSelect.value === 'yes' ? 'כולל' : 'ללא']
+      ['כיבוד', { full: 'כיבוד', none: 'ללא כיבוד', reduced: 'מתכונת מצומצמת' }[foodSelect.value]]
     ];
     summaryTitle.textContent = eventNames[type];
     summaryLines.innerHTML = lines.map(([label, value]) => `<div><span>${label}</span><b>${value}</b></div>`).join('');
@@ -548,16 +535,12 @@
   function configureEventType() {
     const type = eventType();
     const hostingOnly = type === 'hosting';
-    document.getElementById('roomCountStep').hidden = hostingOnly;
-    document.getElementById('roomChoiceStep').hidden = hostingOnly;
-    alcoholSelect.value = 'no';
-    alcoholSelect.disabled = type === 'kids';
-    alcoholBox.classList.toggle('muted-addon', type === 'kids');
     hostingSelect.innerHTML = hostingOnly
-      ? '<option value="half">חצי שעה</option><option value="hour">שעה</option>'
-      : '<option value="standard">מתכונת רגילה</option><option value="extra">מתכונת מוארכת (+350 ₪)</option>';
-    hostingSelect.disabled = type === 'kids';
+      ? '<option value="beforeHalf">חצי שעה לפני הפעילות</option><option value="beforeHour">שעה לפני הפעילות</option><option value="afterHalf">חצי שעה אחרי הפעילות</option><option value="afterHour">שעה אחרי הפעילות</option><option value="standard">חצי שעה לפני וחצי שעה אחרי הפעילות</option>'
+      : '<option value="standard">חצי שעה לפני וחצי שעה אחרי הפעילות</option>';
+    hostingSelect.disabled = !hostingOnly;
     foodSelect.value = hostingOnly ? 'none' : 'full';
+    foodSelect.disabled = hostingOnly;
     resetRooms();
   }
 
@@ -574,7 +557,7 @@
     if (Number.isInteger(count) && count >= 10 && count <= 50) resetRooms();
   });
   peopleInput.addEventListener('change', () => { peopleInput.value = people(); resetRooms(); });
-  [daySelect, foodSelect, alcoholSelect, hostingSelect].forEach(input => input.addEventListener('change', updateSummary));
+  [daySelect, foodSelect, hostingSelect].forEach(input => input.addEventListener('change', updateSummary));
   document.querySelectorAll('input[name="eventType"]').forEach(input => input.addEventListener('change', configureEventType));
   roomCountInputs.forEach(input => input.addEventListener('change', resetRooms));
   roomCheckboxes.forEach(input => input.addEventListener('change', () => { updateRoomChoices(); updateSummary(); }));
@@ -606,10 +589,6 @@
     }));
   }
 
-  alcoholBox.classList.add('muted-addon');
-  alcoholSelect.disabled = true;
-  updateRoomLimitUI();
-  updateSummary();
 })();
 </script>
 
