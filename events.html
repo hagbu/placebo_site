@@ -9,7 +9,7 @@
   <title>ימי הולדת ואירועי חברה בחדרי בריחה בנתניה | פלסיבו</title>
   <meta name="description" content="חוגגים בפלסיבו נתניה: ימי הולדת לילדים ולמבוגרים, אירועי חברה, חדר אירועים פרטי וחבילות פעילות במתחם חדרי הבריחה.">
   <link rel="stylesheet" href="style.css?v=footer-links-1">
-  <link rel="stylesheet" href="css/pages/events.css?v=calculator-3">
+  <link rel="stylesheet" href="css/pages/events.css?v=calculator-4">
 <script>window.OpenNagishConfig = { lang: 'he', position: 'bottom-left', mobileBottomOffset: 75, statementUrl: '/accessibility.html' };</script>
 <script src="https://cdn.jsdelivr.net/npm/open-nagish@1.1.4/dist/open-nagish.min.js" defer></script>
 <link rel="stylesheet" href="css/logo.css?v=3">
@@ -200,21 +200,11 @@
             </div>
           </div>
 
-          <div class="calc-step" id="roomCountStep">
-            <div class="step-title"><span>4</span> לכמה חדרים רוצים להתפצל?</div>
-            <div class="room-count-row" id="roomCountChoices">
-              <label><input type="radio" name="roomCount" value="1" checked><span>1</span></label>
-              <label><input type="radio" name="roomCount" value="2"><span>2</span></label>
-              <label><input type="radio" name="roomCount" value="3"><span>3</span></label>
-              <label><input type="radio" name="roomCount" value="4"><span>4</span></label>
-              <label><input type="radio" name="roomCount" value="5"><span>5</span></label>
-            </div>
-            <div class="capacity-note">חדר רגיל: עד 10 משתתפים · סופר קלאסיקו: עד 22 משתתפים ונחשב שני חדרים; בקבוצות מעל 50 הוא מתאים לעד 25</div>
-          </div>
-
           <div class="calc-step" id="roomChoiceStep">
-            <div class="step-title"><span>5</span> איזה חדרים?</div>
-            <p class="step-help" id="roomHelp">בחרו חדר אחד.</p>
+            <div class="step-title"><span>4</span> איזה חדרים?</div>
+            <p class="step-help" id="roomHelp" aria-live="polite">ל-10 משתתפים ניתן לבחור חדר רגיל אחד בלבד.</p>
+            <p class="room-progress" id="roomProgress" aria-live="polite">בחרתם 0 מתוך 1 חדר</p>
+            <p class="capacity-note">חדר רגיל מתאים לעד 10 משתתפים. סופר קלאסיקו נחשב לשני חדרים ומתאים לעד 22 משתתפים, או עד 25 בקבוצות מעל 50. משחקי הכס ומגני הממלכה הם אותו חדר פיזי, ולכן אפשר לבחור רק אחד מהם.</p>
             <div class="rooms-choice-grid" id="roomChoices">
               <label class="room-choice" data-capacity="10"><input type="checkbox" value="monastery"><span><b>המנזר</b><small>עד 10</small></span></label>
               <label class="room-choice" data-capacity="10"><input type="checkbox" value="throne"><span><b>משחקי הכס</b><small>עד 10</small></span></label>
@@ -226,7 +216,7 @@
           </div>
 
           <div class="calc-step">
-            <div class="step-title"><span>6</span> מה מוסיפים לאירוע?</div>
+            <div class="step-title"><span>5</span> מה מוסיפים לאירוע?</div>
             <div class="addons-grid">
               <div class="addon-box">
                 <label for="foodOption">כיבוד</label>
@@ -411,7 +401,7 @@
   const roomHelp = document.getElementById('roomHelp');
   const roomWarning = document.getElementById('roomWarning');
   const roomCheckboxes = [...document.querySelectorAll('#roomChoices input[type="checkbox"]')];
-  const roomCountInputs = [...document.querySelectorAll('input[name="roomCount"]')];
+  const roomProgress = document.getElementById('roomProgress');
   const foodSelect = document.getElementById('foodOption');
   const hostingSelect = document.getElementById('hostingOption');
   const summaryTitle = document.getElementById('summaryTitle');
@@ -423,7 +413,6 @@
 
   const selectedRadioValue = name => document.querySelector(`input[name="${name}"]:checked`)?.value;
   const eventType = () => selectedRadioValue('eventType') || 'kids';
-  const roomCount = () => Number(selectedRadioValue('roomCount') || 1);
   const people = () => Math.max(10, Math.min(55, Math.floor(Number(peopleInput.value) || 10)));
   const money = amount => new Intl.NumberFormat('he-IL').format(amount) + ' ₪';
   const selectedRooms = () => roomCheckboxes.filter(input => input.checked).map(input => ({
@@ -433,6 +422,7 @@
       ? 25
       : Number(input.closest('.room-choice').dataset.capacity)
   }));
+  const roomUnits = rooms => rooms.reduce((total, room) => total + (room.id === 'soccer' ? 2 : 1), 0);
 
   function maxRooms(count) {
     if (count === 10) return 1;
@@ -448,34 +438,27 @@
       ? 'עד 25 · שני חדרים'
       : 'עד 22 · שני חדרים';
     const maximum = maxRooms(count);
-    const minimum = count > 10 ? 2 : 1;
-    roomCountInputs.forEach(input => {
-      input.disabled = Number(input.value) < minimum || Number(input.value) > maximum;
-    });
-    if (roomCount() > maximum || roomCount() < minimum) {
-      const newCount = Math.max(minimum, Math.min(maximum, roomCount()));
-      roomCountInputs.find(input => Number(input.value) === newCount).checked = true;
-    }
-    const target = roomCount();
     const chosen = selectedRooms();
-    const selectedUnits = chosen.reduce((total, room) => total + (room.id === 'soccer' ? 2 : 1), 0);
+    const selectedUnits = roomUnits(chosen);
     const pairedRoomSelected = chosen.some(room => room.id === 'throne' || room.id === 'protectors');
     roomCheckboxes.forEach(input => {
       const isPairedConflict = (input.value === 'throne' || input.value === 'protectors') &&
         pairedRoomSelected && !input.checked;
-      const roomUnits = input.value === 'soccer' ? 2 : 1;
-      input.disabled = !input.checked && (selectedUnits + roomUnits > target || isPairedConflict);
+      const units = input.value === 'soccer' ? 2 : 1;
+      input.disabled = !input.checked && (selectedUnits + units > maximum || isPairedConflict);
       input.closest('.room-choice').classList.toggle('disabled', input.disabled);
     });
-    roomHelp.textContent = target === 1 ? 'בחרו חדר אחד.' : `בחרו בסך הכול ${target} חדרים; סופר קלאסיקו נחשב שני חדרים.`;
+    roomHelp.textContent = maximum === 1
+      ? 'ל-10 משתתפים ניתן לבחור חדר רגיל אחד בלבד.'
+      : `ל-${count} משתתפים ניתן לבחור עד ${maximum} חדרים. סופר קלאסיקו נחשב לשני חדרים.`;
+    roomProgress.textContent = `בחרתם ${selectedUnits} מתוך ${maximum} ${maximum === 1 ? 'חדר' : 'חדרים'}`;
   }
 
   function validateRooms() {
     const selected = selectedRooms();
-    const target = roomCount();
     const count = people();
-    const selectedUnits = selected.reduce((total, room) => total + (room.id === 'soccer' ? 2 : 1), 0);
-    if (selectedUnits !== target) return target === 1 ? 'בחרו חדר אחד.' : `בחרו חדרים בסך ${target} חדרים. סופר קלאסיקו נחשב שני חדרים.`;
+    if (!selected.length) return 'בחרו את החדרים שמתאימים לקבוצה שלכם.';
+    if (roomUnits(selected) > maxRooms(count)) return 'בחרתם יותר חדרים מהאפשרי למספר המשתתפים.';
     if (selected.some(room => room.id === 'throne') && selected.some(room => room.id === 'protectors')) {
       return 'משחקי הכס ומגני הממלכה הם אותו חדר פיזי, ולכן אי אפשר לבחור את שניהם יחד.';
     }
@@ -512,7 +495,7 @@
     const hostingLabels = { standard: 'חצי שעה לפני וחצי שעה אחרי', beforeHalf: 'חצי שעה לפני הפעילות', beforeHour: 'שעה לפני הפעילות', afterHalf: 'חצי שעה אחרי הפעילות', afterHour: 'שעה אחרי הפעילות' };
     const lines = [
       ['משתתפים', people()], ['יום', dayNames[daySelect.value]],
-      ['חלוקה', roomCount() === 1 ? 'חדר אחד' : `${roomCount()} חדרים`],
+      ['חלוקה', rooms.length ? (roomUnits(rooms) === 1 ? 'חדר אחד' : `${roomUnits(rooms)} חדרים`) : 'טרם נבחרה'],
       ['חדרים', rooms.length ? rooms.map(room => room.name).join(', ') : 'טרם נבחרו'],
       ['חדר אירוח', hostingLabels[hostingSelect.value]],
       ['כיבוד', { full: 'כיבוד', none: 'ללא כיבוד', reduced: 'מתכונת מצומצמת' }[foodSelect.value]]
@@ -561,7 +544,6 @@
   peopleInput.addEventListener('change', () => { peopleInput.value = people(); resetRooms(); });
   [daySelect, foodSelect, hostingSelect].forEach(input => input.addEventListener('change', updateSummary));
   document.querySelectorAll('input[name="eventType"]').forEach(input => input.addEventListener('change', configureEventType));
-  roomCountInputs.forEach(input => input.addEventListener('change', resetRooms));
   roomCheckboxes.forEach(input => input.addEventListener('change', () => { updateRoomChoices(); updateSummary(); }));
   document.querySelectorAll('[data-event-pick]').forEach(link => link.addEventListener('click', () => {
     const radio = document.querySelector(`input[name="eventType"][value="${link.dataset.eventPick}"]`);

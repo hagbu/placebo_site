@@ -485,36 +485,10 @@ body.events-page .mobile-menu {
     outline: none;
 }
 
-.room-count-row {
-    display: flex;
-    gap: 10px;
-    flex-wrap: wrap;
-}
-
-.room-count-row label {
-    cursor: pointer;
-}
-
-.room-count-row input {
-    position: absolute;
-    opacity: 0;
-}
-
-.room-count-row span {
-    display: grid;
-    place-items: center;
-    width: 54px;
-    height: 54px;
-    border: 1px solid var(--home-line,#2f7fa2);
-    border-radius: 11px;
-    background: rgba(255,255,255,.03);
-    font-weight: 900;
-    font-size: 18px;
-}
-
-.room-count-row input:checked+span {
-    background: linear-gradient(135deg,#29c2f2,#665cf5);
-    border-color: transparent;
+.room-progress {
+    margin: 8px 0;
+    color: #087d9e;
+    font-weight: 800;
 }
 
 .rooms-choice-grid {
@@ -557,6 +531,11 @@ body.events-page .mobile-menu {
 .room-choice input:checked+span {
     border-color: #70ddff;
     background: rgba(41,194,242,.15);
+}
+
+.room-choice input:focus-visible+span {
+    outline: 3px solid #078bb1;
+    outline-offset: 2px;
 }
 
 .room-choice.soccer>span {
@@ -1035,8 +1014,7 @@ body.events-page .calc-step {
     background: linear-gradient(180deg, var(--home-panel), var(--home-panel2));
 }
 
-body.events-page .step-title > span,
-body.events-page .room-count-row input:checked + span {
+body.events-page .step-title > span {
     color: #fff;
 }
 
