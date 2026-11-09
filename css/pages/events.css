@@ -983,6 +983,10 @@ body.events-page .event-types {
     background-image: url("../../images/event-balloons.svg");
 }
 
+body.events-page .event-showcase {
+    background-image: url("../../images/event-balloons.svg"), linear-gradient(145deg, var(--home-panel,#17344a), var(--home-panel2,#1d425a));
+}
+
 body.events-page .events-hero p {
     color: #e1edf2;
 }
@@ -1016,7 +1020,7 @@ body.events-page .calculator-section {
 }
 
 body.events-page .calc-step {
-    background: linear-gradient(180deg, var(--home-panel), var(--home-panel2));
+    background: url("../../images/event-balloons.svg"), linear-gradient(180deg, var(--home-panel), var(--home-panel2));
 }
 
 body.events-page .step-title > span {
