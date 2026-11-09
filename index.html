@@ -529,7 +529,7 @@
 
   function start() {
     clearInterval(timer);
-    timer = setInterval(next, 2400);
+    timer = setInterval(next, desktop.matches ? 2000 : 2400);
   }
 
   function pause() {
@@ -552,17 +552,20 @@
   rooms.addEventListener('pointerdown', pause);
   rooms.addEventListener('pointerup', () => resume());
   carousel.addEventListener('mouseenter', pause);
-  carousel.addEventListener('mouseleave', () => resume(700));
+  carousel.addEventListener('mouseleave', () => resume(desktop.matches ? 400 : 700));
   carousel.addEventListener('focusin', () => { if (desktop.matches) pause(); });
-  carousel.addEventListener('focusout', () => { if (desktop.matches) resume(700); });
+  carousel.addEventListener('focusout', () => { if (desktop.matches) resume(400); });
   carousel.querySelectorAll('.rooms-arrow').forEach(button => {
-    button.addEventListener('click', () => {
+    button.addEventListener('click', event => {
       pause();
       const distance = cards[0].offsetWidth + parseFloat(getComputedStyle(rooms).gap || 0);
       rooms.scrollBy({
         left: button.classList.contains('rooms-arrow-right') ? distance : -distance,
         behavior: reducedMotion.matches ? 'instant' : 'smooth'
       });
+      // Mouse clicks should not keep the carousel paused after the pointer leaves.
+      // Keyboard activation keeps focus so that the cards stay still while navigating.
+      if (event.detail > 0) button.blur();
     });
   });
   rooms.addEventListener('wheel', () => {
