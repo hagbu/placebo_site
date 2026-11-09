@@ -15,7 +15,7 @@
     mobileNav.appendChild(link);
   }
 
-  const target=document.querySelector('.proofs');
+  const target=document.getElementById('reviews');
   if(!target) return;
   const endpoint=document.currentScript?.dataset.endpoint;
   if(!endpoint) return;
@@ -71,7 +71,7 @@
       if(mapsUrl){
         const link=text('a','לכל הביקורות בגוגל ↗'); link.href=mapsUrl; link.target='_blank'; link.rel='noopener noreferrer'; note.append(link);
       }
-      target.parentNode.insertBefore(section,target);
+      target.after(section);
       const cards=[...track.children];
       let active=0;
       const reducedMotion=window.matchMedia('(prefers-reduced-motion: reduce)');
