@@ -8,7 +8,7 @@
 <meta name="referrer" content="no-referrer">
 <title>חדרי בריחה בנתניה | פלסיבו Placebo Escape Room</title>
 <meta name="description" content="מחפשים חדרי בריחה בנתניה? בפלסיבו מחכות לכם חמש חוויות בריחה, חדר מפחיד, דו־קרב כדורגל, משחקים למשפחות ואירועים. בחרו חדר והזמינו.">
-<link rel="stylesheet" href="style.css?v=hero-awards-1">
+<link rel="stylesheet" href="style.css?v=rooms-controls-1">
 <script>window.OpenNagishConfig = { lang: 'he', position: 'bottom-left', mobileBottomOffset: 75, statementUrl: '/accessibility.html' };</script>
 <script src="https://cdn.jsdelivr.net/npm/open-nagish@1.1.4/dist/open-nagish.min.js" defer></script>
 <link rel="stylesheet" href="css/logo.css?v=3">
@@ -129,7 +129,9 @@
       <h2>בחרו את <span>חדר הבריחה שלכם</span></h2>
       <p>להיבהל במנזר, לצאת להרפתקה בעולם של משחקי הכס, לצחוק במדיה החברתית או להתחרות ראש בראש בסופר קלאסיקו. מגיעים עם הילדים? מחכה לכם גם מגני הממלכה, גרסה משפחתית של משחקי הכס.</p>
     </div>
-    <div class="rooms">
+    <div class="rooms-carousel">
+      <button class="rooms-arrow rooms-arrow-right" type="button" aria-label="גלילה ימינה בין החדרים" aria-controls="rooms-list">&#8250;</button>
+    <div class="rooms" id="rooms-list">
 <article class="room-card" onclick="window.location.href='throne.html'">
   <div class="room-img">
     <img src="images/throne-card.webp" alt="משחקי הכס – חדר בריחה בנתניה">
@@ -223,6 +225,8 @@
   </div>
 </article>
 </div>
+      <button class="rooms-arrow rooms-arrow-left" type="button" aria-label="גלילה שמאלה בין החדרים" aria-controls="rooms-list">&#8249;</button>
+    </div>
   </div>
 </section>
 
@@ -484,6 +488,9 @@
 
   const cards = Array.from(rooms.querySelectorAll('.room-card'));
   if (cards.length < 2) return;
+  const carousel = rooms.closest('.rooms-carousel');
+  const desktop = window.matchMedia('(min-width: 851px)');
+  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
 
   let index = 0;
   let timer = null;
@@ -506,6 +513,16 @@
 
   function next() {
     if (paused) return;
+    if (desktop.matches && reducedMotion.matches) return;
+    // On desktop the carousel scrolls right-to-left; return to the start at the end.
+    if (desktop.matches) {
+      const maxScroll = rooms.scrollWidth - rooms.clientWidth;
+      const atEnd = Math.abs(rooms.scrollLeft) >= maxScroll - 2;
+      const distance = cards[0].offsetWidth + parseFloat(getComputedStyle(rooms).gap || 0);
+      if (atEnd) rooms.scrollTo({ left: 0, behavior: 'smooth' });
+      else rooms.scrollBy({ left: -distance, behavior: 'smooth' });
+      return;
+    }
     index = (index + 1) % cards.length;
     goToCard(index);
   }
@@ -524,6 +541,7 @@
   function resume(delay = 1500) {
     clearTimeout(resumeTimer);
     resumeTimer = setTimeout(() => {
+      if (desktop.matches && (carousel.matches(':hover') || carousel.contains(document.activeElement))) return;
       paused = false;
       start();
     }, delay);
@@ -533,8 +551,20 @@
   rooms.addEventListener('touchend', () => resume(), {passive:true});
   rooms.addEventListener('pointerdown', pause);
   rooms.addEventListener('pointerup', () => resume());
-  rooms.addEventListener('mouseenter', pause);
-  rooms.addEventListener('mouseleave', () => resume(700));
+  carousel.addEventListener('mouseenter', pause);
+  carousel.addEventListener('mouseleave', () => resume(700));
+  carousel.addEventListener('focusin', () => { if (desktop.matches) pause(); });
+  carousel.addEventListener('focusout', () => { if (desktop.matches) resume(700); });
+  carousel.querySelectorAll('.rooms-arrow').forEach(button => {
+    button.addEventListener('click', () => {
+      pause();
+      const distance = cards[0].offsetWidth + parseFloat(getComputedStyle(rooms).gap || 0);
+      rooms.scrollBy({
+        left: button.classList.contains('rooms-arrow-right') ? distance : -distance,
+        behavior: reducedMotion.matches ? 'instant' : 'smooth'
+      });
+    });
+  });
   rooms.addEventListener('wheel', () => {
     pause();
     resume(1300);

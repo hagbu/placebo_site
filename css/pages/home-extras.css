@@ -194,3 +194,38 @@ body.page-home .room-img .room-awards img {
 .reviews-anchor {
     scroll-margin-top: 86px;
 }
+.rooms-carousel {
+    position: relative;
+}
+
+.rooms-arrow {
+    display: none;
+}
+
+@media (min-width: 851px) {
+    .rooms-arrow {
+        display: grid;
+        direction: ltr;
+        place-items: center;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        z-index: 3;
+        width: 56px;
+        height: 56px;
+        padding: 0 0 5px;
+        border: 2px solid #2389a7;
+        border-radius: 50%;
+        background: #fff;
+        color: #173e55;
+        box-shadow: 0 5px 16px rgba(20, 58, 76, .25);
+        font-size: 44px;
+        line-height: 1;
+        cursor: pointer;
+    }
+
+    .rooms-arrow:hover { background: #e3f5fa; }
+    .rooms-arrow:focus-visible { outline: 3px solid #126c8c; outline-offset: 3px; }
+    .rooms-arrow-right { right: -10px; }
+    .rooms-arrow-left { left: -10px; }
+}
