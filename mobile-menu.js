@@ -11,3 +11,15 @@
     menuBtn.textContent = '☰';
   }, { passive: true });
 })();
+
+// When moving between desktop dropdowns, close a menu left open by a click.
+(() => {
+  const dropdowns = document.querySelectorAll('header .links > .nav-dropdown');
+  dropdowns.forEach(dropdown => {
+    dropdown.addEventListener('mouseenter', () => {
+      const focused = document.activeElement;
+      const otherDropdown = focused?.closest('.nav-dropdown');
+      if (otherDropdown && otherDropdown !== dropdown && focused.blur) focused.blur();
+    });
+  });
+})();
