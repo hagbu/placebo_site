@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="480" height="520" viewBox="0 0 480 520">
+  <!-- קווי מתאר עדינים שמוסיפים אווירת חגיגה בלי להפריע לתוכן. -->
+  <g fill="none" stroke="#51a9c4" stroke-width="3" opacity=".23">
+    <g transform="translate(48 32) rotate(-12 42 60)">
+      <path d="M42 0C17 0 2 20 2 46c0 27 19 50 40 58 21-8 40-31 40-58C82 20 67 0 42 0Z"/>
+      <path d="m42 104-6 9h12l-6-9Zm0 9c-10 17 15 23 1 42s7 26-2 43" stroke-width="2"/>
+      <path d="M19 26c4-9 9-13 17-15" stroke="#fff" stroke-width="4" opacity=".8"/>
+    </g>
+    <g transform="translate(315 205) rotate(14 34 50)">
+      <path d="M34 0C13 0 2 17 2 38c0 23 15 42 32 49 17-7 32-26 32-49C66 17 55 0 34 0Z"/>
+      <path d="m34 87-5 8h10l-5-8Zm0 8c8 15-10 23 1 38s-4 24 2 38" stroke-width="2"/>
+      <path d="M16 22c3-7 7-10 13-12" stroke="#fff" stroke-width="4" opacity=".8"/>
+    </g>
+    <g transform="translate(105 372) rotate(8 25 36)" opacity=".7">
+      <path d="M25 0C10 0 1 12 1 27c0 17 11 31 24 36 13-5 24-19 24-36C49 12 40 0 25 0Z"/>
+      <path d="m25 63-4 6h8l-4-6Zm0 6c-6 11 8 17 1 28" stroke-width="2"/>
+    </g>
+  </g>
+</svg>

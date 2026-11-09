@@ -976,6 +976,11 @@ body.events-page .nav-dropdown-menu a:hover {
 
 body.events-page .events-hero {
     color: #fff;
+    background-image: url("../../images/event-balloons.svg"), radial-gradient(circle at 20% 20%,rgba(41,194,242,.22),transparent 32%), radial-gradient(circle at 82% 30%,rgba(102,92,245,.22),transparent 34%), linear-gradient(180deg,#102131,#0b1a27);
+}
+
+body.events-page .event-types {
+    background-image: url("../../images/event-balloons.svg");
 }
 
 body.events-page .events-hero p {
@@ -1007,7 +1012,7 @@ body.events-page .event-link {
 }
 
 body.events-page .calculator-section {
-    background: linear-gradient(180deg, #e8f3f7, var(--home-bg));
+    background: url("../../images/event-balloons.svg"), linear-gradient(180deg, #e8f3f7, var(--home-bg));
 }
 
 body.events-page .calc-step {
