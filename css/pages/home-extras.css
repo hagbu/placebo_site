@@ -203,6 +203,14 @@ body.page-home .room-img .room-awards img {
 }
 
 @media (min-width: 851px) {
+    body.page-home .rooms {
+        scrollbar-width: none;
+    }
+
+    body.page-home .rooms::-webkit-scrollbar {
+        display: none;
+    }
+
     .rooms-arrow {
         display: grid;
         direction: ltr;
@@ -214,7 +222,7 @@ body.page-home .room-img .room-awards img {
         width: 56px;
         height: 56px;
         padding: 0 0 5px;
-        border: 2px solid #2389a7;
+        border: 1px solid #d4e0e5;
         border-radius: 50%;
         background: #fff;
         color: #173e55;
@@ -224,7 +232,7 @@ body.page-home .room-img .room-awards img {
         cursor: pointer;
     }
 
-    .rooms-arrow:hover { background: #e3f5fa; }
+    .rooms-arrow:hover { background: #fff; }
     .rooms-arrow:focus-visible { outline: 3px solid #126c8c; outline-offset: 3px; }
     .rooms-arrow-right { right: -10px; }
     .rooms-arrow-left { left: -10px; }
