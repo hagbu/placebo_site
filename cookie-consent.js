@@ -29,8 +29,8 @@
           <p>אנחנו משתמשים בעוגיות כדי לשפר את חוויית הגלישה ולמדוד את השימוש באתר.</p>
         </div>
         <div class="cookie-consent-actions">
-          <button type="button" data-consent="accepted">אישור מדידה</button>
-          <button type="button" data-consent="rejected">ללא מדידה</button>
+          <button type="button" data-consent="accepted">אישור</button>
+          <button type="button" data-consent="rejected">דחייה</button>
           <button type="button" class="cookie-info-toggle" aria-expanded="false" aria-controls="cookie-info">מידע נוסף</button>
         </div>
         <div id="cookie-info" class="cookie-info" hidden>
