@@ -17,6 +17,7 @@
 .cookie-consent[hidden] { display: none; }
 .cookie-consent h2 { margin: 0 0 6px; color: #173746; font-size: 20px; }
 .cookie-consent p { margin: 4px 0; color: #173746; }
+.cookie-consent a { color: #006b8e !important; text-decoration: underline !important; font-weight: 700; }
 .cookie-consent-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 14px; }
 .cookie-consent-actions button { min-height: 44px; padding: 8px 18px; border: 1px solid #147f9d; border-radius: 8px; background: #147f9d; color: #fff; font: bold 16px Arial, sans-serif; cursor: pointer; }
 .cookie-consent-actions button[data-consent="rejected"],
@@ -28,5 +29,6 @@
 @media (max-width: 600px) {
   .cookie-consent { inset: auto 10px 10px; padding: 15px !important; max-height: 75vh; overflow-y: auto; font-size: 14px; }
   .cookie-consent h2 { font-size: 18px; }
+  .cookie-consent-copy, .cookie-info { padding-left: 55px; }
   .cookie-consent-actions button { flex: 1; }
 }

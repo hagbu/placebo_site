@@ -25,7 +25,7 @@
       banner.setAttribute('aria-labelledby', 'cookie-consent-title');
       banner.innerHTML = `
         <div class="cookie-consent-copy">
-          <h2 id="cookie-consent-title">העדפות מדידה באתר</h2>
+          <h2 id="cookie-consent-title">העדפות עוגיות</h2>
           <p>אנחנו משתמשים בעוגיות כדי לשפר את חוויית הגלישה ולמדוד את השימוש באתר.</p>
           <p><a href="reviews-privacy.html">למדיניות הפרטיות</a></p>
         </div>
