@@ -236,7 +236,7 @@
             <div class="event-package-details">
               <h3>מה כולל האירוח?</h3>
               <p><strong>מתכונת רגילה:</strong> קבלת פנים חצי שעה לפני הפעילות, עם כיבוד ושתייה כשנבחר כיבוד, וחצי שעה אחרי הפעילות לפיצות. העוגה אינה כלולה ואפשר להביא אותה באופן עצמאי.</p>
-              <p><strong>מתכונת מצומצמת:</strong> קבלת פנים חצי שעה לפני הפעילות, עם כיבוד ושתייה בהבאת האורחים, וחצי שעה אחרי הפעילות עם פיצה וטרופית: שני משולשי פיצה למשתתף.</p>
+              <p><strong>מתכונת מצומצמת:</strong> חדר אירוח לחצי שעה לפני הפעילות בלבד, עם כיבוד ושתייה בהבאת האורחים. החבילה כוללת פיצה וטרופית: שני משולשי פיצה למשתתף.</p>
               <details>
                 <summary>מה כולל הכיבוד?</summary>
                 <div class="refreshments-table-wrap">
@@ -529,6 +529,15 @@
     resetRooms();
   }
 
+  function updateHostingForFood() {
+    if (eventType() !== 'hosting') {
+      hostingSelect.innerHTML = foodSelect.value === 'reduced'
+        ? '<option value="beforeHalf">חצי שעה לפני הפעילות בלבד</option>'
+        : '<option value="standard">חצי שעה לפני וחצי שעה אחרי הפעילות</option>';
+    }
+    updateSummary();
+  }
+
   document.getElementById('peopleMinus').addEventListener('click', () => {
     peopleInput.value = Math.max(10, people() - 1);
     resetRooms();
@@ -542,7 +551,8 @@
     if (Number.isInteger(count) && count >= 10 && count <= 55) resetRooms();
   });
   peopleInput.addEventListener('change', () => { peopleInput.value = people(); resetRooms(); });
-  [daySelect, foodSelect, hostingSelect].forEach(input => input.addEventListener('change', updateSummary));
+  [daySelect, hostingSelect].forEach(input => input.addEventListener('change', updateSummary));
+  foodSelect.addEventListener('change', updateHostingForFood);
   document.querySelectorAll('input[name="eventType"]').forEach(input => input.addEventListener('change', configureEventType));
   roomCheckboxes.forEach(input => input.addEventListener('change', () => { updateRoomChoices(); updateSummary(); }));
   document.querySelectorAll('[data-event-pick]').forEach(link => link.addEventListener('click', () => {
