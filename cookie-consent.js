@@ -26,14 +26,25 @@
       banner.innerHTML = `
         <div class="cookie-consent-copy">
           <h2 id="cookie-consent-title">העדפות מדידה באתר</h2>
-          <p>נשמח להשתמש בעוגיות של Google Analytics כדי להבין איך משתמשים באתר ולשפר אותו. אפשר לבחור אם לאפשר מדידה.</p>
-          <p>חלון ההזמנות של vcita והמפות של Google הם שירותים חיצוניים שעשויים להשתמש בעוגיות משלהם. הבחירה כאן מתייחסת למדידת האתר בלבד.</p>
+          <p>אנחנו משתמשים בעוגיות כדי לשפר את חוויית הגלישה ולמדוד את השימוש באתר.</p>
         </div>
         <div class="cookie-consent-actions">
           <button type="button" data-consent="accepted">אישור מדידה</button>
           <button type="button" data-consent="rejected">ללא מדידה</button>
+          <button type="button" class="cookie-info-toggle" aria-expanded="false" aria-controls="cookie-info">מידע נוסף</button>
+        </div>
+        <div id="cookie-info" class="cookie-info" hidden>
+          <p>באישור מדידה, Google Analytics עוזר לנו להבין איך משתמשים באתר, למשל באילו עמודים מבקרים ועל אילו כפתורים לוחצים. ניתן לשנות את הבחירה בכל עת דרך „העדפות מדידה” בתחתית האתר.</p>
+          <p>חלון ההזמנות של vcita והמפות של Google הם שירותים חיצוניים שעשויים להשתמש בעוגיות משלהם. הבחירה כאן מתייחסת למדידת האתר בלבד.</p>
         </div>`;
       banner.addEventListener('click', event => {
+        const infoButton = event.target.closest('.cookie-info-toggle');
+        if (infoButton) {
+          const info = banner.querySelector('#cookie-info');
+          info.hidden = !info.hidden;
+          infoButton.setAttribute('aria-expanded', String(!info.hidden));
+          return;
+        }
         const button = event.target.closest('button[data-consent]');
         if (!button) return;
         const previousChoice = choice;
