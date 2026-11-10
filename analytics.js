@@ -1,18 +1,26 @@
-/* מדידת האתר ב-Google Analytics. מזהה הנכס החדש של פלסיבו. */
+/* מדידת האתר מופעלת רק לאחר הסכמה למדידה. */
 (() => {
-  // תצוגות בדיקה וכתובות Firebase אינן נכללות בנתוני האתר הרשמי.
   if (window.location.hostname !== 'placebo.co.il') return;
 
   const measurementId = 'G-H856D7LZY0';
-  window.dataLayer = window.dataLayer || [];
-  function gtag() { window.dataLayer.push(arguments); }
+  let started = false;
 
-  const googleTag = document.createElement('script');
-  googleTag.async = true;
-  googleTag.src = 'https://www.googletagmanager.com/gtag/js?id=' + measurementId;
-  document.head.appendChild(googleTag);
-  gtag('js', new Date());
-  gtag('config', measurementId);
+  function startAnalytics() {
+    if (started || !window.PlaceboConsent?.allowsAnalytics()) return;
+    started = true;
+    window.dataLayer = window.dataLayer || [];
+    window.gtag = function () { window.dataLayer.push(arguments); };
+
+    const googleTag = document.createElement('script');
+    googleTag.async = true;
+    googleTag.src = 'https://www.googletagmanager.com/gtag/js?id=' + measurementId;
+    document.head.appendChild(googleTag);
+    window.gtag('js', new Date());
+    window.gtag('config', measurementId);
+  }
+
+  startAnalytics();
+  window.addEventListener('placebo-consent-changed', startAnalytics);
 
   document.addEventListener('click', event => {
     if (!(event.target instanceof Element)) return;
@@ -26,7 +34,7 @@
       eventName = 'phone_click';
     } else if (link && link.protocol === 'https:' && link.hostname === 'wa.me') {
       eventName = 'whatsapp_click';
-      // השארת האתר פתוח מאפשרת לתג להשלים את השליחה גם במעבר לוואטסאפ.
+      // האתר נשאר פתוח כדי לאפשר למדידה להשלים את השליחה.
       if (!link.target) {
         link.target = '_blank';
         link.rel = 'noopener noreferrer';
@@ -35,8 +43,8 @@
       return;
     }
 
-    // לחיצה אינה אישור לשיחה, לשליחת הודעה, להזמנה או לתשלום.
-    // לא מעבירים מספרי טלפון, הודעות או פרטי לקוח בפרמטרים שלנו.
-    gtag('event', eventName, { send_to: measurementId });
+    if (started && window.PlaceboConsent?.allowsAnalytics()) {
+      window.gtag('event', eventName, { send_to: measurementId });
+    }
   });
 })();
