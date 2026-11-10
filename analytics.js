@@ -26,6 +26,11 @@
       eventName = 'phone_click';
     } else if (link && link.protocol === 'https:' && link.hostname === 'wa.me') {
       eventName = 'whatsapp_click';
+      // השארת האתר פתוח מאפשרת לתג להשלים את השליחה גם במעבר לוואטסאפ.
+      if (!link.target) {
+        link.target = '_blank';
+        link.rel = 'noopener noreferrer';
+      }
     } else {
       return;
     }
