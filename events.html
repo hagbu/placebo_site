@@ -55,7 +55,7 @@
   <a href="player-12.html">השחקן ה־12</a>
   <a href="#contact">צור קשר</a></nav>
     <a class="book" href="#event-calculator">בנו אירוע</a>
-    <div class="menu-btn" aria-label="פתיחת תפריט">☰</div>
+    <button class="menu-btn" type="button" aria-label="תפריט ניווט" aria-controls="mobileMenu" aria-expanded="false">☰</button>
   </div>
 </header>
 
@@ -186,13 +186,13 @@
               <div class="step-title"><span>2</span> כמה משתתפים?</div>
               <div class="number-control">
                 <button type="button" id="peopleMinus" aria-label="הפחת משתתף">−</button>
-                <input id="peopleCount" type="number" value="10" min="10" max="55" inputmode="numeric">
+                <input id="peopleCount" aria-label="כמה משתתפים?" type="number" value="10" min="10" max="55" inputmode="numeric">
                 <button type="button" id="peoplePlus" aria-label="הוסף משתתף">+</button>
               </div>
             </div>
             <div>
               <div class="step-title"><span>3</span> באיזה יום?</div>
-              <select id="eventDay" class="calc-select">
+              <select id="eventDay" class="calc-select" aria-label="באיזה יום?">
                 <option value="sun">ראשון</option>
                 <option value="mon">שני</option>
                 <option value="tue">שלישי</option>
@@ -331,7 +331,7 @@
     </div>
 
     <div class="location-map">
-      <iframe
+      <iframe title="מפת הגעה לפלסיבו בנתניה"
         src="https://www.google.com/maps?q=%D7%94%D7%92%D7%91%D7%99%D7%A9%204%20%D7%A0%D7%AA%D7%A0%D7%99%D7%94&output=embed"
         loading="lazy"
         referrerpolicy="no-referrer-when-downgrade"
@@ -605,6 +605,6 @@ document.querySelectorAll('.mobile-submenu-toggle').forEach(function(button) {
 });
 </script>
 
-<script src="mobile-menu.js?v=desktop-dropdown-fix-1"></script>
+<script src="mobile-menu.js?v=accessible-nav-2"></script>
 </body>
 </html>

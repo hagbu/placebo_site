@@ -1,4 +1,9 @@
 /* קישורים שימושיים בתחתית האתר: בולטים כמו כותרות הפוטר. */
+/* טקסט פרטי הקשר וההזמנה קריא יותר על רקע הפוטר הכהה. */
+body footer .footer-grid p {
+    color: #d7e7ed;
+}
+
 body footer .footer-useful-links {
     padding: 12px 0 22px;
     text-align: center;

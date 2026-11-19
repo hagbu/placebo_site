@@ -7,6 +7,19 @@
   --mobile-subnav-font-size: 16px;
 }
 
+/* כפתור התפריט שומר על מראה הסמל ומאפשר שימוש גם במקלדת. */
+body header .menu-btn {
+  border: 0;
+  padding: 0;
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+}
+body header .menu-btn:focus-visible {
+  outline: 3px solid #168bb1;
+  outline-offset: 4px;
+}
+
 /* Main desktop links and dropdown triggers use identical typography. */
 body header .links > a,
 body header .links > .nav-dropdown > .nav-dropdown-toggle {
